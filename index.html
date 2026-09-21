@@ -4,82 +4,32 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Esquisse Route | ENSTP – 4ᵉ Année DIB</title>
-
-<meta name="description"
-content="Plateforme pédagogique du module Esquisse Route – Département Infrastructure de Base – ENSTP">
-
-<!-- =========================================================
-     GOOGLE FONTS
-========================================================= -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
-
-<!-- =========================================================
-     ICONS
-========================================================= -->
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-<!-- =========================================================
-     MATHJAX
-========================================================= -->
-<script>
-window.MathJax = {
-  tex: {
-    inlineMath: [['\\(','\\)'], ['$', '$']],
-    displayMath: [['\\[','\\]'], ['$$','$$']]
-  }
-};
-</script>
-
-<script async
-src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
-
-<!-- =========================================================
-     THREE.JS
-========================================================= -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<title>Esquisse Routière | ENSTP</title>
 
 <style>
-
 /* =========================================================
-   VARIABLES
+   RESET
 ========================================================= */
-
-:root{
-
-    --primary:#0b4f6c;
-    --primary-dark:#07384d;
-    --secondary:#1b998b;
-    --accent:#f4b942;
-
-    --bg:#f4f7fb;
-    --surface:#ffffff;
-    --surface-2:#eef3f8;
-
-    --text:#17212b;
-    --muted:#667788;
-
-    --border:#dfe7ef;
-
-    --success:#198754;
-    --danger:#dc3545;
-    --warning:#f0ad4e;
-
-    --shadow:
-        0 10px 30px rgba(13,38,59,.08);
-
-    --radius:18px;
-
-    --sidebar-width:280px;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-*{
-    box-sizing:border-box;
+:root{
+    --primary:#063b63;
+    --primary2:#0b5d8f;
+    --secondary:#f2a900;
+    --dark:#102a43;
+    --text:#263746;
+    --muted:#6b7c8f;
+    --light:#f4f7fa;
+    --white:#ffffff;
+    --border:#dce5ed;
+    --success:#168a55;
+    --danger:#d64545;
+    --warning:#d99300;
+    --shadow:0 10px 30px rgba(16,42,67,.10);
 }
 
 html{
@@ -87,378 +37,236 @@ html{
 }
 
 body{
-
-    margin:0;
-
-    font-family:"Inter",sans-serif;
-
-    background:var(--bg);
-
+    font-family:"Segoe UI",Arial,sans-serif;
+    background:#f5f8fb;
     color:var(--text);
-
-    line-height:1.6;
-}
-
-body.dark{
-
-    --bg:#101820;
-    --surface:#17232d;
-    --surface-2:#202f3b;
-
-    --text:#edf4f8;
-    --muted:#aab9c4;
-
-    --border:#30414e;
-
-    --shadow:
-        0 10px 30px rgba(0,0,0,.25);
 }
 
 /* =========================================================
-   SIDEBAR
+   HEADER
 ========================================================= */
 
-.sidebar{
-
-    position:fixed;
-
-    top:0;
-    left:0;
-
-    width:var(--sidebar-width);
-
-    height:100vh;
-
-    background:
-    linear-gradient(
-        180deg,
-        var(--primary-dark),
-        var(--primary)
-    );
-
+.top-header{
+    background:linear-gradient(135deg,#062b49,#075985);
     color:white;
-
-    overflow-y:auto;
-
-    z-index:1000;
-
-    padding:20px 15px;
-
-    transition:.3s;
+    padding:15px 25px;
 }
 
-.logo{
-
+.header-inner{
+    max-width:1450px;
+    margin:auto;
     display:flex;
-
     align-items:center;
-
-    gap:12px;
-
-    padding:10px;
-
-    margin-bottom:20px;
+    justify-content:space-between;
+    gap:20px;
 }
 
-.logo-icon{
-
-    width:48px;
-    height:48px;
-
+.logo-box{
+    width:95px;
+    height:95px;
+    border-radius:18px;
+    background:white;
     display:flex;
-
     align-items:center;
     justify-content:center;
-
-    border-radius:14px;
-
-    background:rgba(255,255,255,.15);
-
-    font-size:24px;
-}
-
-.logo h2{
-
-    margin:0;
-
-    font-family:Poppins;
-
-    font-size:18px;
-}
-
-.logo small{
-
-    display:block;
-
-    opacity:.75;
-
-    font-size:11px;
-}
-
-.menu-title{
-
-    margin:20px 10px 7px;
-
-    font-size:11px;
-
-    text-transform:uppercase;
-
-    letter-spacing:1.5px;
-
-    opacity:.55;
-}
-
-.nav-link{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:12px;
-
-    padding:11px 12px;
-
-    margin:4px 0;
-
-    border-radius:10px;
-
-    color:white;
-
-    text-decoration:none;
-
-    font-size:14px;
-
-    transition:.2s;
-
-    cursor:pointer;
-}
-
-.nav-link:hover,
-.nav-link.active{
-
-    background:rgba(255,255,255,.13);
-
-    transform:translateX(3px);
-}
-
-.nav-link i{
-
-    width:20px;
-
+    color:var(--primary);
+    font-weight:900;
+    font-size:16px;
     text-align:center;
+    box-shadow:0 8px 20px rgba(0,0,0,.18);
+    flex-shrink:0;
+}
 
+.logo-box.ministere{
+    border-radius:50%;
+    font-size:12px;
+}
+
+.school-title{
+    text-align:center;
+    flex:1;
+}
+
+.school-title .ar{
+    font-size:23px;
+    font-weight:800;
+    direction:rtl;
+}
+
+.school-title .fr{
+    font-size:22px;
+    font-weight:800;
+}
+
+.school-title .en{
+    font-size:17px;
     opacity:.9;
 }
 
-/* =========================================================
-   MAIN
-========================================================= */
-
-.main{
-
-    margin-left:var(--sidebar-width);
-
-    min-height:100vh;
+.header-line{
+    width:90px;
+    height:3px;
+    background:var(--secondary);
+    margin:10px auto;
 }
 
 /* =========================================================
-   TOPBAR
+   NAVBAR
 ========================================================= */
 
-.topbar{
-
-    height:70px;
-
-    background:var(--surface);
-
-    border-bottom:1px solid var(--border);
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    padding:0 28px;
-
+.navbar{
+    background:white;
     position:sticky;
-
     top:0;
-
-    z-index:900;
+    z-index:1000;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
 }
 
-.search{
-
+.nav-inner{
+    max-width:1450px;
+    margin:auto;
     display:flex;
-
     align-items:center;
-
-    gap:10px;
-
-    width:min(500px,50vw);
-
-    background:var(--surface-2);
-
-    padding:9px 14px;
-
-    border-radius:12px;
+    gap:8px;
+    padding:8px 15px;
+    overflow-x:auto;
 }
 
-.search input{
-
-    width:100%;
-
-    border:0;
-
-    outline:0;
-
+.nav-btn{
+    border:none;
     background:transparent;
-
-    color:var(--text);
-
-    font-size:14px;
-}
-
-.top-actions{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:10px;
-}
-
-.icon-btn{
-
-    width:40px;
-    height:40px;
-
-    border:1px solid var(--border);
-
-    background:var(--surface);
-
-    color:var(--text);
-
-    border-radius:10px;
-
+    padding:12px 15px;
+    border-radius:9px;
     cursor:pointer;
-
+    color:var(--dark);
+    font-weight:600;
+    white-space:nowrap;
     transition:.2s;
 }
 
-.icon-btn:hover{
+.nav-btn:hover,
+.nav-btn.active{
+    background:var(--primary);
+    color:white;
+}
 
-    background:var(--surface-2);
-
-    transform:translateY(-2px);
+.mobile-menu{
+    display:none;
 }
 
 /* =========================================================
-   CONTENT
+   HERO
 ========================================================= */
 
-.content{
-
-    padding:30px;
-
-    max-width:1600px;
-
-    margin:auto;
-}
-
 .hero{
-
-    position:relative;
-
-    overflow:hidden;
-
-    border-radius:24px;
-
-    padding:42px;
-
-    color:white;
-
     background:
-
-    linear-gradient(
-        120deg,
-        #07384d,
-        #0b4f6c 50%,
-        #1b998b
-    );
-
-    box-shadow:var(--shadow);
-
-    margin-bottom:25px;
-}
-
-.hero:after{
-
-    content:"";
-
-    position:absolute;
-
-    width:350px;
-    height:350px;
-
-    border-radius:50%;
-
-    right:-100px;
-    top:-160px;
-
-    background:rgba(255,255,255,.08);
+        linear-gradient(rgba(3,31,53,.82),rgba(3,31,53,.82)),
+        linear-gradient(135deg,#0875b1,#082f49);
+    color:white;
+    padding:70px 20px;
 }
 
 .hero-content{
-
-    position:relative;
-
-    z-index:2;
-
-    max-width:900px;
+    max-width:1200px;
+    margin:auto;
+    text-align:center;
 }
 
 .hero h1{
+    font-size:52px;
+    margin-bottom:10px;
+}
 
-    font-family:Poppins;
-
-    font-size:clamp(28px,4vw,46px);
-
-    margin:0 0 10px;
+.hero h2{
+    color:#ffd166;
+    font-size:25px;
+    margin-bottom:20px;
 }
 
 .hero p{
-
-    opacity:.9;
-
-    max-width:850px;
-
-    font-size:16px;
+    max-width:950px;
+    margin:auto;
+    font-size:18px;
+    line-height:1.8;
 }
 
-.badges{
-
+.hero-actions{
+    margin-top:30px;
     display:flex;
-
+    justify-content:center;
+    gap:12px;
     flex-wrap:wrap;
-
-    gap:8px;
-
-    margin-top:20px;
 }
 
-.badge{
+.btn{
+    border:none;
+    border-radius:9px;
+    padding:12px 20px;
+    cursor:pointer;
+    font-weight:700;
+    transition:.2s;
+}
 
-    padding:7px 12px;
+.btn:hover{
+    transform:translateY(-2px);
+}
 
-    border-radius:30px;
+.btn-primary{
+    background:var(--secondary);
+    color:#14212b;
+}
 
-    background:rgba(255,255,255,.12);
+.btn-light{
+    background:white;
+    color:var(--primary);
+}
 
-    border:1px solid rgba(255,255,255,.15);
+.btn-success{
+    background:var(--success);
+    color:white;
+}
 
-    font-size:12px;
+.btn-danger{
+    background:var(--danger);
+    color:white;
+}
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.container{
+    max-width:1400px;
+    margin:40px auto;
+    padding:0 20px;
+}
+
+.section{
+    display:none;
+}
+
+.section.active{
+    display:block;
+    animation:fade .25s ease;
+}
+
+@keyframes fade{
+    from{opacity:0;transform:translateY(8px)}
+    to{opacity:1;transform:translateY(0)}
+}
+
+.section-title{
+    margin-bottom:25px;
+}
+
+.section-title h2{
+    color:var(--primary);
+    font-size:32px;
+}
+
+.section-title p{
+    color:var(--muted);
+    margin-top:7px;
 }
 
 /* =========================================================
@@ -466,664 +274,263 @@ body.dark{
 ========================================================= */
 
 .grid{
-
     display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(230px,1fr));
-
-    gap:18px;
-
-    margin:20px 0;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:20px;
 }
 
 .card{
-
-    background:var(--surface);
-
+    background:white;
     border:1px solid var(--border);
-
-    border-radius:var(--radius);
-
+    border-radius:16px;
     padding:22px;
-
     box-shadow:var(--shadow);
-
-    transition:.25s;
 }
 
 .card:hover{
-
-    transform:translateY(-4px);
+    transform:translateY(-3px);
+    transition:.2s;
 }
 
 .card-icon{
-
-    width:48px;
-    height:48px;
-
+    width:55px;
+    height:55px;
+    border-radius:14px;
     display:flex;
-
     align-items:center;
     justify-content:center;
-
-    border-radius:13px;
-
-    background:var(--surface-2);
-
-    color:var(--primary);
-
-    font-size:21px;
-
+    background:#e7f2fa;
+    font-size:26px;
     margin-bottom:15px;
 }
 
 .card h3{
-
-    margin:5px 0 8px;
-
-    font-family:Poppins;
+    color:var(--primary);
+    margin-bottom:10px;
 }
 
 .card p{
+    line-height:1.7;
+    color:#5c6d7c;
+}
 
-    color:var(--muted);
-
-    font-size:14px;
+.card button{
+    margin-top:15px;
 }
 
 /* =========================================================
-   SECTION
+   TEACHERS
 ========================================================= */
 
-.section{
-
-    margin-top:45px;
-
-    scroll-margin-top:90px;
+.teacher{
+    text-align:center;
 }
 
-.section-header{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    gap:15px;
-
-    margin-bottom:18px;
-}
-
-.section-title{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:12px;
-}
-
-.section-title i{
-
-    color:var(--secondary);
-}
-
-.section h2{
-
-    font-family:Poppins;
-
-    margin:0;
-}
-
-.section-description{
-
-    color:var(--muted);
-
-    margin-top:5px;
-}
-
-/* =========================================================
-   ACCORDION
-========================================================= */
-
-.accordion{
-
-    border:1px solid var(--border);
-
-    border-radius:14px;
-
-    overflow:hidden;
-
-    margin-bottom:12px;
-
-    background:var(--surface);
-}
-
-.accordion-header{
-
-    width:100%;
-
-    border:0;
-
-    background:var(--surface);
-
-    color:var(--text);
-
-    padding:18px;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    cursor:pointer;
-
-    text-align:left;
-
-    font-weight:700;
-
-    font-size:15px;
-}
-
-.accordion-header:hover{
-
-    background:var(--surface-2);
-}
-
-.accordion-content{
-
-    display:none;
-
-    padding:0 20px 22px;
-
-    color:var(--muted);
-
-}
-
-.accordion.open .accordion-content{
-
-    display:block;
-}
-
-.accordion.open .fa-chevron-down{
-
-    transform:rotate(180deg);
-}
-
-.accordion ul{
-
-    padding-left:20px;
-}
-
-.accordion li{
-
-    margin:7px 0;
-}
-
-/* =========================================================
-   TIMELINE
-========================================================= */
-
-.timeline{
-
-    position:relative;
-
-    padding-left:30px;
-}
-
-.timeline:before{
-
-    content:"";
-
-    position:absolute;
-
-    left:8px;
-
-    top:5px;
-
-    bottom:5px;
-
-    width:2px;
-
-    background:var(--secondary);
-}
-
-.timeline-item{
-
-    position:relative;
-
-    margin-bottom:25px;
-}
-
-.timeline-item:before{
-
-    content:"";
-
-    position:absolute;
-
-    left:-27px;
-
-    top:5px;
-
-    width:12px;
-
-    height:12px;
-
+.teacher-avatar{
+    width:90px;
+    height:90px;
     border-radius:50%;
-
-    background:var(--accent);
-
-    border:3px solid var(--surface);
+    background:linear-gradient(135deg,#075985,#f2a900);
+    margin:0 auto 15px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    font-size:27px;
+    font-weight:900;
 }
 
-.phase{
+.teacher h3{
+    margin-bottom:5px;
+}
 
-    display:inline-block;
-
-    padding:5px 10px;
-
-    border-radius:20px;
-
-    background:var(--surface-2);
-
-    color:var(--primary);
-
+.teacher-role{
+    color:var(--secondary);
     font-weight:700;
+}
 
+.socials{
+    margin-top:15px;
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.socials a{
+    width:36px;
+    height:36px;
+    border-radius:50%;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    font-weight:bold;
     font-size:12px;
+}
+
+.linkedin{background:#0a66c2}
+.scholar{background:#4285f4}
+.orcid{background:#a6ce39}
+.research{background:#00ccbb}
+.mail{background:#d44638}
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.table-wrapper{
+    overflow-x:auto;
+    background:white;
+    border-radius:15px;
+    box-shadow:var(--shadow);
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th,td{
+    padding:13px 15px;
+    border-bottom:1px solid var(--border);
+    text-align:left;
+}
+
+th{
+    background:var(--primary);
+    color:white;
+}
+
+tr:hover td{
+    background:#f7fafc;
+}
+
+.status{
+    border:none;
+    border-radius:20px;
+    padding:6px 12px;
+    cursor:pointer;
+    font-weight:700;
+}
+
+.present{
+    background:#d9f5e8;
+    color:#087744;
+}
+
+.absent{
+    background:#fde1e1;
+    color:#b42e2e;
+}
+
+/* =========================================================
+   TP / SOFTWARE
+========================================================= */
+
+.tp-card{
+    border-left:5px solid var(--primary);
+}
+
+.tp-number{
+    display:inline-block;
+    background:var(--secondary);
+    padding:6px 10px;
+    border-radius:7px;
+    font-weight:800;
+    margin-bottom:10px;
+}
+
+.resource-buttons{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-top:15px;
+}
+
+.resource-buttons button{
+    border:none;
+    padding:9px 12px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.btn-file{
+    background:#e7f2fa;
+    color:#075985;
+}
+
+.btn-pdf{
+    background:#fde4e4;
+    color:#b42318;
+}
+
+.btn-video{
+    background:#ffe5e5;
+    color:#c00000;
+}
+
+/* =========================================================
+   COURSE FORMAT
+========================================================= */
+
+.format-card{
+    text-align:center;
+    cursor:pointer;
+}
+
+.format-card .big-icon{
+    font-size:50px;
+    margin-bottom:10px;
+}
+
+.format-card.web{
+    border-top:5px solid #0875b1;
+}
+
+.format-card.pdf{
+    border-top:5px solid #d83a3a;
 }
 
 /* =========================================================
    SOFTWARE
 ========================================================= */
 
-.software-grid{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(270px,1fr));
-
-    gap:18px;
-}
-
 .software-card{
-
-    background:var(--surface);
-
-    border:1px solid var(--border);
-
-    border-radius:16px;
-
-    padding:20px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    min-height:250px;
+    position:relative;
+    overflow:hidden;
 }
 
-.software-card .software-icon{
-
-    width:55px;
-    height:55px;
-
-    border-radius:14px;
-
-    background:var(--surface-2);
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    font-size:24px;
-
-    color:var(--primary);
-
+.software-card .software-logo{
+    font-size:45px;
     margin-bottom:15px;
 }
 
-.software-actions{
-
-    margin-top:auto;
-
-    display:flex;
-
-    flex-wrap:wrap;
-
-    gap:7px;
+.software-card h3{
+    font-size:21px;
 }
 
-.btn{
-
-    display:inline-flex;
-
-    align-items:center;
-
-    gap:7px;
-
-    border:0;
-
-    padding:9px 13px;
-
-    border-radius:9px;
-
-    cursor:pointer;
-
-    text-decoration:none;
-
-    font-size:12px;
-
-    font-weight:600;
-
-    background:var(--primary);
-
-    color:white;
+.software-menu{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:8px;
+    margin-top:15px;
 }
 
-.btn.secondary{
-
-    background:var(--surface-2);
-
-    color:var(--text);
-}
-
-/* =========================================================
-   TABLE
-========================================================= */
-
-.table-wrap{
-
-    overflow:auto;
-
-    border-radius:15px;
-
+.software-menu button{
     border:1px solid var(--border);
-}
-
-table{
-
-    width:100%;
-
-    border-collapse:collapse;
-
-    min-width:800px;
-}
-
-th,td{
-
-    padding:12px 14px;
-
-    border-bottom:1px solid var(--border);
-
-    text-align:left;
-
-    font-size:13px;
-}
-
-th{
-
-    background:var(--surface-2);
-
+    background:white;
+    padding:10px 5px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:12px;
     font-weight:700;
 }
 
-tr:hover td{
-
-    background:rgba(127,127,127,.04);
-}
-
-.status{
-
-    border:0;
-
-    padding:6px 9px;
-
-    border-radius:7px;
-
-    cursor:pointer;
-
-    font-size:12px;
-}
-
-.present{
-
-    background:#d9f5e5;
-
-    color:#146c43;
-}
-
-.absent{
-
-    background:#ffe0e3;
-
-    color:#b02a37;
-}
-
-.justified{
-
-    background:#fff1cd;
-
-    color:#8a6116;
-}
-
-.empty{
-
-    background:var(--surface-2);
-
-    color:var(--muted);
-}
-
-/* =========================================================
-   PROGRESS
-========================================================= */
-
-.progress-box{
-
-    margin-top:15px;
-}
-
-.progress-bar{
-
-    height:9px;
-
-    border-radius:10px;
-
-    background:var(--surface-2);
-
-    overflow:hidden;
-}
-
-.progress-value{
-
-    height:100%;
-
-    width:0%;
-
-    background:linear-gradient(
-        90deg,
-        var(--primary),
-        var(--secondary)
-    );
-
-    transition:.5s;
-}
-
-/* =========================================================
-   VIDEO
-========================================================= */
-
-.video-card{
-
-    aspect-ratio:16/9;
-
-    border-radius:15px;
-
-    overflow:hidden;
-
-    background:#111;
-
-    position:relative;
-}
-
-.video-card iframe{
-
-    width:100%;
-    height:100%;
-
-    border:0;
-}
-
-/* =========================================================
-   CASE STUDY
-========================================================= */
-
-.case-study{
-
-    display:grid;
-
-    grid-template-columns:
-    1fr 1fr;
-
-    gap:20px;
-}
-
-.diagram{
-
-    min-height:300px;
-
-    border-radius:18px;
-
-    background:
-
-    linear-gradient(
-        180deg,
-        #dcecf4 0 58%,
-        #b8d6aa 58%
-    );
-
-    position:relative;
-
-    overflow:hidden;
-}
-
-.road{
-
-    position:absolute;
-
-    left:0;
-    right:0;
-
-    bottom:70px;
-
-    height:90px;
-
-    background:#4d5358;
-
-    transform:rotate(-3deg);
-
-    box-shadow:
-    0 -5px 0 #ddd,
-    0 5px 0 #ddd;
-}
-
-.road-line{
-
-    position:absolute;
-
-    left:0;
-    right:0;
-
-    top:40px;
-
-    border-top:4px dashed #f4d35e;
-}
-
-/* =========================================================
-   CONTACT
-========================================================= */
-
-.profile{
-
-    display:grid;
-
-    grid-template-columns:
-    150px 1fr;
-
-    gap:25px;
-
-    align-items:center;
-}
-
-.avatar{
-
-    width:150px;
-    height:150px;
-
-    border-radius:50%;
-
-    background:
-
-    linear-gradient(
-        135deg,
-        var(--primary),
-        var(--secondary)
-    );
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    color:white;
-
-    font-size:55px;
-}
-
-.socials{
-
-    display:flex;
-
-    flex-wrap:wrap;
-
-    gap:10px;
-
-    margin-top:15px;
-}
-
-.social{
-
-    width:42px;
-    height:42px;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    border-radius:10px;
-
-    background:var(--surface-2);
-
-    color:var(--primary);
-
-    text-decoration:none;
-
-    transition:.2s;
-}
-
-.social:hover{
-
-    transform:translateY(-3px);
-
-    background:var(--primary);
-
-    color:white;
+.software-menu button:hover{
+    background:#eef6fb;
 }
 
 /* =========================================================
@@ -1131,1167 +538,561 @@ tr:hover td{
 ========================================================= */
 
 .modal{
-
     display:none;
-
     position:fixed;
-
     inset:0;
-
-    background:rgba(0,0,0,.6);
-
+    background:rgba(0,0,0,.65);
     z-index:2000;
-
     align-items:center;
-
     justify-content:center;
-
     padding:20px;
 }
 
-.modal.active{
-
+.modal.show{
     display:flex;
 }
 
 .modal-box{
-
-    background:var(--surface);
-
-    color:var(--text);
-
-    width:min(800px,100%);
-
+    width:min(900px,100%);
     max-height:90vh;
-
     overflow:auto;
-
-    border-radius:20px;
-
-    padding:25px;
-
-    box-shadow:0 25px 80px rgba(0,0,0,.3);
+    background:white;
+    border-radius:18px;
+    padding:28px;
+    position:relative;
 }
 
-.modal-head{
+.close{
+    position:absolute;
+    top:12px;
+    right:15px;
+    width:35px;
+    height:35px;
+    border:none;
+    border-radius:50%;
+    cursor:pointer;
+    background:#edf1f5;
+    font-size:20px;
+}
 
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
+.modal-box h2{
+    color:var(--primary);
     margin-bottom:20px;
 }
 
 /* =========================================================
-   TOAST
+   FORMS
 ========================================================= */
 
-.toast{
-
-    position:fixed;
-
-    right:25px;
-
-    bottom:25px;
-
-    padding:14px 18px;
-
-    background:#17212b;
-
-    color:white;
-
-    border-radius:12px;
-
-    opacity:0;
-
-    transform:translateY(20px);
-
-    pointer-events:none;
-
-    transition:.3s;
-
-    z-index:3000;
+.form-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:15px;
+    margin-bottom:20px;
 }
 
-.toast.show{
+.form-group label{
+    display:block;
+    margin-bottom:6px;
+    font-weight:700;
+}
 
-    opacity:1;
+.form-group input,
+.form-group select{
+    width:100%;
+    padding:12px;
+    border:1px solid var(--border);
+    border-radius:8px;
+    font-size:15px;
+}
 
-    transform:translateY(0);
+.notice{
+    padding:15px;
+    border-radius:10px;
+    background:#eef7ff;
+    border-left:5px solid #0875b1;
+    margin-bottom:20px;
 }
 
 /* =========================================================
-   MOBILE
+   DASHBOARD
 ========================================================= */
 
-.mobile-menu{
-
-    display:none;
+.stat{
+    text-align:center;
 }
 
-@media(max-width:900px){
-
-    :root{
-
-        --sidebar-width:0px;
-    }
-
-    .sidebar{
-
-        transform:translateX(-100%);
-
-        width:280px;
-    }
-
-    .sidebar.open{
-
-        transform:translateX(0);
-    }
-
-    .mobile-menu{
-
-        display:block;
-    }
-
-    .topbar{
-
-        padding:0 15px;
-    }
-
-    .content{
-
-        padding:18px;
-    }
-
-    .hero{
-
-        padding:28px 22px;
-    }
-
-    .case-study{
-
-        grid-template-columns:1fr;
-    }
-
-    .profile{
-
-        grid-template-columns:1fr;
-
-        text-align:center;
-    }
-
-    .avatar{
-
-        margin:auto;
-    }
-
+.stat-number{
+    font-size:36px;
+    font-weight:900;
+    color:var(--primary);
 }
 
+.stat-label{
+    color:var(--muted);
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    margin-top:60px;
+    background:#062b49;
+    color:white;
+    padding:40px 20px;
+}
+
+.footer-grid{
+    max-width:1300px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:30px;
+}
+
+footer h3{
+    color:#ffd166;
+    margin-bottom:15px;
+}
+
+footer p{
+    line-height:1.8;
+    color:#d7e2ea;
+}
+
+.copyright{
+    max-width:1300px;
+    margin:30px auto 0;
+    padding-top:20px;
+    border-top:1px solid rgba(255,255,255,.15);
+    text-align:center;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:800px){
+
+    .header-inner{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .school-title{
+        order:-1;
+        width:100%;
+    }
+
+    .logo-box{
+        width:70px;
+        height:70px;
+    }
+
+    .school-title .ar{
+        font-size:17px;
+    }
+
+    .school-title .fr{
+        font-size:16px;
+    }
+
+    .school-title .en{
+        font-size:13px;
+    }
+
+    .hero h1{
+        font-size:34px;
+    }
+
+    .hero h2{
+        font-size:20px;
+    }
+
+    .nav-inner{
+        justify-content:flex-start;
+    }
+
+    .software-menu{
+        grid-template-columns:1fr;
+    }
+}
 </style>
 </head>
 
 <body>
 
-<!-- =========================================================
-     SIDEBAR
-========================================================= -->
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
-<aside class="sidebar" id="sidebar">
+<header class="top-header">
 
-    <div class="logo">
+<div class="header-inner">
 
-        <div class="logo-icon">
-            <i class="fa-solid fa-road"></i>
+    <div class="logo-box">
+        ENSTP
+    </div>
+
+    <div class="school-title">
+
+        <div class="ar">
+            المدرسة الوطنية العليا للأشغال العمومية
         </div>
 
-        <div>
-            <h2>ESQUISSE ROUTE</h2>
-            <small>ENSTP · DIB · 4ᵉ année</small>
+        <div class="header-line"></div>
+
+        <div class="fr">
+            ÉCOLE NATIONALE SUPÉRIEURE DES TRAVAUX PUBLICS
+        </div>
+
+        <div class="en">
+            HIGHER NATIONAL SCHOOL OF PUBLIC WORKS
         </div>
 
     </div>
 
-    <div class="menu-title">Navigation</div>
-
-    <a class="nav-link active" href="#accueil">
-        <i class="fa-solid fa-house"></i>
-        Accueil
-    </a>
-
-    <a class="nav-link" href="#objectifs">
-        <i class="fa-solid fa-bullseye"></i>
-        Objectifs
-    </a>
-
-    <a class="nav-link" href="#cours">
-        <i class="fa-solid fa-book"></i>
-        Cours
-    </a>
-
-    <a class="nav-link" href="#phases">
-        <i class="fa-solid fa-route"></i>
-        Phases d'étude
-    </a>
-
-    <a class="nav-link" href="#exercices">
-        <i class="fa-solid fa-pen-ruler"></i>
-        Exercices & TD
-    </a>
-
-    <a class="nav-link" href="#tp">
-        <i class="fa-solid fa-laptop-code"></i>
-        TP
-    </a>
-
-    <a class="nav-link" href="#logiciels">
-        <i class="fa-solid fa-computer"></i>
-        Logiciels
-    </a>
-
-    <a class="nav-link" href="#videos">
-        <i class="fa-brands fa-youtube"></i>
-        Vidéos
-    </a>
-
-    <a class="nav-link" href="#presence">
-        <i class="fa-solid fa-user-check"></i>
-        Présences
-    </a>
-
-    <a class="nav-link" href="#planning">
-        <i class="fa-solid fa-calendar-days"></i>
-        Planning
-    </a>
-
-    <a class="nav-link" href="#etude-cas">
-        <i class="fa-solid fa-diagram-project"></i>
-        Étude de cas
-    </a>
-
-    <a class="nav-link" href="#enseignant">
-        <i class="fa-solid fa-chalkboard-user"></i>
-        Enseignant
-    </a>
-
-    <div class="menu-title">Ressources</div>
-
-    <a class="nav-link" href="#ressources">
-        <i class="fa-solid fa-folder-open"></i>
-        Documents
-    </a>
-
-    <a class="nav-link" href="#faq">
-        <i class="fa-solid fa-circle-question"></i>
-        FAQ
-    </a>
-
-</aside>
-
-
-<!-- =========================================================
-     MAIN
-========================================================= -->
-
-<main class="main">
-
-<!-- TOPBAR -->
-
-<header class="topbar">
-
-    <button
-        class="icon-btn mobile-menu"
-        onclick="toggleSidebar()">
-
-        <i class="fa-solid fa-bars"></i>
-
-    </button>
-
-    <div class="search">
-
-        <i class="fa-solid fa-magnifying-glass"></i>
-
-        <input
-            id="searchInput"
-            type="search"
-            placeholder="Rechercher dans le cours...">
-
+    <div class="logo-box ministere">
+        MESRS
     </div>
 
-    <div class="top-actions">
-
-        <button
-            class="icon-btn"
-            onclick="toggleDarkMode()"
-            title="Mode sombre">
-
-            <i class="fa-solid fa-moon"></i>
-
-        </button>
-
-        <button
-            class="icon-btn"
-            onclick="window.scrollTo({top:0,behavior:'smooth'})">
-
-            <i class="fa-solid fa-arrow-up"></i>
-
-        </button>
-
-    </div>
+</div>
 
 </header>
 
 
-<div class="content">
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<nav class="navbar">
+
+<div class="nav-inner">
+
+<button class="nav-btn active" onclick="showSection('home',this)">
+🏠 Accueil
+</button>
+
+<button class="nav-btn" onclick="showSection('objectifs',this)">
+🎯 Objectifs
+</button>
+
+<button class="nav-btn" onclick="showSection('cours',this)">
+📚 Cours
+</button>
+
+<button class="nav-btn" onclick="showSection('phases',this)">
+🏗️ Phases d'étude
+</button>
+
+<button class="nav-btn" onclick="showSection('tp',this)">
+🧪 TP
+</button>
+
+<button class="nav-btn" onclick="showSection('logiciels',this)">
+💻 Logiciels
+</button>
+
+<button class="nav-btn" onclick="showSection('videos',this)">
+🎥 Vidéos
+</button>
+
+<button class="nav-btn" onclick="showSection('presence',this)">
+✅ Présence
+</button>
+
+<button class="nav-btn" onclick="showSection('planning',this)">
+📅 Planning
+</button>
+
+<button class="nav-btn" onclick="showSection('devoirs',this)">
+📝 Devoirs & Projet
+</button>
+
+<button class="nav-btn" onclick="showSection('documents',this)">
+📖 Documents & Livres
+</button>
+
+<button class="nav-btn" onclick="showSection('enseignants',this)">
+👨‍🏫 Enseignants
+</button>
+
+</div>
+
+</nav>
 
 
-<!-- =========================================================
-     HERO
-========================================================= -->
+<!-- =====================================================
+     HERO / ACCUEIL
+===================================================== -->
 
-<section class="hero" id="accueil">
+<section id="home" class="section active">
 
-    <div class="hero-content">
+<div class="hero">
 
-        <div class="badge">
-            ÉCOLE NATIONALE SUPÉRIEURE DES TRAVAUX PUBLICS
-        </div>
+<div class="hero-content">
 
-        <h1>
-            Esquisse Route
-        </h1>
+<h1>Esquisse Routière</h1>
 
-        <p>
+<h2>Road Sketch • Conception Routière</h2>
 
-            Plateforme pédagogique destinée aux étudiants de
-            <strong>4ᵉ année – Département Infrastructure de Base (DIB)</strong>.
+<p>
+Plateforme pédagogique destinée aux étudiants de 4ème année,
+Département d'Infrastructures de Base, ENSTP – Kouba, Alger.
+</p>
 
-            Elle accompagne l'étudiant depuis la compréhension du projet routier
-            jusqu'à la conception préliminaire et détaillée d'une infrastructure
-            routière.
+<p style="margin-top:10px">
 
-        </p>
+Elle accompagne l'étudiant depuis la compréhension du projet routier
+jusqu'à la conception préliminaire et détaillée d'une infrastructure routière.
 
-        <div class="badges">
+</p>
 
-            <span class="badge">
-                <i class="fa-solid fa-road"></i>
-                Routes
-            </span>
+<div class="hero-actions">
 
-            <span class="badge">
-                <i class="fa-solid fa-compass-drafting"></i>
-                Conception géométrique
-            </span>
+<button class="btn btn-primary"
+onclick="showSection('cours')">
+📚 Accéder aux cours
+</button>
 
-            <span class="badge">
-                <i class="fa-solid fa-computer"></i>
-                CAO / DAO
-            </span>
+<button class="btn btn-light"
+onclick="showSection('tp')">
+🧪 Voir les TP
+</button>
 
-            <span class="badge">
-                <i class="fa-solid fa-calendar"></i>
-                S3 & S4
-            </span>
+<button class="btn btn-light"
+onclick="showSection('logiciels')">
+💻 Logiciels
+</button>
 
-        </div>
+</div>
 
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     DASHBOARD
-========================================================= -->
-
-<div class="grid">
-
-    <div class="card">
-
-        <div class="card-icon">
-            <i class="fa-solid fa-book-open"></i>
-        </div>
-
-        <h3>Programme</h3>
-
-        <p>
-            Étude préliminaire, APS, APD et projet d'exécution.
-        </p>
-
-    </div>
-
-
-    <div class="card">
-
-        <div class="card-icon">
-            <i class="fa-solid fa-calendar"></i>
-        </div>
-
-        <h3>Séance</h3>
-
-        <p>
-            Mardi · 08h00 – 09h30 · Salle 25 / Salle 5
-        </p>
-
-    </div>
-
-
-    <div class="card">
-
-        <div class="card-icon">
-            <i class="fa-solid fa-users"></i>
-        </div>
-
-        <h3>Sections</h3>
-
-        <p>
-            Section 01 et Section 02
-        </p>
-
-    </div>
-
-
-    <div class="card">
-
-        <div class="card-icon">
-            <i class="fa-solid fa-laptop"></i>
-        </div>
-
-        <h3>Logiciels</h3>
-
-        <p>
-            COVADIS, Civil 3D, AutoPISTE, Alizé-LCPC,
-            AutoTURN et Mensura.
-        </p>
-
-    </div>
+</div>
 
 </div>
 
 
-<!-- =========================================================
+<div class="container">
+
+<div class="section-title">
+
+<h2>Informations du module</h2>
+
+<p>Organisation pédagogique</p>
+
+</div>
+
+
+<div class="grid">
+
+<div class="card stat">
+
+<div class="card-icon">🎓</div>
+
+<div class="stat-number">4ème</div>
+
+<div class="stat-label">
+Année – Infrastructures de Base
+</div>
+
+</div>
+
+
+<div class="card stat">
+
+<div class="card-icon">📅</div>
+
+<div class="stat-number">Mardi</div>
+
+<div class="stat-label">
+Journée pédagogique
+</div>
+
+</div>
+
+
+<div class="card stat">
+
+<div class="card-icon">🕗</div>
+
+<div class="stat-number">08:00</div>
+
+<div class="stat-label">
+Début – Groupe 1
+</div>
+
+</div>
+
+
+<div class="card stat">
+
+<div class="card-icon">🏫</div>
+
+<div class="stat-number">05 / 25</div>
+
+<div class="stat-label">
+Salles
+</div>
+
+</div>
+
+</div>
+
+
+<div style="height:25px"></div>
+
+
+<div class="notice">
+
+<strong>Organisation des séances :</strong>
+
+<br><br>
+
+<strong>Groupe 1 :</strong> 08:00 → 09:30 — Salle 05 / 25
+
+<br>
+
+<strong>Groupe 2 :</strong> 09:35 → 11:05 — Salle 05 / 25
+
+<br><br>
+
+<strong>Jour :</strong> Mardi
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
      OBJECTIFS
-========================================================= -->
+===================================================== -->
 
-<section class="section" id="objectifs">
+<section id="objectifs" class="section">
 
-<div class="section-header">
+<div class="container">
 
-    <div>
+<div class="section-title">
 
-        <div class="section-title">
+<h2>🎯 Objectifs du module</h2>
 
-            <i class="fa-solid fa-bullseye"></i>
-
-            <div>
-
-                <h2>Objectifs pédagogiques</h2>
-
-                <p class="section-description">
-                    Ce que l'étudiant doit progressivement maîtriser.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
+<p>Compétences à acquérir</p>
 
 </div>
 
-
 <div class="grid">
 
-    <div class="card">
+<div class="card">
+<div class="card-icon">📐</div>
+<h3>Comprendre le projet routier</h3>
+<p>
+Comprendre les différentes composantes d'un projet routier,
+les données topographiques, géométriques et techniques.
+</p>
+</div>
 
-        <div class="card-icon">
-            <i class="fa-solid fa-map"></i>
-        </div>
+<div class="card">
+<div class="card-icon">🌍</div>
+<h3>Modéliser le terrain</h3>
+<p>
+Importer les données topographiques, créer un MNT et analyser
+le terrain naturel.
+</p>
+</div>
 
-        <h3>Analyser un territoire</h3>
+<div class="card">
+<div class="card-icon">🛣️</div>
+<h3>Concevoir une route</h3>
+<p>
+Réaliser le tracé en plan, le profil en long et les profils en travers.
+</p>
+</div>
 
-        <p>
-            Identifier les contraintes topographiques,
-            géologiques, hydrauliques, environnementales
-            et socio-économiques.
-        </p>
+<div class="card">
+<div class="card-icon">📊</div>
+<h3>Calculer les terrassements</h3>
+<p>
+Calculer les cubatures et analyser les déblais et remblais.
+</p>
+</div>
 
-    </div>
+<div class="card">
+<div class="card-icon">🏗️</div>
+<h3>Dimensionner la chaussée</h3>
+<p>
+Dimensionnement et vérification mécanique de la structure de chaussée.
+</p>
+</div>
 
+<div class="card">
+<div class="card-icon">🚦</div>
+<h3>Finaliser le projet</h3>
+<p>
+Produire les plans, la signalisation, l'assainissement et le dossier graphique.
+</p>
+</div>
 
-    <div class="card">
-
-        <div class="card-icon">
-            <i class="fa-solid fa-route"></i>
-        </div>
-
-        <h3>Rechercher un tracé</h3>
-
-        <p>
-            Comparer différentes variantes de tracé
-            en plan et en profil en long.
-        </p>
-
-    </div>
-
-
-    <div class="card">
-
-        <div class="card-icon">
-            <i class="fa-solid fa-ruler-combined"></i>
-        </div>
-
-        <h3>Concevoir géométriquement</h3>
-
-        <p>
-            Concevoir le tracé en plan, le profil en long,
-            les profils en travers et les raccordements.
-        </p>
-
-    </div>
-
-
-    <div class="card">
-
-        <div class="card-icon">
-            <i class="fa-solid fa-computer"></i>
-        </div>
-
-        <h3>Utiliser les logiciels</h3>
-
-        <p>
-            Passer de la conception manuelle à la modélisation
-            numérique avec les outils professionnels.
-        </p>
-
-    </div>
+</div>
 
 </div>
 
 </section>
 
 
-<!-- =========================================================
+<!-- =====================================================
      COURS
-========================================================= -->
+===================================================== -->
 
-<section class="section" id="cours">
+<section id="cours" class="section">
 
-<div class="section-header">
+<div class="container">
 
-    <div>
+<div class="section-title">
 
-        <div class="section-title">
+<h2>📚 Cours</h2>
 
-            <i class="fa-solid fa-book"></i>
-
-            <div>
-
-                <h2>Cours détaillé</h2>
-
-                <p class="section-description">
-                    Établissement des projets routiers.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
+<p>Deux formats pédagogiques disponibles</p>
 
 </div>
 
+<div class="grid">
 
-<!-- INTRODUCTION -->
+<div class="card format-card web"
+onclick="openCourse('web')">
 
-<div class="accordion">
+<div class="big-icon">🌐</div>
 
-<button class="accordion-header">
+<h3>Version Web</h3>
 
-<span>
-<i class="fa-solid fa-road"></i>
-ÉTABLISSEMENT DES PROJETS ROUTIERS – Les différentes étapes
-</span>
+<p>
+Consulter le cours directement depuis la plateforme.
+</p>
 
-<i class="fa-solid fa-chevron-down"></i>
-
+<button class="btn btn-primary">
+Ouvrir le cours
 </button>
 
-<div class="accordion-content">
+</div>
+
+
+<div class="card format-card pdf"
+onclick="openCourse('pdf')">
+
+<div class="big-icon">📕</div>
+
+<h3>Version PDF</h3>
 
 <p>
-
-Un projet routier est généralement développé progressivement.
-Chaque phase permet de préciser les données techniques,
-les variantes, les coûts et les contraintes du projet.
-
+Télécharger ou consulter le support PDF.
 </p>
 
-<div class="timeline">
-
-<div class="timeline-item">
-
-<span class="phase">
-Phase 1
-</span>
-
-<h3>Étude préliminaire – EP</h3>
-
-<p>
-Recherche et comparaison des possibilités de tracé,
-analyse du contexte et première estimation du projet.
-</p>
-
-</div>
-
-
-<div class="timeline-item">
-
-<span class="phase">
-Phase 2
-</span>
-
-<h3>Avant-Projet Sommaire – APS</h3>
-
-<p>
-Approfondissement de la solution retenue et définition
-des principales caractéristiques géométriques et techniques.
-</p>
-
-</div>
-
-
-<div class="timeline-item">
-
-<span class="phase">
-Phase 3
-</span>
-
-<h3>Avant-Projet Détaillé – APD</h3>
-
-<p>
-Définition plus précise des ouvrages, terrassements,
-assainissement et équipements.
-</p>
-
-</div>
-
-
-<div class="timeline-item">
-
-<span class="phase">
-Phase 4
-</span>
-
-<h3>Projet d'Exécution</h3>
-
-<p>
-Production des documents nécessaires à la réalisation
-des travaux : plans, profils, détails, quantités et pièces techniques.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- PHASE 1 -->
-
-<div class="accordion">
-
-<button class="accordion-header">
-
-<span>
-<i class="fa-solid fa-1"></i>
-PHASE 1 – ÉTUDE PRÉLIMINAIRE (EP)
-</span>
-
-<i class="fa-solid fa-chevron-down"></i>
-
+<button class="btn btn-danger">
+Ouvrir PDF
 </button>
 
-<div class="accordion-content">
-
-<h3>1. Introduction</h3>
-
-<p>
-
-L'étude préliminaire permet de comprendre le problème posé,
-de rassembler les données disponibles et d'identifier
-les différentes possibilités de réalisation du projet.
-
-</p>
-
-
-<h3>2. Définition du projet</h3>
-
-<ul>
-
-<li>Identification du maître d'ouvrage.</li>
-
-<li>Définition de la fonction de la route.</li>
-
-<li>Identification des pôles à relier.</li>
-
-<li>Définition des besoins de déplacement.</li>
-
-<li>Définition de la classe et des caractéristiques recherchées.</li>
-
-<li>Définition du périmètre d'étude.</li>
-
-</ul>
-
-
-<h3>3. Étude géotechnique</h3>
-
-<ul>
-
-<li>Reconnaissance du terrain.</li>
-
-<li>Identification des formations géologiques.</li>
-
-<li>Nature des sols.</li>
-
-<li>Portance.</li>
-
-<li>Stabilité des talus.</li>
-
-<li>Risques géotechniques.</li>
-
-<li>Disponibilité des matériaux.</li>
-
-</ul>
-
-
-<h3>4. Étude d'impact sur l'environnement</h3>
-
-<ul>
-
-<li>Milieux naturels.</li>
-
-<li>Occupation du sol.</li>
-
-<li>Zones agricoles.</li>
-
-<li>Ressources en eau.</li>
-
-<li>Zones sensibles.</li>
-
-<li>Nuisances sonores.</li>
-
-<li>Impact sur les populations.</li>
-
-</ul>
-
-
-<h3>5. Recherche de tracés</h3>
-
-<p>
-
-La recherche de tracés consiste à rechercher des variantes
-permettant de relier les points imposés tout en respectant
-les contraintes techniques, économiques et environnementales.
-
-</p>
-
-<ul>
-
-<li>Tracé en plan.</li>
-
-<li>Profil en long.</li>
-
-<li>Points de passage obligatoires.</li>
-
-<li>Contraintes topographiques.</li>
-
-<li>Contraintes géologiques.</li>
-
-<li>Contraintes hydrauliques.</li>
-
-</ul>
-
-
-<h3>6. Capacité des routes – Profil en travers type</h3>
-
-<p>
-
-Le profil en travers type définit notamment :
-
-</p>
-
-<ul>
-
-<li>Chaussée.</li>
-
-<li>Voies de circulation.</li>
-
-<li>Accotements.</li>
-
-<li>Terre-plein central lorsqu'il existe.</li>
-
-<li>Fossés.</li>
-
-<li>Talus.</li>
-
-<li>Dispositifs de sécurité.</li>
-
-</ul>
-
-
-<h3>7. Estimation des quantités et des coûts</h3>
-
-<ul>
-
-<li>Terrassements.</li>
-
-<li>Chaussées.</li>
-
-<li>Ouvrages hydrauliques.</li>
-
-<li>Équipements.</li>
-
-<li>Ouvrages particuliers.</li>
-
-<li>Coût global estimatif.</li>
-
-</ul>
-
-
-<h3>8. Analyse multicritères</h3>
-
-<p>
-
-Les variantes peuvent être comparées suivant plusieurs
-familles de critères :
-
-</p>
-
-<ul>
-
-<li>Critères techniques.</li>
-
-<li>Critères économiques.</li>
-
-<li>Critères environnementaux.</li>
-
-<li>Critères fonciers.</li>
-
-<li>Critères de sécurité.</li>
-
-<li>Critères d'exploitation.</li>
-
-</ul>
-
 </div>
-
-</div>
-
-
-<!-- PHASE 2 -->
-
-<div class="accordion">
-
-<button class="accordion-header">
-
-<span>
-<i class="fa-solid fa-2"></i>
-PHASE 2 – AVANT-PROJET SOMMAIRE (APS)
-</span>
-
-<i class="fa-solid fa-chevron-down"></i>
-
-</button>
-
-<div class="accordion-content">
-
-<h3>1. Introduction</h3>
-
-<p>
-
-L'APS approfondit la solution retenue lors de l'étude
-préliminaire et précise ses principales caractéristiques.
-
-</p>
-
-
-<h3>2. Méthode de l'étude</h3>
-
-<ul>
-
-<li>Collecte des données.</li>
-
-<li>Définition des hypothèses.</li>
-
-<li>Définition des variantes.</li>
-
-<li>Analyse technique.</li>
-
-<li>Analyse économique.</li>
-
-<li>Comparaison des solutions.</li>
-
-<li>Choix de la solution à approfondir.</li>
-
-</ul>
-
-
-<h3>3. Étude géométrique</h3>
-
-<h4>Tracé en plan</h4>
-
-<ul>
-
-<li>Alignements droits.</li>
-
-<li>Courbes circulaires.</li>
-
-<li>Courbes de raccordement.</li>
-
-<li>Rayons.</li>
-
-<li>Dévers.</li>
-
-<li>Visibilité.</li>
-
-</ul>
-
-
-<h4>Profil en long</h4>
-
-<ul>
-
-<li>Déclivités.</li>
-
-<li>Points hauts.</li>
-
-<li>Points bas.</li>
-
-<li>Raccordements verticaux.</li>
-
-<li>Visibilité.</li>
-
-<li>Coordination avec le tracé en plan.</li>
-
-</ul>
-
-
-<h4>Coordination</h4>
-
-<p>
-
-La conception doit assurer une cohérence entre le tracé
-en plan et le profil en long, notamment pour la visibilité,
-la lisibilité et le confort de l'usager.
-
-</p>
-
-
-<h4>Profil en travers</h4>
-
-<ul>
-
-<li>Largeur de chaussée.</li>
-
-<li>Voies.</li>
-
-<li>Accotements.</li>
-
-<li>Dévers.</li>
-
-<li>Talus.</li>
-
-<li>Fossés.</li>
-
-<li>Assainissement.</li>
-
-</ul>
-
-
-<h3>4. Aménagement des carrefours et échangeurs</h3>
-
-<ul>
-
-<li>Carrefours à niveau.</li>
-
-<li>Carrefours giratoires.</li>
-
-<li>Branches.</li>
-
-<li>Voies de tourne-à-gauche.</li>
-
-<li>Échangeurs dénivelés.</li>
-
-<li>Voies d'insertion et de décélération.</li>
-
-</ul>
-
-
-<h3>5. Terrassements</h3>
-
-<ul>
-
-<li>Déblai.</li>
-
-<li>Remblai.</li>
-
-<li>Talus.</li>
-
-<li>Volumes de terrassement.</li>
-
-<li>Équilibre déblais/remblais.</li>
-
-<li>Transport des matériaux.</li>
-
-</ul>
-
-
-<h3>6. Assainissement</h3>
-
-<ul>
-
-<li>Fossés.</li>
-
-<li>Dalots.</li>
-
-<li>Buses.</li>
-
-<li>Ouvrages hydrauliques.</li>
-
-<li>Évacuation des eaux de ruissellement.</li>
-
-<li>Protection contre l'érosion.</li>
-
-</ul>
-
-
-<h3>7. Estimation du projet</h3>
-
-<p>
-
-L'estimation est progressivement affinée à partir
-des quantités calculées et des prix unitaires disponibles.
-
-</p>
-
-</div>
-
-</div>
-
-
-<!-- APD -->
-
-<div class="accordion">
-
-<button class="accordion-header">
-
-<span>
-<i class="fa-solid fa-3"></i>
-PHASE 3 – AVANT-PROJET DÉTAILLÉ (APD)
-</span>
-
-<i class="fa-solid fa-chevron-down"></i>
-
-</button>
-
-<div class="accordion-content">
-
-<h3>Objectif</h3>
-
-<p>
-
-L'APD permet de transformer la solution retenue en une
-conception suffisamment détaillée pour préparer les
-documents techniques du projet.
-
-</p>
-
-<ul>
-
-<li>Définition détaillée du tracé.</li>
-
-<li>Profils en long.</li>
-
-<li>Profils en travers.</li>
-
-<li>Terrassements.</li>
-
-<li>Chaussée.</li>
-
-<li>Assainissement.</li>
-
-<li>Ouvrages d'art.</li>
-
-<li>Carrefours.</li>
-
-<li>Équipements de sécurité.</li>
-
-<li>Signalisation.</li>
-
-<li>Quantités.</li>
-
-<li>Estimation financière.</li>
-
-</ul>
-
-</div>
-
-</div>
-
-
-<!-- PROJET EXECUTION -->
-
-<div class="accordion">
-
-<button class="accordion-header">
-
-<span>
-<i class="fa-solid fa-4"></i>
-PHASE 4 – PROJET D'EXÉCUTION
-</span>
-
-<i class="fa-solid fa-chevron-down"></i>
-
-</button>
-
-<div class="accordion-content">
-
-<p>
-
-Le projet d'exécution constitue la phase de préparation
-des documents techniques nécessaires à la réalisation
-des travaux.
-
-</p>
-
-<ul>
-
-<li>Plans d'exécution.</li>
-
-<li>Plans de situation.</li>
-
-<li>Tracé en plan définitif.</li>
-
-<li>Profil en long définitif.</li>
-
-<li>Profils en travers.</li>
-
-<li>Détails constructifs.</li>
-
-<li>Métrés.</li>
-
-<li>Bordereaux.</li>
-
-<li>Prescriptions techniques.</li>
-
-<li>Documents de contrôle.</li>
-
-</ul>
 
 </div>
 
@@ -2300,89 +1101,61 @@ des travaux.
 </section>
 
 
-<!-- =========================================================
+<!-- =====================================================
      PHASES
-========================================================= -->
+===================================================== -->
 
-<section class="section" id="phases">
+<section id="phases" class="section">
+
+<div class="container">
 
 <div class="section-title">
 
-<i class="fa-solid fa-route"></i>
+<h2>🏗️ Phases d'étude d'un projet routier</h2>
 
-<div>
-
-<h2>Architecture globale d'un projet routier</h2>
-
-<p class="section-description">
-De l'idée initiale jusqu'au projet d'exécution.
-</p>
-
-</div>
+<p>Du diagnostic à l'exécution</p>
 
 </div>
 
 <div class="grid">
 
 <div class="card">
-
-<div class="card-icon">
-<i class="fa-solid fa-magnifying-glass"></i>
-</div>
-
-<h3>EP</h3>
-
+<h3>01 — Architecture globale</h3>
 <p>
-Comprendre le problème, collecter les données,
-identifier les variantes et comparer les possibilités.
+Compréhension générale du projet routier, contraintes,
+données et objectifs.
 </p>
-
 </div>
-
 
 <div class="card">
-
-<div class="card-icon">
-<i class="fa-solid fa-compass-drafting"></i>
-</div>
-
-<h3>APS</h3>
-
+<h3>02 — EP</h3>
 <p>
-Définir et approfondir la solution géométrique
-et technique.
+Études préliminaires et analyse des variantes.
 </p>
-
 </div>
-
 
 <div class="card">
-
-<div class="card-icon">
-<i class="fa-solid fa-ruler"></i>
-</div>
-
-<h3>APD</h3>
-
+<h3>03 — APS</h3>
 <p>
-Détailler les composants du projet et les quantités.
+Avant-Projet Sommaire : définition et comparaison des solutions.
 </p>
-
 </div>
-
 
 <div class="card">
-
-<div class="card-icon">
-<i class="fa-solid fa-file-contract"></i>
+<h3>04 — APD</h3>
+<p>
+Avant-Projet Détaillé : géométrie, chaussée, assainissement
+et équipements.
+</p>
 </div>
 
-<h3>Projet d'exécution</h3>
-
+<div class="card">
+<h3>05 — Dossier d'exécution</h3>
 <p>
-Produire les documents nécessaires à l'exécution
-des travaux.
+Plans définitifs, détails techniques, métrés et documents
+nécessaires à l'exécution.
 </p>
+</div>
 
 </div>
 
@@ -2391,229 +1164,341 @@ des travaux.
 </section>
 
 
-<!-- =========================================================
-     EXERCICES
-========================================================= -->
-
-<section class="section" id="exercices">
-
-<div class="section-title">
-
-<i class="fa-solid fa-pen-ruler"></i>
-
-<div>
-
-<h2>Exercices d'application</h2>
-
-<p class="section-description">
-Exercices progressifs pour passer de la théorie à la conception.
-</p>
-
-</div>
-
-</div>
-
-
-<div class="grid">
-
-<div class="card">
-
-<div class="card-icon">
-<i class="fa-solid fa-road"></i>
-</div>
-
-<h3>Exercice 01 – Tracé en plan</h3>
-
-<p>
-
-À partir d'un plan topographique,
-identifier les contraintes et proposer une variante
-de tracé.
-
-</p>
-
-<button class="btn"
-onclick="openExercise('Tracé en plan')">
-
-<i class="fa-solid fa-eye"></i>
-Voir l'exercice
-
-</button>
-
-</div>
-
-
-<div class="card">
-
-<div class="card-icon">
-<i class="fa-solid fa-chart-line"></i>
-</div>
-
-<h3>Exercice 02 – Profil en long</h3>
-
-<p>
-
-Construire le profil en long à partir
-d'un tableau d'altitudes et de distances.
-
-</p>
-
-<button class="btn"
-onclick="openExercise('Profil en long')">
-
-<i class="fa-solid fa-eye"></i>
-Voir l'exercice
-
-</button>
-
-</div>
-
-
-<div class="card">
-
-<div class="card-icon">
-<i class="fa-solid fa-mountain"></i>
-</div>
-
-<h3>Exercice 03 – Terrassements</h3>
-
-<p>
-
-Calculer les volumes de déblais et remblais
-à partir des profils en travers.
-
-</p>
-
-<button class="btn"
-onclick="openExercise('Terrassements')">
-
-<i class="fa-solid fa-eye"></i>
-Voir l'exercice
-
-</button>
-
-</div>
-
-
-<div class="card">
-
-<div class="card-icon">
-<i class="fa-solid fa-droplet"></i>
-</div>
-
-<h3>Exercice 04 – Assainissement</h3>
-
-<p>
-
-Identifier les ouvrages nécessaires
-pour assurer l'évacuation des eaux.
-
-</p>
-
-<button class="btn"
-onclick="openExercise('Assainissement')">
-
-<i class="fa-solid fa-eye"></i>
-Voir l'exercice
-
-</button>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =========================================================
+<!-- =====================================================
      TP
-========================================================= -->
+===================================================== -->
 
-<section class="section" id="tp">
+<section id="tp" class="section">
+
+<div class="container">
 
 <div class="section-title">
 
-<i class="fa-solid fa-laptop-code"></i>
+<h2>🧪 Travaux pratiques</h2>
 
-<div>
-
-<h2>Travaux pratiques</h2>
-
-<p class="section-description">
-Application numérique des méthodes étudiées.
-</p>
+<p>Parcours pratique de conception routière</p>
 
 </div>
-
-</div>
-
 
 <div class="grid">
 
-<div class="card">
+<!-- TP 01 -->
+<div class="card tp-card">
 
-<h3>TP 01</h3>
+<span class="tp-number">TP 01</span>
+
+<h3>Installation de COVADIS</h3>
 
 <p>
-Importation d'un fond topographique et préparation
-du projet routier.
+Installation et configuration de COVADIS sur PC.
 </p>
 
-<span class="badge"
-style="background:var(--surface-2);color:var(--primary);">
-COVADIS / Civil 3D
-</span>
+<div class="resource-buttons">
+
+<button class="btn-file"
+onclick="resource('Fichier ZIP COVADIS')">
+📦 Installation
+</button>
+
+<button class="btn-video"
+onclick="resource('Vidéo installation COVADIS')">
+▶ Vidéo
+</button>
+
+</div>
 
 </div>
 
 
-<div class="card">
+<!-- TP 02 -->
+<div class="card tp-card">
 
-<h3>TP 02</h3>
+<span class="tp-number">TP 02</span>
+
+<h3>Topographie & MNT</h3>
 
 <p>
-Création du tracé en plan et définition
-des éléments géométriques.
+Traitement topographique, modélisation du terrain naturel,
+importation des points et génération du MNT.
 </p>
 
-<span class="badge"
-style="background:var(--surface-2);color:var(--primary);">
-Conception géométrique
-</span>
+<div class="resource-buttons">
+
+<button class="btn-pdf"
+onclick="resource('Guide TP02 Topographie')">
+📄 Guide PDF
+</button>
+
+<button class="btn-video"
+onclick="resource('Vidéo création MNT')">
+▶ Vidéos
+</button>
+
+</div>
 
 </div>
 
 
-<div class="card">
+<!-- TP 03 -->
+<div class="card tp-card">
 
-<h3>TP 03</h3>
+<span class="tp-number">TP 03</span>
+
+<h3>Tracé en plan</h3>
 
 <p>
-Construction du profil en long et
-des raccordements verticaux.
+Conception géométrique du tracé routier.
 </p>
 
-<span class="badge"
-style="background:var(--surface-2);color:var(--primary);">
-Profil en long
-</span>
+<div class="resource-buttons">
+
+<button class="btn-pdf"
+onclick="resource('Cours tracé en plan')">
+📄 Documents
+</button>
+
+<button class="btn-video"
+onclick="resource('Vidéos tracé en plan')">
+▶ Vidéos
+</button>
+
+</div>
 
 </div>
 
 
-<div class="card">
+<!-- TP 04 -->
+<div class="card tp-card">
 
-<h3>TP 04</h3>
+<span class="tp-number">TP 04</span>
+
+<h3>Profil en long</h3>
 
 <p>
-Création des profils en travers,
-calcul des cubatures et préparation du projet.
+Conception du profil en long, rampes, pentes et raccordements.
 </p>
 
-<span class="badge"
-style="background:var(--surface-2);color:var(--primary);">
-Terrassements
-</span>
+<div class="resource-buttons">
+
+<button class="btn-pdf"
+onclick="resource('Guide profil en long')">
+📄 PDF
+</button>
+
+<button class="btn-video"
+onclick="resource('Vidéo profil en long')">
+▶ Vidéos
+</button>
+
+</div>
+
+</div>
+
+
+<!-- TP 05 -->
+<div class="card tp-card">
+
+<span class="tp-number">TP 05</span>
+
+<h3>Profil en travers</h3>
+
+<p>
+Création des profils en travers types et projetés.
+</p>
+
+<div class="resource-buttons">
+
+<button class="btn-pdf"
+onclick="resource('Guide profil en travers')">
+📄 PDF
+</button>
+
+<button class="btn-video"
+onclick="resource('Vidéo profil en travers')">
+▶ Vidéos
+</button>
+
+</div>
+
+</div>
+
+
+<!-- TP 06 -->
+<div class="card tp-card">
+
+<span class="tp-number">TP 06</span>
+
+<h3>Cubatures</h3>
+
+<p>
+Calcul des terrassements : déblais, remblais et volumes.
+</p>
+
+<div class="resource-buttons">
+
+<button class="btn-pdf"
+onclick="resource('Guide cubatures')">
+📄 Guide
+</button>
+
+<button class="btn-video"
+onclick="resource('Vidéo cubatures')">
+▶ Vidéos
+</button>
+
+</div>
+
+</div>
+
+
+<!-- TP 07 -->
+<div class="card tp-card">
+
+<span class="tp-number">TP 07</span>
+
+<h3>Dimensionnement de chaussée</h3>
+
+<p>
+Dimensionnement et vérification mécanique avec ALIZE-LCPC.
+</p>
+
+<div class="resource-buttons">
+
+<button class="btn-pdf"
+onclick="resource('Guide ALIZE-LCPC')">
+📄 PDF
+</button>
+
+<button class="btn-video"
+onclick="resource('Vidéo ALIZE-LCPC')">
+▶ Vidéos
+</button>
+
+</div>
+
+</div>
+
+
+<!-- TP 08 -->
+<div class="card tp-card">
+
+<span class="tp-number">TP 08</span>
+
+<h3>Aménagement des carrefours</h3>
+
+<p>
+Conception et étude géométrique des carrefours.
+</p>
+
+<div class="resource-buttons">
+
+<button class="btn-pdf"
+onclick="resource('Guide carrefours')">
+📄 PDF
+</button>
+
+<button class="btn-video"
+onclick="resource('Vidéo carrefours')">
+▶ Vidéos
+</button>
+
+</div>
+
+</div>
+
+
+<!-- TP 09 -->
+<div class="card tp-card">
+
+<span class="tp-number">TP 09</span>
+
+<h3>Assainissement routier</h3>
+
+<p>
+Buses, dalots, caniveaux et drainage routier.
+</p>
+
+<div class="resource-buttons">
+
+<button class="btn-pdf"
+onclick="resource('Guide assainissement')">
+📄 PDF
+</button>
+
+<button class="btn-video"
+onclick="resource('Vidéo assainissement')">
+▶ Vidéos
+</button>
+
+</div>
+
+</div>
+
+
+<!-- TP 10 -->
+<div class="card tp-card">
+
+<span class="tp-number">TP 10</span>
+
+<h3>Traitement des contraintes</h3>
+
+<p>
+Identification et traitement des contraintes du projet.
+</p>
+
+</div>
+
+
+<!-- TP 11 -->
+<div class="card tp-card">
+
+<span class="tp-number">TP 11</span>
+
+<h3>Signalisation</h3>
+
+<p>
+Signalisation horizontale et verticale.
+</p>
+
+<div class="resource-buttons">
+
+<button class="btn-pdf"
+onclick="resource('Guide signalisation')">
+📄 PDF
+</button>
+
+<button class="btn-video"
+onclick="resource('Vidéos signalisation')">
+▶ Vidéos
+</button>
+
+</div>
+
+</div>
+
+
+<!-- TP 12 -->
+<div class="card tp-card">
+
+<span class="tp-number">TP 12</span>
+
+<h3>Dossier graphique</h3>
+
+<p>
+Mise en page et préparation des plans imprimables :
+tracé en plan, profil en long, profils en travers et détails.
+</p>
+
+<div class="resource-buttons">
+
+<button class="btn-pdf"
+onclick="resource('Modèle dossier graphique')">
+📄 Modèle
+</button>
+
+</div>
+
+</div>
 
 </div>
 
@@ -2622,227 +1507,67 @@ Terrassements
 </section>
 
 
-<!-- =========================================================
+<!-- =====================================================
      LOGICIELS
-========================================================= -->
+===================================================== -->
 
-<section class="section" id="logiciels">
+<section id="logiciels" class="section">
+
+<div class="container">
 
 <div class="section-title">
 
-<i class="fa-solid fa-computer"></i>
+<h2>💻 Logiciels de conception routière</h2>
 
-<div>
-
-<h2>Logiciels professionnels</h2>
-
-<p class="section-description">
-
-Chaque fiche peut recevoir ultérieurement
-le programme d'installation, les documents,
-les exercices et les vidéos pédagogiques.
-
-</p>
+<p>Ressources d'installation, documents et vidéos</p>
 
 </div>
 
-</div>
+<div class="grid">
 
+<script>
+const software=[
+    ["COVADIS","📐"],
+    ["Civil 3D","🏗️"],
+    ["PISTE","🛣️"],
+    ["Géomensura","📊"],
+    ["ALIZE-LCPC","🔬"]
+];
 
-<div class="software-grid">
+software.forEach((s,i)=>{
 
+document.write(`
+<div class="card software-card">
 
-<!-- COVADIS -->
+<div class="software-logo">${s[1]}</div>
 
-<div class="software-card">
-
-<div class="software-icon">
-<i class="fa-solid fa-draw-polygon"></i>
-</div>
-
-<h3>COVADIS</h3>
+<h3>${s[0]}</h3>
 
 <p>
-Conception routière, topographie,
-profils, terrassements et production
-de documents techniques.
+Ressources pédagogiques et pratiques pour la conception routière.
 </p>
 
-<div class="software-actions">
+<div class="software-menu">
 
-<a class="btn secondary"
-href="#ressources">
-<i class="fa-solid fa-file"></i>
-Documents
-</a>
+<button onclick="resource('Installation ${s[0]}')">
+📦 Fichier d'installation
+</button>
 
-<a class="btn secondary"
-href="#videos">
-<i class="fa-brands fa-youtube"></i>
-Vidéos
-</a>
+<button onclick="resource('Documents ${s[0]}')">
+📄 Documents
+</button>
 
-</div>
-
-</div>
-
-
-<!-- AUTOPISTE -->
-
-<div class="software-card">
-
-<div class="software-icon">
-<i class="fa-solid fa-road"></i>
-</div>
-
-<h3>AutoPISTE – Geomedia</h3>
-
-<p>
-Outil destiné à la conception
-et à l'étude des infrastructures routières.
-</p>
-
-<div class="software-actions">
-
-<a class="btn secondary"
-href="#ressources">
-Documents
-</a>
-
-<a class="btn secondary"
-href="#videos">
-Vidéos
-</a>
+<button onclick="resource('Vidéos ${s[0]}')">
+🎥 Vidéos
+</button>
 
 </div>
 
 </div>
+`);
 
-
-<!-- CIVIL 3D -->
-
-<div class="software-card">
-
-<div class="software-icon">
-<i class="fa-solid fa-cubes"></i>
-</div>
-
-<h3>Autodesk Civil 3D</h3>
-
-<p>
-Modélisation de surfaces, axes,
-profils, corridors, réseaux et terrassements.
-</p>
-
-<div class="software-actions">
-
-<a class="btn secondary"
-href="#ressources">
-Documents
-</a>
-
-<a class="btn secondary"
-href="#videos">
-Vidéos
-</a>
-
-</div>
-
-</div>
-
-
-<!-- ALIZE -->
-
-<div class="software-card">
-
-<div class="software-icon">
-<i class="fa-solid fa-layer-group"></i>
-</div>
-
-<h3>Alizé-LCPC</h3>
-
-<p>
-Outil dédié au dimensionnement
-des structures de chaussées.
-</p>
-
-<div class="software-actions">
-
-<a class="btn secondary"
-href="#ressources">
-Documents
-</a>
-
-<a class="btn secondary"
-href="#videos">
-Vidéos
-</a>
-
-</div>
-
-</div>
-
-
-<!-- AUTOTURN -->
-
-<div class="software-card">
-
-<div class="software-icon">
-<i class="fa-solid fa-truck"></i>
-</div>
-
-<h3>AutoTURN</h3>
-
-<p>
-Analyse des girations et vérification
-des trajectoires des véhicules.
-</p>
-
-<div class="software-actions">
-
-<a class="btn secondary"
-href="#ressources">
-Documents
-</a>
-
-<a class="btn secondary"
-href="#videos">
-Vidéos
-</a>
-
-</div>
-
-</div>
-
-
-<!-- MENSURA -->
-
-<div class="software-card">
-
-<div class="software-icon">
-<i class="fa-solid fa-earth-europe"></i>
-</div>
-
-<h3>Mensura Genius</h3>
-
-<p>
-Conception d'infrastructures,
-terrassements, réseaux et production de plans.
-</p>
-
-<div class="software-actions">
-
-<a class="btn secondary"
-href="#ressources">
-Documents
-</a>
-
-<a class="btn secondary"
-href="#videos">
-Vidéos
-</a>
-
-</div>
+});
+</script>
 
 </div>
 
@@ -2851,112 +1576,130 @@ Vidéos
 </section>
 
 
-<!-- =========================================================
+<!-- =====================================================
      VIDEOS
-========================================================= -->
+===================================================== -->
 
-<section class="section" id="videos">
+<section id="videos" class="section">
+
+<div class="container">
 
 <div class="section-title">
 
-<i class="fa-brands fa-youtube"></i>
+<h2>🎥 Vidéothèque</h2>
 
-<div>
-
-<h2>Vidéothèque pédagogique</h2>
-
-<p class="section-description">
-Cours et démonstrations vidéo.
-</p>
+<p>Apprendre la conception routière par la vidéo</p>
 
 </div>
-
-</div>
-
 
 <div class="grid">
 
 <div class="card">
 
-<h3>Introduction à la conception routière</h3>
+<div class="card-icon">🎬</div>
+
+<h3>Présentation du projet</h3>
 
 <p>
-Présentation générale du processus d'établissement
-d'un projet routier.
+Présentation générale d'un projet routier.
 </p>
 
-<a
-class="btn"
-target="_blank"
-href="https://www.youtube.com/results?search_query=conception+routière">
-
-<i class="fa-brands fa-youtube"></i>
-Rechercher sur YouTube
-
-</a>
+<button class="btn btn-primary"
+onclick="openVideo('Présentation projet routier')">
+▶ Voir les vidéos
+</button>
 
 </div>
 
 
 <div class="card">
 
-<h3>COVADIS</h3>
+<div class="card-icon">🛣️</div>
+
+<h3>Création d'un projet routier</h3>
 
 <p>
-Tutoriels de conception routière et profils.
+De la création du projet à la conception géométrique.
 </p>
 
-<a
-class="btn"
-target="_blank"
-href="https://www.youtube.com/results?search_query=COVADIS+conception+routière">
-
-<i class="fa-brands fa-youtube"></i>
-Tutoriels
-
-</a>
+<button class="btn btn-primary"
+onclick="openVideo('Création projet routier')">
+▶ Voir les vidéos
+</button>
 
 </div>
 
 
 <div class="card">
 
-<h3>Autodesk Civil 3D</h3>
+<div class="card-icon">🔧</div>
+
+<h3>Entretien routier</h3>
 
 <p>
-Axes, profils, surfaces et corridors.
+Introduction aux opérations d'entretien.
 </p>
 
-<a
-class="btn"
-target="_blank"
-href="https://www.youtube.com/results?search_query=Autodesk+Civil+3D+road+design">
-
-<i class="fa-brands fa-youtube"></i>
-Tutoriels
-
-</a>
+<button class="btn btn-primary"
+onclick="openVideo('Entretien routier')">
+▶ Voir les vidéos
+</button>
 
 </div>
 
 
 <div class="card">
 
-<h3>Mensura</h3>
+<div class="card-icon">📐</div>
+
+<h3>Tracé en plan</h3>
 
 <p>
-Conception des infrastructures routières.
+Tutoriels pratiques.
 </p>
 
-<a
-class="btn"
-target="_blank"
-href="https://www.youtube.com/results?search_query=Mensura+Genius+route">
+<button class="btn btn-primary"
+onclick="openVideo('Tracé en plan')">
+▶ Voir les vidéos
+</button>
 
-<i class="fa-brands fa-youtube"></i>
-Tutoriels
+</div>
 
-</a>
+
+<div class="card">
+
+<div class="card-icon">📊</div>
+
+<h3>Profil en long</h3>
+
+<p>
+Tutoriels sur le profil en long.
+</p>
+
+<button class="btn btn-primary"
+onclick="openVideo('Profil en long')">
+▶ Voir les vidéos
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">🏗️</div>
+
+<h3>Profils en travers</h3>
+
+<p>
+Création et édition.
+</p>
+
+<button class="btn btn-primary"
+onclick="openVideo('Profils en travers')">
+▶ Voir les vidéos
+</button>
+
+</div>
 
 </div>
 
@@ -2965,170 +1708,91 @@ Tutoriels
 </section>
 
 
-<!-- =========================================================
+<!-- =====================================================
      PRESENCE
-========================================================= -->
+===================================================== -->
 
-<section class="section" id="presence">
+<section id="presence" class="section">
+
+<div class="container">
 
 <div class="section-title">
 
-<i class="fa-solid fa-user-check"></i>
+<h2>✅ Gestion de présence</h2>
 
-<div>
-
-<h2>Gestion des présences</h2>
-
-<p class="section-description">
-
-Section 01 et Section 02 · Séances du mardi
-à partir du 22 septembre 2026.
-
-</p>
+<p>Espace enseignant</p>
 
 </div>
 
+<div class="notice">
+
+<strong>Fonctionnement :</strong>
+
+<br>
+
+Sélectionnez la section et la date. Les séances normales sont
+programmées le mardi.
+
 </div>
 
+<div class="form-grid">
 
-<div class="card">
+<div class="form-group">
 
-<div class="grid">
-
-<div>
-
-<label>
-<strong>Section</strong>
-</label>
+<label>Section</label>
 
 <select id="sectionSelect"
-onchange="loadAttendance()"
-style="
-width:100%;
-padding:11px;
-margin-top:7px;
-border-radius:9px;
-border:1px solid var(--border);
-background:var(--surface);
-color:var(--text);
-">
+onchange="generateStudents()">
 
-<option value="01">Section 01</option>
-<option value="02">Section 02</option>
+<option value="">-- Choisir --</option>
+
+<option value="S1">Section S1</option>
+
+<option value="S2">Section S2</option>
 
 </select>
 
 </div>
 
 
-<div>
+<div class="form-group">
 
-<label>
-<strong>Nom de l'étudiant</strong>
-</label>
+<label>Date</label>
 
 <input
-id="studentName"
-placeholder="Nom et prénom"
-style="
-width:100%;
-padding:11px;
-margin-top:7px;
-border-radius:9px;
-border:1px solid var(--border);
-background:var(--surface);
-color:var(--text);
-">
+type="date"
+id="presenceDate"
+onchange="generateStudents()">
 
 </div>
 
 </div>
 
 
-<div class="table-wrap">
-
-<table>
-
-<thead>
-
-<tr>
-
-<th>Séance</th>
-<th>Date</th>
-<th>Statut</th>
-
-</tr>
-
-</thead>
-
-<tbody id="attendanceBody">
-
-</tbody>
-
-</table>
-
-</div>
-
-
-<div class="progress-box">
-
-<div style="
-display:flex;
-justify-content:space-between;
-font-size:13px;
-margin-bottom:7px;
-">
-
-<strong>Présence</strong>
-
-<span id="attendancePercent">
-0%
-</span>
-
-</div>
-
-<div class="progress-bar">
-
-<div
-class="progress-value"
-id="attendanceProgress">
-</div>
-
-</div>
-
-</div>
+<div id="studentsArea"></div>
 
 </div>
 
 </section>
 
 
-<!-- =========================================================
+<!-- =====================================================
      PLANNING
-========================================================= -->
+===================================================== -->
 
-<section class="section" id="planning">
+<section id="planning" class="section">
+
+<div class="container">
 
 <div class="section-title">
 
-<i class="fa-solid fa-calendar-days"></i>
+<h2>📅 Planning du module</h2>
 
-<div>
-
-<h2>Planning pédagogique</h2>
-
-<p class="section-description">
-2nd Year Engineering Cycle – Schedule – Academic Year 2025/26 – Semester 3 – DIB.
-</p>
+<p>Organisation hebdomadaire</p>
 
 </div>
 
-</div>
-
-
-<div class="card">
-
-<div class="table-wrap">
+<div class="table-wrapper">
 
 <table>
 
@@ -3137,14 +1801,10 @@ id="attendanceProgress">
 <tr>
 
 <th>Jour</th>
-
+<th>Groupe</th>
 <th>Horaire</th>
-
-<th>Salle 25</th>
-
-<th>Salle 5</th>
-
-<th>Enseignement</th>
+<th>Salle</th>
+<th>Module</th>
 
 </tr>
 
@@ -3153,19 +1813,19 @@ id="attendanceProgress">
 <tbody>
 
 <tr>
-
 <td>Mardi</td>
+<td>S1</td>
+<td>08:00 – 09:30</td>
+<td>05 / 25</td>
+<td>Esquisse Routière</td>
+</tr>
 
-<td>08h00 – 09h30</td>
-
-<td>ROAD SKETCH</td>
-
-<td>ROAD SKETCH</td>
-
-<td>Dr. GOUMETTRE<br>
-Dr. HATRI – Dr. ASSAS
-</td>
-
+<tr>
+<td>Mardi</td>
+<td>S2</td>
+<td>09:35 – 11:05</td>
+<td>05 / 25</td>
+<td>Esquisse Routière</td>
 </tr>
 
 </tbody>
@@ -3179,131 +1839,36 @@ Dr. HATRI – Dr. ASSAS
 </section>
 
 
-<!-- =========================================================
-     ETUDE DE CAS
-========================================================= -->
+<!-- =====================================================
+     DEVOIRS
+===================================================== -->
 
-<section class="section" id="etude-cas">
+<section id="devoirs" class="section">
 
-<div class="section-title">
-
-<i class="fa-solid fa-diagram-project"></i>
-
-<div>
-
-<h2>ANNEXE – Exemple d'étude de cas</h2>
-
-<p class="section-description">
-Démarche pédagogique proposée pour un mini-projet routier.
-</p>
-
-</div>
-
-</div>
-
-
-<div class="case-study">
-
-<div class="card">
-
-<h3>Mini-projet : recherche de tracé</h3>
-
-<ol>
-
-<li>Analyser le plan topographique.</li>
-
-<li>Identifier les points de passage.</li>
-
-<li>Identifier les zones à éviter.</li>
-
-<li>Proposer plusieurs variantes.</li>
-
-<li>Étudier le tracé en plan.</li>
-
-<li>Construire le profil en long.</li>
-
-<li>Définir les profils en travers.</li>
-
-<li>Estimer les terrassements.</li>
-
-<li>Étudier l'assainissement.</li>
-
-<li>Comparer les variantes.</li>
-
-<li>Présenter la solution retenue.</li>
-
-</ol>
-
-<button class="btn"
-onclick="openCaseStudy()">
-
-<i class="fa-solid fa-play"></i>
-Lancer l'étude de cas
-
-</button>
-
-</div>
-
-
-<div class="diagram">
-
-<div class="road">
-
-<div class="road-line"></div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =========================================================
-     RESSOURCES
-========================================================= -->
-
-<section class="section" id="ressources">
+<div class="container">
 
 <div class="section-title">
 
-<i class="fa-solid fa-folder-open"></i>
+<h2>📝 Devoirs maison & Projet</h2>
 
-<div>
-
-<h2>Centre de ressources</h2>
-
-<p class="section-description">
-Documents, exercices, supports et fichiers logiciels.
-</p>
+<p>Travaux à remettre</p>
 
 </div>
-
-</div>
-
 
 <div class="grid">
 
 <div class="card">
 
-<div class="card-icon">
-<i class="fa-solid fa-file-pdf"></i>
-</div>
-
-<h3>Cours PDF</h3>
+<h3>DM 01 — Analyse du terrain</h3>
 
 <p>
-Déposer ici les versions PDF du cours,
-chapitres et fiches de synthèse.
+Analyse d'un terrain naturel et préparation des données.
 </p>
 
-<button class="btn secondary"
-onclick="showToast('Ajoutez ici vos fichiers PDF.')">
+<p><strong>Date limite :</strong> À définir</p>
 
-<i class="fa-solid fa-upload"></i>
-Ajouter
-
+<button class="btn btn-primary">
+📄 Sujet
 </button>
 
 </div>
@@ -3311,22 +1876,16 @@ Ajouter
 
 <div class="card">
 
-<div class="card-icon">
-<i class="fa-solid fa-file-excel"></i>
-</div>
-
-<h3>Fichiers de calcul</h3>
+<h3>DM 02 — Tracé routier</h3>
 
 <p>
-Tableaux de calcul, profils, cubatures
-et exercices numériques.
+Proposition d'un tracé en plan respectant les contraintes.
 </p>
 
-<button class="btn secondary"
-onclick="showToast('Ajoutez ici vos fichiers Excel.')">
+<p><strong>Date limite :</strong> À définir</p>
 
-Ajouter
-
+<button class="btn btn-primary">
+📄 Sujet
 </button>
 
 </div>
@@ -3334,46 +1893,19 @@ Ajouter
 
 <div class="card">
 
-<div class="card-icon">
-<i class="fa-solid fa-file-code"></i>
-</div>
-
-<h3>Fichiers CAO</h3>
+<h3>Projet routier</h3>
 
 <p>
-DWG, DXF, surfaces, axes,
-profils et projets d'exemple.
+Réalisation progressive d'un projet routier complet.
 </p>
 
-<button class="btn secondary"
-onclick="showToast('Ajoutez ici vos fichiers CAO.')">
+<p><strong>Remise :</strong> À définir</p>
 
-Ajouter
-
+<button class="btn btn-primary">
+📁 Cahier des charges
 </button>
 
 </div>
-
-
-<div class="card">
-
-<div class="card-icon">
-<i class="fa-solid fa-file-zipper"></i>
-</div>
-
-<h3>Projets étudiants</h3>
-
-<p>
-Espace destiné aux fichiers des TP
-et mini-projets.
-</p>
-
-<button class="btn secondary"
-onclick="showToast('Ajoutez ici les fichiers de projet.')">
-
-Ajouter
-
-</button>
 
 </div>
 
@@ -3382,95 +1914,72 @@ Ajouter
 </section>
 
 
-<!-- =========================================================
-     FAQ
-========================================================= -->
+<!-- =====================================================
+     DOCUMENTS
+===================================================== -->
 
-<section class="section" id="faq">
+<section id="documents" class="section">
+
+<div class="container">
 
 <div class="section-title">
 
-<i class="fa-solid fa-circle-question"></i>
+<h2>📖 Documents & Livres</h2>
 
-<div>
-
-<h2>Questions fréquentes</h2>
+<p>Bibliothèque pédagogique</p>
 
 </div>
 
-</div>
+<div class="grid">
 
-
-<div class="accordion">
-
-<button class="accordion-header">
-
-Qu'est-ce qu'une étude préliminaire ?
-
-<i class="fa-solid fa-chevron-down"></i>
-
+<div class="card">
+<h3>📘 Guide GTR</h3>
+<p>Guide technique pour les terrassements routiers.</p>
+<button class="btn btn-danger"
+onclick="resource('Guide GTR PDF')">
+📄 Ouvrir PDF
 </button>
-
-<div class="accordion-content">
-
-<p>
-
-L'étude préliminaire constitue une première phase
-d'analyse du projet. Elle permet notamment d'identifier
-les contraintes et d'étudier les possibilités de tracé.
-
-</p>
-
-</div>
-
 </div>
 
 
-<div class="accordion">
-
-<button class="accordion-header">
-
-Quelle est la différence entre EP, APS et APD ?
-
-<i class="fa-solid fa-chevron-down"></i>
-
+<div class="card">
+<h3>📘 Guide Aménagement des carrefours</h3>
+<p>Document de référence pour la conception des carrefours.</p>
+<button class="btn btn-danger"
+onclick="resource('Guide carrefours PDF')">
+📄 Ouvrir PDF
 </button>
-
-<div class="accordion-content">
-
-<p>
-
-L'EP sert principalement à analyser le contexte et
-les variantes. L'APS approfondit la solution retenue.
-L'APD développe cette solution à un niveau de détail
-plus important avant le projet d'exécution.
-
-</p>
-
-</div>
-
 </div>
 
 
-<div class="accordion">
-
-<button class="accordion-header">
-
-Quels logiciels seront utilisés ?
-
-<i class="fa-solid fa-chevron-down"></i>
-
+<div class="card">
+<h3>📘 Cours de Routes</h3>
+<p>Supports de cours et fascicules.</p>
+<button class="btn btn-danger"
+onclick="resource('Cours routes PDF')">
+📄 Fascicule
 </button>
+</div>
 
-<div class="accordion-content">
 
-<p>
+<div class="card">
+<h3>📘 Dimensionnement du corps de chaussée</h3>
+<p>Documents pédagogiques de dimensionnement.</p>
+<button class="btn btn-danger"
+onclick="resource('Dimensionnement chaussée PDF')">
+📄 PDF
+</button>
+</div>
 
-La plateforme prévoit des ressources pour COVADIS,
-AutoPISTE, Autodesk Civil 3D, Alizé-LCPC,
-AutoTURN et Mensura Genius.
 
-</p>
+<div class="card">
+<h3>📘 Livres spécialisés</h3>
+<p>Bibliothèque complémentaire.</p>
+<button class="btn btn-primary"
+onclick="resource('Bibliothèque livres')">
+📚 Bibliothèque
+</button>
+</div>
 
 </div>
 
@@ -3479,129 +1988,145 @@ AutoTURN et Mensura Genius.
 </section>
 
 
-<!-- =========================================================
-     ENSEIGNANT
-========================================================= -->
+<!-- =====================================================
+     ENSEIGNANTS
+===================================================== -->
 
-<section class="section" id="enseignant">
+<section id="enseignants" class="section">
+
+<div class="container">
 
 <div class="section-title">
 
-<i class="fa-solid fa-chalkboard-user"></i>
+<h2>👨‍🏫 Enseignants du module</h2>
 
-<div>
-
-<h2>Enseignant</h2>
-
-<p class="section-description">
-Équipe d'enseignement du module.
-</p>
+<p>Équipe pédagogique</p>
 
 </div>
 
+<div class="grid">
+
+<!-- GOUMETTRE -->
+
+<div class="card teacher">
+
+<div class="teacher-avatar">
+G
 </div>
 
+<h3>Pr. Goumettre</h3>
 
-<div class="card">
-
-<div class="profile">
-
-<div class="avatar">
-
-<i class="fa-solid fa-user-graduate"></i>
-
+<div class="teacher-role">
+Enseignant
 </div>
 
-
-<div>
-
-<h2>
-Dr. Assas Taqiyeddine
-</h2>
-
-<p>
-
-<strong>
-Lecturer / Maître-assistant – ENSTP
-</strong>
-
+<p style="margin-top:10px">
+Esquisse Routière — Conception routière
 </p>
-
-<p>
-
-Département Infrastructure de Base (DIB)
-
-</p>
-
-<p>
-
-École Nationale Supérieure des Travaux Publics
-
-</p>
-
-<p>
-
-<i class="fa-solid fa-location-dot"></i>
-
-1 Rue Sidi Garidi, Kouba – Alger
-
-</p>
-
 
 <div class="socials">
 
-<a
-class="social"
-target="_blank"
-href="https://www.researchgate.net/profile/Taqiyeddine-Assas"
-title="ResearchGate">
+<a class="linkedin"
+href="https://www.linkedin.com/"
+target="_blank">in</a>
 
-<i class="fa-brands fa-researchgate"></i>
+<a class="scholar"
+href="https://scholar.google.com/"
+target="_blank">GS</a>
 
-</a>
+<a class="orcid"
+href="https://orcid.org/"
+target="_blank">iD</a>
 
+<a class="mail"
+href="mailto:"
+>✉</a>
 
-<a
-class="social"
-target="_blank"
-href="https://www.linkedin.com/in/taqiyeddine-assas-770696378"
-title="LinkedIn">
+</div>
 
-<i class="fa-brands fa-linkedin-in"></i>
-
-</a>
-
-
-<a
-class="social"
-target="_blank"
-href="https://scholar.google.com/citations?user=Gk1u97UAAAAJ&hl=fr&oi=ao"
-title="Google Scholar">
-
-<i class="fa-solid fa-graduation-cap"></i>
-
-</a>
+</div>
 
 
-<a
-class="social"
-target="_blank"
-href="https://orcid.org/0009-0011-4288-2908"
-title="ORCID">
+<!-- HATRI -->
 
-<i class="fa-brands fa-orcid"></i>
+<div class="card teacher">
 
-</a>
+<div class="teacher-avatar">
+H
+</div>
+
+<h3>Pr. Hatri</h3>
+
+<div class="teacher-role">
+Enseignant
+</div>
+
+<p style="margin-top:10px">
+Esquisse Routière — Infrastructures routières
+</p>
+
+<div class="socials">
+
+<a class="linkedin"
+href="https://www.linkedin.com/"
+target="_blank">in</a>
+
+<a class="scholar"
+href="https://scholar.google.com/"
+target="_blank">GS</a>
+
+<a class="orcid"
+href="https://orcid.org/"
+target="_blank">iD</a>
+
+<a class="mail"
+href="mailto:"
+>✉</a>
+
+</div>
+
+</div>
 
 
-<a
-class="social"
-href="mailto:t.assas@enstp.edu.dz"
-title="Email">
+<!-- ASSAS -->
 
-<i class="fa-solid fa-envelope"></i>
+<div class="card teacher">
 
-</a>
+<div class="teacher-avatar">
+A
+</div>
+
+<h3>Dr. Assas Taqiyeddine</h3>
+
+<div class="teacher-role">
+Enseignant • Créateur de la plateforme
+</div>
+
+<p style="margin-top:10px">
+Conception routière • MEF • Infrastructures
+</p>
+
+<div class="socials">
+
+<a class="linkedin"
+href="https://www.linkedin.com/"
+target="_blank">in</a>
+
+<a class="scholar"
+href="https://scholar.google.com/"
+target="_blank">GS</a>
+
+<a class="orcid"
+href="https://orcid.org/"
+target="_blank">iD</a>
+
+<a class="research"
+href="https://www.researchgate.net/"
+target="_blank">RG</a>
+
+<a class="mail"
+href="mailto:"
+>✉</a>
 
 </div>
 
@@ -3614,116 +2139,91 @@ title="Email">
 </section>
 
 
-<!-- =========================================================
-     CONTACT
-========================================================= -->
-
-<section class="section">
-
-<div class="card">
-
-<div class="section-title">
-
-<i class="fa-solid fa-phone"></i>
-
-<h2>Contact</h2>
-
-</div>
-
-<p>
-
-Pour les questions pédagogiques, les documents du cours,
-les TP et l'accès à la plateforme :
-
-</p>
-
-<p>
-
-<strong>
-<i class="fa-solid fa-phone"></i>
-0670876131
-</strong>
-
-</p>
-
-<p>
-
-<strong>
-<i class="fa-solid fa-envelope"></i>
-t.assas@enstp.edu.dz
-</strong>
-
-</p>
-
-</div>
-
-</section>
-
-
-<!-- =========================================================
+<!-- =====================================================
      FOOTER
-========================================================= -->
+===================================================== -->
 
-<footer style="
-margin-top:60px;
-padding:30px 10px;
-border-top:1px solid var(--border);
-text-align:center;
-color:var(--muted);
-font-size:13px;
-">
+<footer>
+
+<div class="footer-grid">
+
+<div>
+
+<h3>ENSTP</h3>
 
 <p>
-
-<strong>ESQUISSE ROUTE</strong>
-
-· Département Infrastructure de Base · ENSTP
-
+École Nationale Supérieure des Travaux Publics
 </p>
 
 <p>
-
-Plateforme pédagogique · 2026–2027
-
+Kouba – Alger – Algérie
 </p>
+
+</div>
+
+
+<div>
+
+<h3>Esquisse Routière</h3>
 
 <p>
-
-© Dr. Assas Taqiyeddine
-
+Plateforme pédagogique destinée aux étudiants
+de 4ème année – Département Infrastructures de Base.
 </p>
+
+</div>
+
+
+<div>
+
+<h3>Navigation</h3>
+
+<p>
+Cours<br>
+Travaux pratiques<br>
+Logiciels<br>
+Vidéothèque<br>
+Documents
+</p>
+
+</div>
+
+
+<div>
+
+<h3>Organisation</h3>
+
+<p>
+Mardi<br>
+Groupe 1 : 08:00 – 09:30<br>
+Groupe 2 : 09:35 – 11:05
+</p>
+
+</div>
+
+</div>
+
+
+<div class="copyright">
+
+© 2026 — Plateforme pédagogique Esquisse Routière
+<br>
+ENSTP – Kouba – Alger
+
+</div>
 
 </footer>
 
 
-</div>
-
-</main>
-
-
-<!-- =========================================================
+<!-- =====================================================
      MODAL
-========================================================= -->
+===================================================== -->
 
-<div class="modal" id="modal">
+<div id="modal" class="modal">
 
 <div class="modal-box">
 
-<div class="modal-head">
-
-<h2 id="modalTitle">
-Exercice
-</h2>
-
-<button
-class="icon-btn"
-onclick="closeModal()">
-
-<i class="fa-solid fa-xmark"></i>
-
-</button>
-
-</div>
+<button class="close" onclick="closeModal()">×</button>
 
 <div id="modalContent"></div>
 
@@ -3732,713 +2232,658 @@ onclick="closeModal()">
 </div>
 
 
-<!-- =========================================================
-     TOAST
-========================================================= -->
-
-<div class="toast" id="toast"></div>
-
-
-<!-- =========================================================
+<!-- =====================================================
      JAVASCRIPT
-========================================================= -->
+===================================================== -->
 
 <script>
 
-/* =========================================================
-   ACCORDIONS
-========================================================= */
+/* ========================================================
+   NAVIGATION
+======================================================== */
 
-document
-.querySelectorAll(".accordion-header")
-.forEach(header => {
+function showSection(id,button=null){
 
-    header.addEventListener("click", () => {
-
-        const accordion =
-            header.parentElement;
-
-        accordion.classList.toggle("open");
-
+    document.querySelectorAll(".section")
+    .forEach(section=>{
+        section.classList.remove("active");
     });
 
-});
+    const target=document.getElementById(id);
 
-
-/* =========================================================
-   SIDEBAR
-========================================================= */
-
-function toggleSidebar(){
-
-    document
-    .getElementById("sidebar")
-    .classList.toggle("open");
-
-}
-
-
-/* =========================================================
-   DARK MODE
-========================================================= */
-
-function toggleDarkMode(){
-
-    document.body.classList.toggle("dark");
-
-    const dark =
-        document.body.classList.contains("dark");
-
-    localStorage.setItem(
-        "esquisse-dark",
-        dark ? "1" : "0"
-    );
-
-}
-
-if(
-    localStorage.getItem("esquisse-dark")
-    === "1"
-){
-
-    document.body.classList.add("dark");
-
-}
-
-
-/* =========================================================
-   SEARCH
-========================================================= */
-
-const searchInput =
-document.getElementById("searchInput");
-
-searchInput.addEventListener(
-    "input",
-    function(){
-
-        const query =
-            this.value
-            .toLowerCase()
-            .trim();
-
-        document
-        .querySelectorAll(
-            ".card,.accordion,.timeline-item,.software-card"
-        )
-        .forEach(element => {
-
-            const text =
-                element.innerText
-                .toLowerCase();
-
-            if(
-                query === ""
-                || text.includes(query)
-            ){
-
-                element.style.display = "";
-
-            }else{
-
-                element.style.display = "none";
-
-            }
-
-        });
-
+    if(target){
+        target.classList.add("active");
     }
-);
 
+    document.querySelectorAll(".nav-btn")
+    .forEach(btn=>{
+        btn.classList.remove("active");
+    });
 
-/* =========================================================
-   TOAST
-========================================================= */
+    if(button){
+        button.classList.add("active");
+    }
 
-let toastTimer;
-
-function showToast(message){
-
-    const toast =
-        document.getElementById("toast");
-
-    toast.textContent = message;
-
-    toast.classList.add("show");
-
-    clearTimeout(toastTimer);
-
-    toastTimer =
-        setTimeout(() => {
-
-            toast.classList.remove("show");
-
-        },3000);
-
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
 }
 
 
-/* =========================================================
+/* ========================================================
    MODAL
-========================================================= */
+======================================================== */
 
-function openModal(title,content){
+function openModal(html){
 
-    document
-    .getElementById("modalTitle")
-    .textContent = title;
+    document.getElementById("modalContent").innerHTML=html;
 
-    document
-    .getElementById("modalContent")
-    .innerHTML = content;
-
-    document
-    .getElementById("modal")
-    .classList.add("active");
-
+    document.getElementById("modal")
+    .classList.add("show");
 }
-
 
 function closeModal(){
 
-    document
-    .getElementById("modal")
-    .classList.remove("active");
-
+    document.getElementById("modal")
+    .classList.remove("show");
 }
 
+window.onclick=function(e){
 
-document
-.getElementById("modal")
-.addEventListener(
-    "click",
-    function(e){
-
-        if(e.target === this){
-
-            closeModal();
-
-        }
-
+    if(e.target===document.getElementById("modal")){
+        closeModal();
     }
-);
-
-
-/* =========================================================
-   EXERCISES
-========================================================= */
-
-function openExercise(type){
-
-    const exercises = {
-
-        "Tracé en plan": `
-
-            <h3>Objectif</h3>
-
-            <p>
-            Proposer une variante de tracé en plan
-            respectant les contraintes données.
-            </p>
-
-            <h3>Démarche</h3>
-
-            <ol>
-                <li>Lire le plan topographique.</li>
-                <li>Identifier les points obligatoires.</li>
-                <li>Identifier les zones sensibles.</li>
-                <li>Tracer les variantes.</li>
-                <li>Comparer les solutions.</li>
-            </ol>
-
-        `,
-
-        "Profil en long": `
-
-            <h3>Objectif</h3>
-
-            <p>
-            Construire un profil en long à partir
-            des altitudes du terrain naturel.
-            </p>
-
-            <h3>Travail demandé</h3>
-
-            <ol>
-                <li>Reporter les distances.</li>
-                <li>Reporter les altitudes.</li>
-                <li>Tracer le terrain naturel.</li>
-                <li>Définir la ligne projet.</li>
-                <li>Calculer les déclivités.</li>
-            </ol>
-
-        `,
-
-        "Terrassements": `
-
-            <h3>Objectif</h3>
-
-            <p>
-            Déterminer les volumes de déblais
-            et remblais.
-            </p>
-
-            <h3>Travail demandé</h3>
-
-            <ol>
-                <li>Analyser les profils.</li>
-                <li>Calculer les surfaces.</li>
-                <li>Calculer les volumes.</li>
-                <li>Comparer déblais et remblais.</li>
-            </ol>
-
-        `,
-
-        "Assainissement": `
-
-            <h3>Objectif</h3>
-
-            <p>
-            Identifier les ouvrages permettant
-            de collecter et évacuer les eaux.
-            </p>
-
-            <ul>
-                <li>Fossés</li>
-                <li>Buses</li>
-                <li>Dalots</li>
-                <li>Ouvrages de traversée</li>
-                <li>Protection contre l'érosion</li>
-            </ul>
-
-        `
-
-    };
-
-    openModal(
-        "Exercice – " + type,
-        exercises[type]
-    );
 
 }
 
 
-/* =========================================================
-   CASE STUDY
-========================================================= */
+/* ========================================================
+   COURSE
+======================================================== */
 
-function openCaseStudy(){
+function openCourse(type){
 
-    openModal(
+    if(type==="web"){
 
-        "Mini-projet routier",
+        openModal(`
 
-        `
+        <h2>🌐 Cours — Version Web</h2>
 
-        <h3>Mission</h3>
+        <div class="notice">
 
-        <p>
+        <strong>Esquisse Routière</strong>
 
-        Vous êtes chargé de réaliser une première
-        étude d'une liaison routière entre deux pôles.
+        <br><br>
 
-        </p>
+        Cette section accueillera le cours interactif :
 
-        <h3>Étape 1 – Analyse</h3>
+        <ul style="margin:15px 0 0 20px;line-height:2">
 
-        <ul>
-            <li>Collecter les données.</li>
-            <li>Analyser la topographie.</li>
-            <li>Identifier les contraintes.</li>
+        <li>Introduction au projet routier</li>
+        <li>Données topographiques</li>
+        <li>Tracé en plan</li>
+        <li>Profil en long</li>
+        <li>Profil en travers</li>
+        <li>Terrassements</li>
+        <li>Chaussées</li>
+        <li>Carrefours</li>
+        <li>Assainissement</li>
+        <li>Signalisation</li>
+
         </ul>
 
-        <h3>Étape 2 – Variantes</h3>
+        </div>
 
-        <ul>
-            <li>Variante A</li>
-            <li>Variante B</li>
-            <li>Variante C</li>
-        </ul>
+        `);
 
-        <h3>Étape 3 – Comparaison</h3>
+    }else{
 
-        <table style="width:100%;border-collapse:collapse">
+        openModal(`
 
-        <tr>
-            <th>Critère</th>
-            <th>Analyse</th>
-        </tr>
+        <h2>📕 Cours — PDF</h2>
 
-        <tr>
-            <td>Technique</td>
-            <td>Géométrie et contraintes</td>
-        </tr>
+        <div class="notice">
 
-        <tr>
-            <td>Économique</td>
-            <td>Terrassements et ouvrages</td>
-        </tr>
+        Le fichier PDF du cours sera placé ici.
 
-        <tr>
-            <td>Environnement</td>
-            <td>Zones sensibles</td>
-        </tr>
+        <br><br>
 
-        </table>
+        Exemple :
 
-        `
+        <strong>cours-esquisse-routiere.pdf</strong>
 
-    );
+        </div>
 
-}
+        <button class="btn btn-danger"
+        onclick="resource('cours-esquisse-routiere.pdf')">
 
+        📄 Ouvrir le PDF
 
-/* =========================================================
-   ATTENDANCE DATES
-========================================================= */
+        </button>
 
-function getTuesdays(){
-
-    const dates = [];
-
-    let date =
-        new Date(2026,8,22);
-
-    /*
-       22 septembre 2026
-       jusqu'à la fin de l'année
-       universitaire.
-    */
-
-    const end =
-        new Date(2027,5,30);
-
-    while(date <= end){
-
-        if(date.getDay() === 2){
-
-            dates.push(
-                new Date(date)
-            );
-
-        }
-
-        date.setDate(
-            date.getDate()+1
-        );
+        `);
 
     }
 
-    return dates;
+}
+
+
+/* ========================================================
+   RESOURCES
+======================================================== */
+
+function resource(name){
+
+    openModal(`
+
+    <h2>📁 Ressource pédagogique</h2>
+
+    <div class="notice">
+
+    <strong>${name}</strong>
+
+    <br><br>
+
+    Cette ressource doit être reliée à votre fichier réel.
+
+    <br><br>
+
+    Exemple d'organisation :
+
+    <br><br>
+
+    <code>
+    resources/
+    <br>
+    ├── logiciels/
+    <br>
+    ├── pdf/
+    <br>
+    ├── videos/
+    <br>
+    └── tp/
+    </code>
+
+    </div>
+
+    <button class="btn btn-primary"
+    onclick="closeModal()">
+
+    Fermer
+
+    </button>
+
+    `);
 
 }
 
 
-function formatDate(date){
+/* ========================================================
+   VIDEOS
+======================================================== */
 
-    return date.toLocaleDateString(
-        "fr-FR",
-        {
-            day:"2-digit",
-            month:"2-digit",
-            year:"numeric"
-        }
+function openVideo(title){
+
+    openModal(`
+
+    <h2>🎥 ${title}</h2>
+
+    <div class="grid">
+
+    <div class="card">
+
+    <h3>Vidéo 01</h3>
+
+    <p>Introduction</p>
+
+    <button class="btn btn-video"
+    onclick="openYoutube()">
+
+    ▶ YouTube
+
+    </button>
+
+    </div>
+
+
+    <div class="card">
+
+    <h3>Vidéo 02</h3>
+
+    <p>Tutoriel pratique</p>
+
+    <button class="btn btn-video"
+    onclick="openYoutube()">
+
+    ▶ YouTube
+
+    </button>
+
+    </div>
+
+
+    <div class="card">
+
+    <h3>Vidéo 03</h3>
+
+    <p>Exemple complet</p>
+
+    <button class="btn btn-video"
+    onclick="openYoutube()">
+
+    ▶ YouTube
+
+    </button>
+
+    </div>
+
+    </div>
+
+    `);
+
+}
+
+function openYoutube(){
+
+    window.open(
+        "https://www.youtube.com/results?search_query=conception+routiere+COVADIS",
+        "_blank"
     );
 
 }
 
 
-/* =========================================================
-   ATTENDANCE
-========================================================= */
+/* ========================================================
+   STUDENTS
+======================================================== */
 
-function attendanceKey(){
+const studentsS1=[
+    "Étudiant S1 — 01",
+    "Étudiant S1 — 02",
+    "Étudiant S1 — 03",
+    "Étudiant S1 — 04",
+    "Étudiant S1 — 05",
+    "Étudiant S1 — 06",
+    "Étudiant S1 — 07",
+    "Étudiant S1 — 08"
+];
 
-    const section =
-        document
-        .getElementById("sectionSelect")
-        .value;
+const studentsS2=[
+    "Étudiant S2 — 01",
+    "Étudiant S2 — 02",
+    "Étudiant S2 — 03",
+    "Étudiant S2 — 04",
+    "Étudiant S2 — 05",
+    "Étudiant S2 — 06",
+    "Étudiant S2 — 07",
+    "Étudiant S2 — 08"
+];
 
-    return "attendance-section-" + section;
+
+function generateStudents(){
+
+    const section=
+        document.getElementById("sectionSelect").value;
+
+    const date=
+        document.getElementById("presenceDate").value;
+
+    const area=
+        document.getElementById("studentsArea");
+
+    if(!section || !date){
+
+        area.innerHTML="";
+
+        return;
+    }
+
+    const students=
+        section==="S1"
+        ?studentsS1
+        :studentsS2;
+
+
+    let html=`
+
+    <div class="table-wrapper">
+
+    <table id="presenceTable">
+
+    <thead>
+
+    <tr>
+
+    <th>N°</th>
+    <th>Nom & Prénom</th>
+    <th>Section</th>
+    <th>État</th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+    `;
+
+
+    students.forEach((student,index)=>{
+
+        html+=`
+
+        <tr>
+
+        <td>${index+1}</td>
+
+        <td>${student}</td>
+
+        <td>${section}</td>
+
+        <td>
+
+        <button
+        class="status present"
+        onclick="togglePresence(this)">
+
+        Présent
+
+        </button>
+
+        </td>
+
+        </tr>
+
+        `;
+
+    });
+
+
+    html+=`
+
+    </tbody>
+
+    </table>
+
+    </div>
+
+    <br>
+
+    <button class="btn btn-success"
+    onclick="generatePresenceReport()">
+
+    📄 Générer le rapport PDF
+
+    </button>
+
+    `;
+
+
+    area.innerHTML=html;
 
 }
 
 
-function loadAttendance(){
+function togglePresence(button){
 
-    const body =
-        document
-        .getElementById("attendanceBody");
+    if(button.classList.contains("present")){
 
-    body.innerHTML = "";
+        button.classList.remove("present");
 
-    const dates =
-        getTuesdays();
+        button.classList.add("absent");
 
-    const saved =
-        JSON.parse(
-            localStorage.getItem(
-                attendanceKey()
-            ) || "{}"
-        );
+        button.textContent="Absent";
 
-    dates.forEach(
-        (date,index) => {
+    }else{
 
-            const key =
-                date.toISOString()
-                .split("T")[0];
+        button.classList.remove("absent");
 
-            const status =
-                saved[key] || "";
+        button.classList.add("present");
 
-            const row =
-                document.createElement("tr");
+        button.textContent="Présent";
 
-            row.innerHTML = `
-
-                <td>
-                    Séance ${index+1}
-                </td>
-
-                <td>
-                    ${formatDate(date)}
-                </td>
-
-                <td>
-
-                    <button
-                        class="status ${status==="present"?"present":"empty"}"
-                        onclick="setAttendance('${key}','present')">
-
-                        Présent
-
-                    </button>
-
-                    <button
-                        class="status ${status==="absent"?"absent":"empty"}"
-                        onclick="setAttendance('${key}','absent')">
-
-                        Absent
-
-                    </button>
-
-                    <button
-                        class="status ${status==="justified"?"justified":"empty"}"
-                        onclick="setAttendance('${key}','justified')">
-
-                        Justifié
-
-                    </button>
-
-                </td>
-
-            `;
-
-            body.appendChild(row);
-
-        }
-    );
-
-    updateAttendanceProgress();
+    }
 
 }
 
 
-function setAttendance(date,status){
+/* ========================================================
+   PDF PRESENCE
+======================================================== */
 
-    const data =
-        JSON.parse(
-            localStorage.getItem(
-                attendanceKey()
-            ) || "{}"
-        );
+function generatePresenceReport(){
 
-    data[date] = status;
+    const section=
+        document.getElementById("sectionSelect").value;
 
-    localStorage.setItem(
-        attendanceKey(),
-        JSON.stringify(data)
-    );
-
-    loadAttendance();
-
-    showToast(
-        "Présence enregistrée : " + status
-    );
-
-}
+    const date=
+        document.getElementById("presenceDate").value;
 
 
-function updateAttendanceProgress(){
+    if(!section || !date){
 
-    const data =
-        JSON.parse(
-            localStorage.getItem(
-                attendanceKey()
-            ) || "{}"
-        );
+        alert("Veuillez choisir une section et une date.");
 
-    const dates =
-        getTuesdays();
+        return;
 
-    let recorded = 0;
+    }
 
-    let present = 0;
 
-    dates.forEach(date => {
+    const rows=
+        document.querySelectorAll("#presenceTable tbody tr");
 
-        const key =
-            date.toISOString()
-            .split("T")[0];
 
-        if(data[key]){
+    let present=0;
+    let absent=0;
 
-            recorded++;
 
-            if(
-                data[key] === "present"
-                ||
-                data[key] === "justified"
-            ){
+    rows.forEach(row=>{
 
-                present++;
+        const state=
+            row.querySelector(".status").textContent;
 
-            }
-
+        if(state==="Présent"){
+            present++;
+        }else{
+            absent++;
         }
 
     });
 
-    const percent =
-        recorded === 0
-        ? 0
-        : Math.round(
-            present / recorded * 100
-        );
 
-    document
-    .getElementById(
-        "attendancePercent"
-    )
-    .textContent =
-        percent + "%";
+    const report=`
 
-    document
-    .getElementById(
-        "attendanceProgress"
-    )
-    .style.width =
-        percent + "%";
+    <!DOCTYPE html>
+
+    <html>
+
+    <head>
+
+    <meta charset="UTF-8">
+
+    <title>Rapport Présence</title>
+
+    <style>
+
+    body{
+        font-family:Arial;
+        margin:40px;
+        color:#1b2b3a;
+    }
+
+    .header{
+        text-align:center;
+        border-bottom:3px solid #075985;
+        padding-bottom:20px;
+    }
+
+    h1{
+        color:#075985;
+    }
+
+    table{
+        width:100%;
+        border-collapse:collapse;
+        margin-top:30px;
+    }
+
+    th,td{
+        border:1px solid #aaa;
+        padding:10px;
+    }
+
+    th{
+        background:#075985;
+        color:white;
+    }
+
+    .summary{
+        margin-top:30px;
+        padding:20px;
+        background:#eef5f9;
+    }
+
+    </style>
+
+    </head>
+
+    <body>
+
+    <div class="header">
+
+    <h2>
+    المدرسة الوطنية العليا للأشغال العمومية
+    </h2>
+
+    <h3>
+    ÉCOLE NATIONALE SUPÉRIEURE DES TRAVAUX PUBLICS
+    </h3>
+
+    <p>
+    HIGHER NATIONAL SCHOOL OF PUBLIC WORKS
+    </p>
+
+    <h1>LISTE DE PRÉSENCE</h1>
+
+    <p>
+    Esquisse Routière
+    </p>
+
+    </div>
+
+
+    <p>
+
+    <strong>Section :</strong> ${section}
+
+    <br>
+
+    <strong>Date :</strong> ${date}
+
+    <br>
+
+    <strong>Enseignants :</strong>
+    Goumettre — Hatri — Assas Taqiyeddine
+
+    </p>
+
+
+    <table>
+
+    <tr>
+
+    <th>N°</th>
+
+    <th>Nom & Prénom</th>
+
+    <th>Section</th>
+
+    <th>État</th>
+
+    </tr>
+
+    ${Array.from(rows).map(row=>{
+
+        return "<tr>"+row.innerHTML+"</tr>";
+
+    }).join("")}
+
+    </table>
+
+
+    <div class="summary">
+
+    <h3>Résumé</h3>
+
+    <p>
+    Nombre présents : <strong>${present}</strong>
+    </p>
+
+    <p>
+    Nombre absents : <strong>${absent}</strong>
+    </p>
+
+    <p>
+    Total : <strong>${present+absent}</strong>
+    </p>
+
+    </div>
+
+
+    <br><br>
+
+    <p>
+    Document généré par la plateforme pédagogique
+    Esquisse Routière — ENSTP.
+    </p>
+
+    <script>
+
+    window.onload=function(){
+        window.print();
+    }
+
+    <\/script>
+
+    </body>
+
+    </html>
+
+    `;
+
+
+    const win=
+        window.open("","_blank");
+
+    win.document.write(report);
+
+    win.document.close();
 
 }
 
 
-/* =========================================================
-   STUDENT NAME
-========================================================= */
+/* ========================================================
+   DEFAULT DATE
+======================================================== */
 
-const studentName =
-document.getElementById("studentName");
+document.addEventListener("DOMContentLoaded",function(){
 
-studentName.value =
-localStorage.getItem(
-    "esquisse-student-name"
-) || "";
+    const dateInput=
+        document.getElementById("presenceDate");
 
-studentName.addEventListener(
-    "input",
-    function(){
+    if(dateInput){
 
-        localStorage.setItem(
-            "esquisse-student-name",
-            this.value
+        const tomorrow=
+            new Date();
+
+        tomorrow.setDate(
+            tomorrow.getDate()+1
         );
 
-    }
-);
-
-
-/* =========================================================
-   INITIALIZATION
-========================================================= */
-
-loadAttendance();
-
-
-/* =========================================================
-   ACTIVE NAVIGATION
-========================================================= */
-
-const sections =
-document.querySelectorAll(
-    "section[id]"
-);
-
-const navLinks =
-document.querySelectorAll(
-    ".nav-link"
-);
-
-window.addEventListener(
-    "scroll",
-    () => {
-
-        let current = "";
-
-        sections.forEach(section => {
-
-            const top =
-                section.offsetTop - 120;
-
-            if(
-                window.scrollY >= top
-            ){
-
-                current =
-                    section.id;
-
-            }
-
-        });
-
-        navLinks.forEach(link => {
-
-            link.classList.remove("active");
-
-            if(
-                link.getAttribute("href")
-                === "#" + current
-            ){
-
-                link.classList.add("active");
-
-            }
-
-        });
+        dateInput.value=
+            tomorrow.toISOString().split("T")[0];
 
     }
-);
-
-
-/* =========================================================
-   CLOSE MOBILE MENU
-========================================================= */
-
-document
-.querySelectorAll(".nav-link")
-.forEach(link => {
-
-    link.addEventListener(
-        "click",
-        () => {
-
-            document
-            .getElementById("sidebar")
-            .classList.remove("open");
-
-        }
-    );
 
 });
 
