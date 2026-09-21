@@ -61,25 +61,55 @@ body{
     gap:20px;
 }
 
-.logo-box{
-    width:95px;
-    height:95px;
-    border-radius:18px;
-    background:white;
+/* =========================================================
+   LOGOS OFFICIELS
+========================================================= */
+
+.logo-container{
+    width:110px;
+    height:110px;
+
     display:flex;
     align-items:center;
     justify-content:center;
-    color:var(--primary);
-    font-weight:900;
-    font-size:16px;
-    text-align:center;
-    box-shadow:0 8px 20px rgba(0,0,0,.18);
+
     flex-shrink:0;
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:8px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.18);
 }
 
-.logo-box.ministere{
+.logo-container img{
+    display:block;
+    max-width:100%;
+    max-height:100%;
+    width:auto;
+    height:auto;
+    object-fit:contain;
+}
+
+.logo-enstp{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+}
+
+.ministere-container{
     border-radius:50%;
-    font-size:12px;
+    width:100px;
+    height:100px;
+    padding:10px;
+}
+
+.logo-mesrs{
+    width:100%;
+    height:100%;
+    object-fit:contain;
 }
 
 .school-title{
@@ -685,10 +715,17 @@ footer p{
         width:100%;
     }
 
-    .logo-box{
-        width:70px;
-        height:70px;
-    }
+    .logo-container{
+    width:75px;
+    height:75px;
+    padding:6px;
+}
+
+.ministere-container{
+    width:70px;
+    height:70px;
+    padding:7px;
+}
 
     .school-title .ar{
         font-size:17px;
@@ -731,9 +768,13 @@ footer p{
 
 <div class="header-inner">
 
-    <div class="logo-box">
-        ENSTP
-    </div>
+    <div class="logo-container">
+    <img 
+        src="image/logo-enstp.jpg" 
+        alt="Logo ENSTP"
+        class="logo-enstp"
+    >
+</div>
 
     <div class="school-title">
 
@@ -753,9 +794,13 @@ footer p{
 
     </div>
 
-    <div class="logo-box ministere">
-        MESRS
-    </div>
+   <div class="logo-container ministere-container">
+    <img 
+        src="image/logo-mesrs.png" 
+        alt="Logo MESRS"
+        class="logo-mesrs"
+    >
+</div>
 
 </div>
 
@@ -1185,27 +1230,34 @@ nécessaires à l'exécution.
 <!-- TP 01 -->
 <div class="card tp-card">
 
-<span class="tp-number">TP 01</span>
+    <span class="tp-number">TP 01</span>
 
-<h3>Installation de COVADIS</h3>
+    <h3>Installation de COVADIS</h3>
 
-<p>
-Installation et configuration de COVADIS sur PC.
-</p>
+    <p>
+        Installation et configuration de COVADIS sur PC.
+    </p>
 
-<div class="resource-buttons">
+    <div class="resource-buttons">
 
-<button class="btn-file"
-onclick="resource('Fichier ZIP COVADIS')">
-📦 Installation
-</button>
+        <!-- TELECHARGEMENT ZIP -->
+        <a
+            class="resource-link btn-file"
+            href="fichiers/covadis/Installation-COVADIS.zip"
+            download="Installation-COVADIS.zip"
+        >
+            📦 Installation
+        </a>
 
-<button class="btn-video"
-onclick="resource('Vidéo installation COVADIS')">
-▶ Vidéo
-</button>
+        <!-- VIDEO -->
+        <button
+            class="btn-video"
+            onclick="openVideo('Installation COVADIS')"
+        >
+            ▶ Vidéo
+        </button>
 
-</div>
+    </div>
 
 </div>
 
@@ -2742,7 +2794,27 @@ function generatePresenceReport(){
         padding:20px;
         background:#eef5f9;
     }
+.resource-link{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    padding:9px 12px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
+    transition:.2s;
+}
 
+.resource-link:hover{
+    transform:translateY(-2px);
+    box-shadow:0 5px 12px rgba(0,0,0,.12);
+}
+
+.btn-file{
+    background:#e7f2fa;
+    color:#075985;
+}
     </style>
 
     </head>
