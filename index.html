@@ -2356,63 +2356,72 @@ window.onclick=function(e){
 
 function openCourse(type){
 
-    if(type==="web"){
+    if(type === "web"){
 
         openModal(`
 
-        <h2>🌐 Cours — Version Web</h2>
+            <h2>🌐 Cours — Version Web</h2>
 
-        <div class="notice">
+            <div class="notice">
 
-        <strong>Esquisse Routière</strong>
+                <strong>Esquisse Routière</strong>
 
-        <br><br>
+                <br><br>
 
-        Cette section accueillera le cours interactif :
+                Cette section accueillera le cours interactif :
 
-        <ul style="margin:15px 0 0 20px;line-height:2">
+                <ul style="margin:15px 0 0 20px;line-height:2">
 
-        <li>Introduction au projet routier</li>
-        <li>Données topographiques</li>
-        <li>Tracé en plan</li>
-        <li>Profil en long</li>
-        <li>Profil en travers</li>
-        <li>Terrassements</li>
-        <li>Chaussées</li>
-        <li>Carrefours</li>
-        <li>Assainissement</li>
-        <li>Signalisation</li>
+                    <li>Introduction au projet routier</li>
+                    <li>Données topographiques</li>
+                    <li>Tracé en plan</li>
+                    <li>Profil en long</li>
+                    <li>Profil en travers</li>
+                    <li>Terrassements</li>
+                    <li>Chaussées</li>
+                    <li>Carrefours</li>
+                    <li>Assainissement</li>
+                    <li>Signalisation</li>
 
-        </ul>
+                </ul>
 
-        </div>
+            </div>
 
         `);
 
-    }else{
+    }
+
+    else if(type === "pdf"){
 
         openModal(`
 
-        <h2>📕 Cours — PDF</h2>
+            <h2>📕 Cours — PDF</h2>
 
-        <div class="notice">
+            <div class="notice">
 
-        Le fichier PDF du cours sera placé ici.
+                <strong>Cours Esquisse Routière</strong>
 
-        <br><br>
+                <br><br>
 
-        Exemple :
+                Le cours complet est disponible au format PDF.
 
-        <strong>cours-esquisse-routiere.pdf</strong>
+            </div>
 
-        </div>
+            <a
+                href="fichiers/cours-esquisse-routiere.pdf"
+                target="_blank"
+                class="pdf-open-btn"
+            >
+                📄 Ouvrir le PDF
+            </a>
 
-        <button class="btn btn-danger"
-        onclick="resource('cours-esquisse-routiere.pdf')">
-
-        📄 Ouvrir le PDF
-
-        </button>
+            <a
+                href="fichiers/cours-esquisse-routiere.pdf"
+                download="Cours-Esquisse-Routiere.pdf"
+                class="pdf-download-btn"
+            >
+                ⬇️ Télécharger le PDF
+            </a>
 
         `);
 
@@ -2814,6 +2823,48 @@ function generatePresenceReport(){
 .btn-file{
     background:#e7f2fa;
     color:#075985;
+}
+    .pdf-open-btn,
+.pdf-download-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    text-decoration:none;
+
+    border-radius:9px;
+
+    padding:12px 18px;
+
+    margin:6px;
+
+    font-weight:700;
+
+    transition:.2s;
+}
+
+.pdf-open-btn{
+
+    background:#d64545;
+
+    color:white;
+}
+
+.pdf-download-btn{
+
+    background:#075985;
+
+    color:white;
+}
+
+.pdf-open-btn:hover,
+.pdf-download-btn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
 }
     </style>
 
