@@ -21,25 +21,19 @@
 }
 
 :root{
-
     --primary:#063b63;
     --primary2:#0b5d8f;
     --secondary:#f2a900;
-
     --dark:#102a43;
     --text:#263746;
     --muted:#6b7c8f;
-
     --light:#f4f7fa;
-    --white:#ffffff;
+    --white:#fff;
     --border:#dce5ed;
-
     --success:#168a55;
     --danger:#d64545;
     --warning:#d99300;
-
     --shadow:0 10px 30px rgba(16,42,67,.10);
-
 }
 
 html{
@@ -47,13 +41,9 @@ html{
 }
 
 body{
-
     font-family:"Segoe UI",Arial,sans-serif;
-
     background:#f5f8fb;
-
     color:var(--text);
-
 }
 
 /* =========================================================
@@ -61,144 +51,82 @@ body{
 ========================================================= */
 
 .top-header{
-
-    background:linear-gradient(
-        135deg,
-        #062b49,
-        #075985
-    );
-
+    background:linear-gradient(135deg,#062b49,#075985);
     color:white;
-
     padding:15px 25px;
-
 }
 
 .header-inner{
-
     max-width:1450px;
-
     margin:auto;
-
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
-
     gap:20px;
-
 }
 
 .logo-container{
-
     width:110px;
     height:110px;
-
     display:flex;
-
     align-items:center;
     justify-content:center;
-
     flex-shrink:0;
-
     background:white;
-
     border-radius:18px;
-
     padding:8px;
-
-    box-shadow:
-        0 8px 20px rgba(0,0,0,.18);
-
+    box-shadow:0 8px 20px rgba(0,0,0,.18);
 }
 
 .logo-container img{
-
     display:block;
-
     max-width:100%;
     max-height:100%;
-
     width:auto;
     height:auto;
-
     object-fit:contain;
-
 }
 
-.logo-enstp{
-
+.logo-enstp,
+.logo-mesrs{
     width:100%;
     height:100%;
-
     object-fit:contain;
-
 }
 
 .ministere-container{
-
     border-radius:50%;
-
     width:100px;
     height:100px;
-
     padding:10px;
-
-}
-
-.logo-mesrs{
-
-    width:100%;
-    height:100%;
-
-    object-fit:contain;
-
 }
 
 .school-title{
-
     text-align:center;
-
     flex:1;
-
 }
 
 .school-title .ar{
-
     font-size:23px;
-
     font-weight:800;
-
     direction:rtl;
-
 }
 
 .school-title .fr{
-
     font-size:22px;
-
     font-weight:800;
-
 }
 
 .school-title .en{
-
     font-size:17px;
-
     opacity:.9;
-
 }
 
 .header-line{
-
     width:90px;
     height:3px;
-
     background:var(--secondary);
-
     margin:10px auto;
-
 }
 
 /* =========================================================
@@ -206,67 +134,39 @@ body{
 ========================================================= */
 
 .navbar{
-
     background:white;
-
     position:sticky;
-
     top:0;
-
     z-index:1000;
-
-    box-shadow:
-        0 4px 15px rgba(0,0,0,.08);
-
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
 }
 
 .nav-inner{
-
     max-width:1450px;
-
     margin:auto;
-
     display:flex;
-
     align-items:center;
-
     gap:8px;
-
     padding:8px 15px;
-
     overflow-x:auto;
-
 }
 
 .nav-btn{
-
     border:none;
-
     background:transparent;
-
     padding:12px 15px;
-
     border-radius:9px;
-
     cursor:pointer;
-
     color:var(--dark);
-
     font-weight:600;
-
     white-space:nowrap;
-
     transition:.2s;
-
 }
 
 .nav-btn:hover,
 .nav-btn.active{
-
     background:var(--primary);
-
     color:white;
-
 }
 
 /* =========================================================
@@ -274,78 +174,43 @@ body{
 ========================================================= */
 
 .hero{
-
     background:
-
-        linear-gradient(
-            rgba(3,31,53,.82),
-            rgba(3,31,53,.82)
-        ),
-
-        linear-gradient(
-            135deg,
-            #0875b1,
-            #082f49
-        );
-
+        linear-gradient(rgba(3,31,53,.82),rgba(3,31,53,.82)),
+        linear-gradient(135deg,#0875b1,#082f49);
     color:white;
-
     padding:70px 20px;
-
 }
 
 .hero-content{
-
     max-width:1200px;
-
     margin:auto;
-
     text-align:center;
-
 }
 
 .hero h1{
-
     font-size:52px;
-
     margin-bottom:10px;
-
 }
 
 .hero h2{
-
     color:#ffd166;
-
     font-size:25px;
-
     margin-bottom:20px;
-
 }
 
 .hero p{
-
     max-width:950px;
-
     margin:auto;
-
     font-size:18px;
-
     line-height:1.8;
-
 }
 
 .hero-actions{
-
     margin-top:30px;
-
     display:flex;
-
     justify-content:center;
-
     gap:12px;
-
     flex-wrap:wrap;
-
 }
 
 /* =========================================================
@@ -353,121 +218,80 @@ body{
 ========================================================= */
 
 .btn{
-
     border:none;
-
     border-radius:9px;
-
     padding:12px 20px;
-
     cursor:pointer;
-
     font-weight:700;
-
     transition:.2s;
-
 }
 
 .btn:hover{
-
     transform:translateY(-2px);
-
 }
 
 .btn-primary{
-
     background:var(--secondary);
-
     color:#14212b;
-
 }
 
 .btn-light{
-
     background:white;
-
     color:var(--primary);
-
 }
 
 .btn-success{
-
     background:var(--success);
-
     color:white;
-
 }
 
 .btn-danger{
-
     background:var(--danger);
-
     color:white;
-
 }
 
 /* =========================================================
-   CONTAINER
+   CONTAINER / SECTIONS
 ========================================================= */
 
 .container{
-
     max-width:1400px;
-
     margin:40px auto;
-
     padding:0 20px;
-
 }
 
 .section{
-
     display:none;
-
 }
 
 .section.active{
-
     display:block;
-
     animation:fade .25s ease;
-
 }
 
 @keyframes fade{
-
     from{
         opacity:0;
         transform:translateY(8px);
     }
-
     to{
         opacity:1;
         transform:translateY(0);
     }
-
 }
 
 .section-title{
-
     margin-bottom:25px;
-
 }
 
 .section-title h2{
-
     color:var(--primary);
-
     font-size:32px;
-
 }
 
 .section-title p{
-
     color:var(--muted);
-
     margin-top:7px;
-
 }
 
 /* =========================================================
@@ -475,75 +299,44 @@ body{
 ========================================================= */
 
 .grid{
-
     display:grid;
-
-    grid-template-columns:
-        repeat(
-            auto-fit,
-            minmax(260px,1fr)
-        );
-
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
     gap:20px;
-
 }
 
 .card{
-
     background:white;
-
     border:1px solid var(--border);
-
     border-radius:16px;
-
     padding:22px;
-
     box-shadow:var(--shadow);
-
     transition:.2s;
-
 }
 
 .card:hover{
-
     transform:translateY(-3px);
-
 }
 
 .card-icon{
-
     width:55px;
     height:55px;
-
     border-radius:14px;
-
     display:flex;
-
     align-items:center;
     justify-content:center;
-
     background:#e7f2fa;
-
     font-size:26px;
-
     margin-bottom:15px;
-
 }
 
 .card h3{
-
     color:var(--primary);
-
     margin-bottom:10px;
-
 }
 
 .card p{
-
     line-height:1.7;
-
     color:#5c6d7c;
-
 }
 
 /* =========================================================
@@ -551,17 +344,11 @@ body{
 ========================================================= */
 
 .notice{
-
     padding:15px;
-
     border-radius:10px;
-
     background:#eef7ff;
-
     border-left:5px solid #0875b1;
-
     margin-bottom:20px;
-
 }
 
 /* =========================================================
@@ -569,25 +356,17 @@ body{
 ========================================================= */
 
 .stat{
-
     text-align:center;
-
 }
 
 .stat-number{
-
     font-size:36px;
-
     font-weight:900;
-
     color:var(--primary);
-
 }
 
 .stat-label{
-
     color:var(--muted);
-
 }
 
 /* =========================================================
@@ -595,151 +374,85 @@ body{
 ========================================================= */
 
 .teacher{
-
     text-align:center;
-
 }
 
 .teacher-avatar{
-
     width:90px;
     height:90px;
-
     border-radius:50%;
-
-    background:
-        linear-gradient(
-            135deg,
-            #075985,
-            #f2a900
-        );
-
+    background:linear-gradient(135deg,#075985,#f2a900);
     margin:0 auto 15px;
-
     display:flex;
-
     align-items:center;
     justify-content:center;
-
     color:white;
-
     font-size:27px;
-
     font-weight:900;
-
 }
 
 .teacher-role{
-
     color:var(--secondary);
-
     font-weight:700;
-
 }
 
 .socials{
-
     margin-top:15px;
-
     display:flex;
-
     justify-content:center;
-
     gap:8px;
-
     flex-wrap:wrap;
-
 }
 
 .socials a{
-
     width:36px;
     height:36px;
-
     border-radius:50%;
-
     color:white;
-
     display:flex;
-
     align-items:center;
     justify-content:center;
-
     text-decoration:none;
-
     font-weight:bold;
-
     font-size:12px;
-
 }
 
-.linkedin{
-    background:#0a66c2;
-}
-
-.scholar{
-    background:#4285f4;
-}
-
-.orcid{
-    background:#a6ce39;
-}
-
-.research{
-    background:#00ccbb;
-}
-
-.mail{
-    background:#d44638;
-}
+.linkedin{background:#0a66c2}
+.scholar{background:#4285f4}
+.orcid{background:#a6ce39}
+.research{background:#00ccbb}
+.mail{background:#d44638}
 
 /* =========================================================
    TABLE
 ========================================================= */
 
 .table-wrapper{
-
     overflow-x:auto;
-
     background:white;
-
     border-radius:15px;
-
     box-shadow:var(--shadow);
-
 }
 
 table{
-
     width:100%;
-
     border-collapse:collapse;
-
 }
 
 th,
 td{
-
     padding:13px 15px;
-
     border-bottom:1px solid var(--border);
-
     text-align:left;
-
 }
 
 th{
-
     background:var(--primary);
-
     color:white;
-
 }
 
 tr:hover td{
-
     background:#f7fafc;
-
 }
 
 /* =========================================================
@@ -747,33 +460,21 @@ tr:hover td{
 ========================================================= */
 
 .status{
-
     border:none;
-
     border-radius:20px;
-
     padding:6px 12px;
-
     cursor:pointer;
-
     font-weight:700;
-
 }
 
 .present{
-
     background:#d9f5e8;
-
     color:#087744;
-
 }
 
 .absent{
-
     background:#fde1e1;
-
     color:#b42e2e;
-
 }
 
 /* =========================================================
@@ -781,107 +482,61 @@ tr:hover td{
 ========================================================= */
 
 .tp-card{
-
     border-left:5px solid var(--primary);
-
 }
 
 .tp-number{
-
     display:inline-block;
-
     background:var(--secondary);
-
     padding:6px 10px;
-
     border-radius:7px;
-
     font-weight:800;
-
     margin-bottom:10px;
-
 }
 
 .resource-buttons{
-
     display:flex;
-
     gap:8px;
-
     flex-wrap:wrap;
-
     margin-top:15px;
-
 }
 
 .resource-buttons button{
-
     border:none;
-
     padding:10px 13px;
-
     border-radius:8px;
-
     cursor:pointer;
-
     font-weight:700;
-
 }
 
-/* =========================================================
-   YOUTUBE
-========================================================= */
-
 .btn-video{
-
     display:inline-flex;
-
     align-items:center;
-
     justify-content:center;
-
     background:#ff0000;
-
     color:white;
-
     text-decoration:none;
-
     border:none;
-
     padding:10px 15px;
-
     border-radius:8px;
-
     font-weight:700;
-
     cursor:pointer;
-
     transition:.2s;
-
 }
 
 .btn-video:hover{
-
     background:#cc0000;
-
     transform:translateY(-2px);
-
 }
 
 .btn-pdf{
-
     background:#fde4e4;
-
     color:#b42318;
-
 }
 
 .btn-file{
-
     background:#e7f2fa;
-
     color:#075985;
-
 }
 
 /* =========================================================
@@ -889,82 +544,48 @@ tr:hover td{
 ========================================================= */
 
 .tp-video-list{
-
     display:flex;
-
     flex-direction:column;
-
     gap:15px;
-
     margin-top:20px;
-
 }
 
 .tp-video-item{
-
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
-
     gap:20px;
-
     padding:18px;
-
     background:#f7fafc;
-
     border:1px solid var(--border);
-
     border-radius:12px;
-
     transition:.25s;
-
 }
 
 .tp-video-item:hover{
-
     transform:translateY(-2px);
-
-    box-shadow:
-        0 7px 20px rgba(0,0,0,.08);
-
+    box-shadow:0 7px 20px rgba(0,0,0,.08);
 }
 
 .tp-video-info{
-
     flex:1;
-
 }
 
 .tp-video-number{
-
     display:inline-block;
-
     background:#e7f2fa;
-
     color:#075985;
-
     padding:5px 9px;
-
     border-radius:6px;
-
     font-size:13px;
-
     font-weight:800;
-
     margin-bottom:8px;
-
 }
 
 .tp-video-item h3{
-
     color:var(--primary);
-
     font-size:16px;
-
     line-height:1.5;
-
 }
 
 /* =========================================================
@@ -972,31 +593,21 @@ tr:hover td{
 ========================================================= */
 
 .format-card{
-
     text-align:center;
-
     cursor:pointer;
-
 }
 
 .format-card .big-icon{
-
     font-size:50px;
-
     margin-bottom:10px;
-
 }
 
 .format-card.web{
-
     border-top:5px solid #0875b1;
-
 }
 
 .format-card.pdf{
-
     border-top:5px solid #d83a3a;
-
 }
 
 /* =========================================================
@@ -1004,56 +615,121 @@ tr:hover td{
 ========================================================= */
 
 .software-card{
-
     position:relative;
-
     overflow:hidden;
-
 }
 
 .software-logo{
-
     font-size:45px;
-
     margin-bottom:15px;
-
 }
 
 .software-menu{
-
     display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
+    grid-template-columns:repeat(3,1fr);
     gap:8px;
-
     margin-top:15px;
-
 }
 
 .software-menu button{
-
     border:1px solid var(--border);
-
     background:white;
-
     padding:10px 5px;
-
     border-radius:8px;
-
     cursor:pointer;
-
     font-size:12px;
-
     font-weight:700;
-
+    transition:.2s;
 }
 
 .software-menu button:hover{
-
     background:#eef6fb;
+    transform:translateY(-2px);
+}
 
+.software-menu .video-button{
+    color:#d60000;
+}
+
+/* =========================================================
+   SOFTWARE VIDEO MODAL
+========================================================= */
+
+.software-video-list{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    margin-top:20px;
+}
+
+.software-video-item{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:16px;
+    border:1px solid var(--border);
+    border-radius:13px;
+    background:#f8fafc;
+    transition:.2s;
+}
+
+.software-video-item:hover{
+    background:white;
+    transform:translateX(3px);
+    box-shadow:0 5px 18px rgba(0,0,0,.08);
+}
+
+.software-video-number{
+    width:42px;
+    height:42px;
+    min-width:42px;
+    border-radius:10px;
+    background:var(--primary);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:800;
+}
+
+.software-video-info{
+    flex:1;
+}
+
+.software-video-category{
+    display:inline-block;
+    color:#0875b1;
+    font-size:11px;
+    font-weight:800;
+    text-transform:uppercase;
+    margin-bottom:4px;
+}
+
+.software-video-info h3{
+    color:var(--primary);
+    font-size:16px;
+    margin-bottom:4px;
+}
+
+.software-video-info p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+.youtube-button{
+    background:#ff0000;
+    color:white;
+    text-decoration:none;
+    padding:10px 15px;
+    border-radius:8px;
+    font-weight:700;
+    white-space:nowrap;
+    transition:.2s;
+}
+
+.youtube-button:hover{
+    background:#cc0000;
+    transform:translateY(-2px);
 }
 
 /* =========================================================
@@ -1061,71 +737,41 @@ tr:hover td{
 ========================================================= */
 
 .modal{
-
     display:none;
-
     position:fixed;
-
     inset:0;
-
     background:rgba(0,0,0,.65);
-
     z-index:2000;
-
     align-items:center;
-
     justify-content:center;
-
     padding:20px;
-
 }
 
 .modal.show{
-
     display:flex;
-
 }
 
 .modal-box{
-
-    width:min(900px,100%);
-
+    width:min(950px,100%);
     max-height:90vh;
-
     overflow:auto;
-
     background:white;
-
     border-radius:18px;
-
     padding:28px;
-
     position:relative;
-
 }
 
 .close{
-
     position:absolute;
-
     top:12px;
-
     right:15px;
-
     width:35px;
-
     height:35px;
-
     border:none;
-
     border-radius:50%;
-
     cursor:pointer;
-
     background:#edf1f5;
-
     font-size:20px;
-
 }
 
 /* =========================================================
@@ -1133,44 +779,25 @@ tr:hover td{
 ========================================================= */
 
 .form-grid{
-
     display:grid;
-
-    grid-template-columns:
-        repeat(
-            auto-fit,
-            minmax(220px,1fr)
-        );
-
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
     gap:15px;
-
     margin-bottom:20px;
-
 }
 
 .form-group label{
-
     display:block;
-
     margin-bottom:6px;
-
     font-weight:700;
-
 }
 
 .form-group input,
 .form-group select{
-
     width:100%;
-
     padding:12px;
-
     border:1px solid var(--border);
-
     border-radius:8px;
-
     font-size:15px;
-
 }
 
 /* =========================================================
@@ -1178,64 +805,36 @@ tr:hover td{
 ========================================================= */
 
 footer{
-
     margin-top:60px;
-
     background:#062b49;
-
     color:white;
-
     padding:40px 20px;
-
 }
 
 .footer-grid{
-
     max-width:1300px;
-
     margin:auto;
-
     display:grid;
-
-    grid-template-columns:
-        repeat(
-            auto-fit,
-            minmax(220px,1fr)
-        );
-
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
     gap:30px;
-
 }
 
 footer h3{
-
     color:#ffd166;
-
     margin-bottom:15px;
-
 }
 
 footer p{
-
     line-height:1.8;
-
     color:#d7e2ea;
-
 }
 
 .copyright{
-
     max-width:1300px;
-
     margin:30px auto 0;
-
     padding-top:20px;
-
-    border-top:
-        1px solid rgba(255,255,255,.15);
-
+    border-top:1px solid rgba(255,255,255,.15);
     text-align:center;
-
 }
 
 /* =========================================================
@@ -1245,91 +844,69 @@ footer p{
 @media(max-width:800px){
 
     .header-inner{
-
         flex-wrap:wrap;
-
         justify-content:center;
-
     }
 
     .school-title{
-
         order:-1;
-
         width:100%;
-
     }
 
     .logo-container{
-
         width:75px;
         height:75px;
-
         padding:6px;
-
     }
 
     .ministere-container{
-
         width:70px;
         height:70px;
-
         padding:7px;
-
     }
 
     .school-title .ar{
-
         font-size:17px;
-
     }
 
     .school-title .fr{
-
         font-size:16px;
-
     }
 
     .school-title .en{
-
         font-size:13px;
-
     }
 
     .hero h1{
-
         font-size:34px;
-
     }
 
     .hero h2{
-
         font-size:20px;
-
     }
 
     .software-menu{
-
         grid-template-columns:1fr;
-
     }
 
 }
 
 @media(max-width:650px){
 
-    .tp-video-item{
-
+    .tp-video-item,
+    .software-video-item{
         flex-direction:column;
-
         align-items:stretch;
-
     }
 
-    .tp-video-item .btn-video{
-
+    .tp-video-item .btn-video,
+    .youtube-button{
         width:100%;
+    }
 
+    .software-video-number{
+        width:100%;
+        height:35px;
     }
 
 }
@@ -1337,7 +914,6 @@ footer p{
 </style>
 
 </head>
-
 
 <body>
 
@@ -1355,44 +931,34 @@ footer p{
 <img
 src="image/logo-enstp.jpg"
 alt="Logo ENSTP"
-class="logo-enstp"
->
+class="logo-enstp">
 
 </div>
-
 
 <div class="school-title">
 
 <div class="ar">
-
 المدرسة الوطنية العليا للأشغال العمومية
-
 </div>
 
 <div class="header-line"></div>
 
 <div class="fr">
-
 ÉCOLE NATIONALE SUPÉRIEURE DES TRAVAUX PUBLICS
-
 </div>
 
 <div class="en">
-
 HIGHER NATIONAL SCHOOL OF PUBLIC WORKS
-
 </div>
 
 </div>
-
 
 <div class="logo-container ministere-container">
 
 <img
 src="image/logo-mesrs.png"
 alt="Logo MESRS"
-class="logo-mesrs"
->
+class="logo-mesrs">
 
 </div>
 
@@ -1409,63 +975,51 @@ class="logo-mesrs"
 
 <div class="nav-inner">
 
-<button class="nav-btn active"
-onclick="showSection('home',this)">
+<button class="nav-btn active" onclick="showSection('home',this)">
 🏠 Accueil
 </button>
 
-<button class="nav-btn"
-onclick="showSection('objectifs',this)">
+<button class="nav-btn" onclick="showSection('objectifs',this)">
 🎯 Objectifs
 </button>
 
-<button class="nav-btn"
-onclick="showSection('cours',this)">
+<button class="nav-btn" onclick="showSection('cours',this)">
 📚 Cours
 </button>
 
-<button class="nav-btn"
-onclick="showSection('phases',this)">
+<button class="nav-btn" onclick="showSection('phases',this)">
 🏗️ Phases d'étude
 </button>
 
-<button class="nav-btn"
-onclick="showSection('tp',this)">
+<button class="nav-btn" onclick="showSection('tp',this)">
 🧪 TP
 </button>
 
-<button class="nav-btn"
-onclick="showSection('logiciels',this)">
+<button class="nav-btn" onclick="showSection('logiciels',this)">
 💻 Logiciels
 </button>
 
-<button class="nav-btn"
-onclick="showSection('videos',this)">
+<button class="nav-btn" onclick="showSection('videos',this)">
 🎥 Vidéos
 </button>
 
-<button class="nav-btn"
-onclick="showSection('presence',this)">
+<button class="nav-btn" onclick="showSection('presence',this)">
 ✅ Présence
 </button>
 
-<button class="nav-btn"
-onclick="showSection('planning',this)">
+<button class="nav-btn" onclick="showSection('planning',this)">
 📅 Planning
 </button>
 
-<button class="nav-btn"
-onclick="showSection('devoirs',this)">
+<button class="nav-btn" onclick="showSection('devoirs',this)">
 📝 Devoirs & Projet
 </button>
 
-<button class="nav-btn"
-onclick="showSection('documents',this)">
+<button class="nav-btn" onclick="showSection('documents',this)">
 📖 Documents & Livres
 </button>
 
-<button class="nav-btn"
-onclick="showSection('enseignants',this)">
+<button class="nav-btn" onclick="showSection('enseignants',this)">
 👨‍🏫 Enseignants
 </button>
 
@@ -1486,16 +1040,12 @@ onclick="showSection('enseignants',this)">
 
 <h1>Esquisse Routière</h1>
 
-<h2>
-Road Sketch • Conception Routière
-</h2>
+<h2>Road Sketch • Conception Routière</h2>
 
 <p>
-
 Plateforme pédagogique destinée aux étudiants
 de 4ème année, Département d'Infrastructures de Base,
 ENSTP – Kouba, Alger.
-
 </p>
 
 <p style="margin-top:10px">
@@ -1510,23 +1060,17 @@ et détaillée d'une infrastructure routière.
 
 <button class="btn btn-primary"
 onclick="showSection('cours')">
-
 📚 Accéder aux cours
-
 </button>
 
 <button class="btn btn-light"
 onclick="showSection('tp')">
-
 🧪 Voir les TP
-
 </button>
 
 <button class="btn btn-light"
 onclick="showSection('logiciels')">
-
 💻 Logiciels
-
 </button>
 
 </div>
@@ -1534,7 +1078,6 @@ onclick="showSection('logiciels')">
 </div>
 
 </div>
-
 
 <div class="container">
 
@@ -1542,12 +1085,9 @@ onclick="showSection('logiciels')">
 
 <h2>Informations du module</h2>
 
-<p>
-Organisation pédagogique
-</p>
+<p>Organisation pédagogique</p>
 
 </div>
-
 
 <div class="grid">
 
@@ -1555,9 +1095,7 @@ Organisation pédagogique
 
 <div class="card-icon">🎓</div>
 
-<div class="stat-number">
-4ème
-</div>
+<div class="stat-number">4ème</div>
 
 <div class="stat-label">
 Année – Infrastructures de Base
@@ -1565,14 +1103,11 @@ Année – Infrastructures de Base
 
 </div>
 
-
 <div class="card stat">
 
 <div class="card-icon">📅</div>
 
-<div class="stat-number">
-Mardi
-</div>
+<div class="stat-number">Mardi</div>
 
 <div class="stat-label">
 Journée pédagogique
@@ -1580,14 +1115,11 @@ Journée pédagogique
 
 </div>
 
-
 <div class="card stat">
 
 <div class="card-icon">🕗</div>
 
-<div class="stat-number">
-08:00
-</div>
+<div class="stat-number">08:00</div>
 
 <div class="stat-label">
 Début – Groupe 1
@@ -1595,26 +1127,19 @@ Début – Groupe 1
 
 </div>
 
-
 <div class="card stat">
 
 <div class="card-icon">🏫</div>
 
-<div class="stat-number">
-05 / 25
-</div>
+<div class="stat-number">05 / 25</div>
 
-<div class="stat-label">
-Salles
-</div>
+<div class="stat-label">Salles</div>
 
 </div>
 
 </div>
-
 
 <div style="height:25px"></div>
-
 
 <div class="notice">
 
@@ -1632,8 +1157,7 @@ Salles
 
 <br><br>
 
-<strong>Jour :</strong>
-Mardi
+<strong>Jour :</strong> Mardi
 
 </div>
 
@@ -1654,121 +1178,65 @@ Mardi
 
 <h2>🎯 Objectifs du module</h2>
 
-<p>
-Compétences à acquérir
-</p>
+<p>Compétences à acquérir</p>
 
 </div>
-
 
 <div class="grid">
 
 <div class="card">
-
 <div class="card-icon">📐</div>
-
-<h3>
-Comprendre le projet routier
-</h3>
-
+<h3>Comprendre le projet routier</h3>
 <p>
-
 Comprendre les différentes composantes
 d'un projet routier, les données topographiques,
 géométriques et techniques.
-
 </p>
-
 </div>
 
-
 <div class="card">
-
 <div class="card-icon">🌍</div>
-
-<h3>
-Modéliser le terrain
-</h3>
-
+<h3>Modéliser le terrain</h3>
 <p>
-
 Importer les données topographiques,
 créer un MNT et analyser le terrain naturel.
-
 </p>
-
 </div>
 
-
 <div class="card">
-
 <div class="card-icon">🛣️</div>
-
-<h3>
-Concevoir une route
-</h3>
-
+<h3>Concevoir une route</h3>
 <p>
-
 Réaliser le tracé en plan,
 le profil en long et les profils en travers.
-
 </p>
-
 </div>
 
-
 <div class="card">
-
 <div class="card-icon">📊</div>
-
-<h3>
-Calculer les terrassements
-</h3>
-
+<h3>Calculer les terrassements</h3>
 <p>
-
 Calculer les cubatures et analyser
 les déblais et remblais.
-
 </p>
-
 </div>
 
-
 <div class="card">
-
 <div class="card-icon">🏗️</div>
-
-<h3>
-Dimensionner la chaussée
-</h3>
-
+<h3>Dimensionner la chaussée</h3>
 <p>
-
 Dimensionnement et vérification mécanique
 de la structure de chaussée.
-
 </p>
-
 </div>
 
-
 <div class="card">
-
 <div class="card-icon">🚦</div>
-
-<h3>
-Finaliser le projet
-</h3>
-
+<h3>Finaliser le projet</h3>
 <p>
-
 Produire les plans, la signalisation,
 l'assainissement et le dossier graphique.
-
 </p>
-
 </div>
 
 </div>
@@ -1790,25 +1258,18 @@ l'assainissement et le dossier graphique.
 
 <h2>📚 Cours</h2>
 
-<p>
-Deux formats pédagogiques disponibles
-</p>
+<p>Deux formats pédagogiques disponibles</p>
 
 </div>
-
 
 <div class="grid">
 
 <div class="card format-card web"
 onclick="openCourse('web')">
 
-<div class="big-icon">
-🌐
-</div>
+<div class="big-icon">🌐</div>
 
-<h3>
-Version Web
-</h3>
+<h3>Version Web</h3>
 
 <p>
 Consulter le cours directement depuis la plateforme.
@@ -1820,17 +1281,12 @@ Ouvrir le cours
 
 </div>
 
-
 <div class="card format-card pdf"
 onclick="openCourse('pdf')">
 
-<div class="big-icon">
-📕
-</div>
+<div class="big-icon">📕</div>
 
-<h3>
-Version PDF
-</h3>
+<h3>Version PDF</h3>
 
 <p>
 Télécharger ou consulter le support PDF.
@@ -1859,85 +1315,51 @@ Ouvrir PDF
 
 <div class="section-title">
 
-<h2>
-🏗️ Phases d'étude d'un projet routier
-</h2>
+<h2>🏗️ Phases d'étude d'un projet routier</h2>
 
-<p>
-Du diagnostic à l'exécution
-</p>
+<p>Du diagnostic à l'exécution</p>
 
 </div>
-
 
 <div class="grid">
 
 <div class="card">
-
-<h3>
-01 — Architecture globale
-</h3>
-
+<h3>01 — Architecture globale</h3>
 <p>
 Compréhension générale du projet routier,
 contraintes, données et objectifs.
 </p>
-
 </div>
 
-
 <div class="card">
-
-<h3>
-02 — EP
-</h3>
-
+<h3>02 — EP</h3>
 <p>
 Études préliminaires et analyse des variantes.
 </p>
-
 </div>
 
-
 <div class="card">
-
-<h3>
-03 — APS
-</h3>
-
+<h3>03 — APS</h3>
 <p>
 Avant-Projet Sommaire :
 définition et comparaison des solutions.
 </p>
-
 </div>
 
-
 <div class="card">
-
-<h3>
-04 — APD
-</h3>
-
+<h3>04 — APD</h3>
 <p>
 Avant-Projet Détaillé :
 géométrie, chaussée, assainissement et équipements.
 </p>
-
 </div>
 
-
 <div class="card">
-
-<h3>
-05 — Dossier d'exécution
-</h3>
-
+<h3>05 — Dossier d'exécution</h3>
 <p>
 Plans définitifs, détails techniques,
 métrés et documents nécessaires à l'exécution.
 </p>
-
 </div>
 
 </div>
@@ -1957,9 +1379,7 @@ métrés et documents nécessaires à l'exécution.
 
 <div class="section-title">
 
-<h2>
-🧪 Travaux pratiques
-</h2>
+<h2>🧪 Travaux pratiques</h2>
 
 <p>
 Chaque TP possède sa propre liste de vidéos YouTube.
@@ -1967,457 +1387,18 @@ Chaque TP possède sa propre liste de vidéos YouTube.
 
 </div>
 
-
 <div class="grid">
 
+<script>
 
-<!-- TP 01 -->
+/*
+Les cartes TP sont générées automatiquement
+depuis les données JavaScript.
+*/
 
-<div class="card tp-card">
+</script>
 
-<span class="tp-number">
-TP 01
-</span>
-
-<h3>
-Installation de COVADIS
-</h3>
-
-<p>
-Installation et configuration de COVADIS sur PC.
-</p>
-
-<div class="resource-buttons">
-
-<button class="btn-video"
-onclick="openTPVideos('TP01')">
-
-🎥 Voir les vidéos
-
-</button>
-
-<button class="btn-pdf"
-onclick="resource('Guide installation COVADIS')">
-
-📄 Guide PDF
-
-</button>
-
-</div>
-
-</div>
-
-
-<!-- TP 02 -->
-
-<div class="card tp-card">
-
-<span class="tp-number">
-TP 02
-</span>
-
-<h3>
-Topographie & MNT
-</h3>
-
-<p>
-Traitement topographique, importation des points,
-modélisation du terrain naturel et génération du MNT.
-</p>
-
-<div class="resource-buttons">
-
-<button class="btn-video"
-onclick="openTPVideos('TP02')">
-
-🎥 Voir les vidéos
-
-</button>
-
-<button class="btn-pdf"
-onclick="resource('Guide Topographie MNT')">
-
-📄 Guide PDF
-
-</button>
-
-</div>
-
-</div>
-
-
-<!-- TP 03 -->
-
-<div class="card tp-card">
-
-<span class="tp-number">
-TP 03
-</span>
-
-<h3>
-Tracé en plan
-</h3>
-
-<p>
-Conception géométrique du tracé routier,
-alignements, courbes et raccordements.
-</p>
-
-<div class="resource-buttons">
-
-<button class="btn-video"
-onclick="openTPVideos('TP03')">
-
-🎥 Voir les vidéos
-
-</button>
-
-<button class="btn-pdf"
-onclick="resource('Guide tracé en plan')">
-
-📄 Documents
-
-</button>
-
-</div>
-
-</div>
-
-
-<!-- TP 04 -->
-
-<div class="card tp-card">
-
-<span class="tp-number">
-TP 04
-</span>
-
-<h3>
-Profil en long
-</h3>
-
-<p>
-Conception du profil en long,
-rampes, pentes et raccordements verticaux.
-</p>
-
-<div class="resource-buttons">
-
-<button class="btn-video"
-onclick="openTPVideos('TP04')">
-
-🎥 Voir les vidéos
-
-</button>
-
-<button class="btn-pdf"
-onclick="resource('Guide profil en long')">
-
-📄 Guide PDF
-
-</button>
-
-</div>
-
-</div>
-
-
-<!-- TP 05 -->
-
-<div class="card tp-card">
-
-<span class="tp-number">
-TP 05
-</span>
-
-<h3>
-Profil en travers
-</h3>
-
-<p>
-Création des profils en travers types,
-profils projetés et éléments de la chaussée.
-</p>
-
-<div class="resource-buttons">
-
-<button class="btn-video"
-onclick="openTPVideos('TP05')">
-
-🎥 Voir les vidéos
-
-</button>
-
-<button class="btn-pdf"
-onclick="resource('Guide profil en travers')">
-
-📄 Guide PDF
-
-</button>
-
-</div>
-
-</div>
-
-
-<!-- TP 06 -->
-
-<div class="card tp-card">
-
-<span class="tp-number">
-TP 06
-</span>
-
-<h3>
-Cubatures
-</h3>
-
-<p>
-Calcul des terrassements :
-déblais, remblais et volumes.
-</p>
-
-<div class="resource-buttons">
-
-<button class="btn-video"
-onclick="openTPVideos('TP06')">
-
-🎥 Voir les vidéos
-
-</button>
-
-<button class="btn-pdf"
-onclick="resource('Guide cubatures')">
-
-📄 Guide
-
-</button>
-
-</div>
-
-</div>
-
-
-<!-- TP 07 -->
-
-<div class="card tp-card">
-
-<span class="tp-number">
-TP 07
-</span>
-
-<h3>
-Dimensionnement de chaussée
-</h3>
-
-<p>
-Dimensionnement et vérification mécanique
-avec ALIZE-LCPC.
-</p>
-
-<div class="resource-buttons">
-
-<button class="btn-video"
-onclick="openTPVideos('TP07')">
-
-🎥 Voir les vidéos
-
-</button>
-
-<button class="btn-pdf"
-onclick="resource('Guide ALIZE-LCPC')">
-
-📄 PDF
-
-</button>
-
-</div>
-
-</div>
-
-
-<!-- TP 08 -->
-
-<div class="card tp-card">
-
-<span class="tp-number">
-TP 08
-</span>
-
-<h3>
-Aménagement des carrefours
-</h3>
-
-<p>
-Conception et étude géométrique
-des carrefours et intersections.
-</p>
-
-<div class="resource-buttons">
-
-<button class="btn-video"
-onclick="openTPVideos('TP08')">
-
-🎥 Voir les vidéos
-
-</button>
-
-<button class="btn-pdf"
-onclick="resource('Guide carrefours')">
-
-📄 PDF
-
-</button>
-
-</div>
-
-</div>
-
-
-<!-- TP 09 -->
-
-<div class="card tp-card">
-
-<span class="tp-number">
-TP 09
-</span>
-
-<h3>
-Assainissement routier
-</h3>
-
-<p>
-Buses, dalots, caniveaux,
-fossés et drainage routier.
-</p>
-
-<div class="resource-buttons">
-
-<button class="btn-video"
-onclick="openTPVideos('TP09')">
-
-🎥 Voir les vidéos
-
-</button>
-
-<button class="btn-pdf"
-onclick="resource('Guide assainissement')">
-
-📄 PDF
-
-</button>
-
-</div>
-
-</div>
-
-
-<!-- TP 10 -->
-
-<div class="card tp-card">
-
-<span class="tp-number">
-TP 10
-</span>
-
-<h3>
-Traitement des contraintes
-</h3>
-
-<p>
-Identification et traitement
-des contraintes du projet routier.
-</p>
-
-<div class="resource-buttons">
-
-<button class="btn-video"
-onclick="openTPVideos('TP10')">
-
-🎥 Voir les vidéos
-
-</button>
-
-</div>
-
-</div>
-
-
-<!-- TP 11 -->
-
-<div class="card tp-card">
-
-<span class="tp-number">
-TP 11
-</span>
-
-<h3>
-Signalisation
-</h3>
-
-<p>
-Signalisation horizontale et verticale,
-implantation et principes de conception.
-</p>
-
-<div class="resource-buttons">
-
-<button class="btn-video"
-onclick="openTPVideos('TP11')">
-
-🎥 Voir les vidéos
-
-</button>
-
-<button class="btn-pdf"
-onclick="resource('Guide signalisation')">
-
-📄 PDF
-
-</button>
-
-</div>
-
-</div>
-
-
-<!-- TP 12 -->
-
-<div class="card tp-card">
-
-<span class="tp-number">
-TP 12
-</span>
-
-<h3>
-Dossier graphique
-</h3>
-
-<p>
-Mise en page et préparation des plans
-imprimables et du dossier final.
-</p>
-
-<div class="resource-buttons">
-
-<button class="btn-video"
-onclick="openTPVideos('TP12')">
-
-🎥 Voir les vidéos
-
-</button>
-
-<button class="btn-pdf"
-onclick="resource('Modèle dossier graphique')">
-
-📄 Modèle
-
-</button>
-
-</div>
-
-</div>
-
+<div id="tpCards" class="grid" style="grid-column:1/-1"></div>
 
 </div>
 
@@ -2436,9 +1417,7 @@ onclick="resource('Modèle dossier graphique')">
 
 <div class="section-title">
 
-<h2>
-💻 Logiciels de conception routière
-</h2>
+<h2>💻 Logiciels de conception routière</h2>
 
 <p>
 Ressources d'installation, documents et vidéos
@@ -2446,22 +1425,19 @@ Ressources d'installation, documents et vidéos
 
 </div>
 
-
 <div class="grid">
 
+<!-- COVADIS -->
 
 <div class="card software-card">
 
-<div class="software-logo">
-📐
-</div>
+<div class="software-logo">📐</div>
 
-<h3>
-COVADIS
-</h3>
+<h3>COVADIS</h3>
 
 <p>
-Conception routière, topographie et terrassements.
+Conception routière, topographie,
+MNT, terrassements et production des plans.
 </p>
 
 <div class="software-menu">
@@ -2474,7 +1450,8 @@ Conception routière, topographie et terrassements.
 📄 Documents
 </button>
 
-<button onclick="openTPVideos('TP01')">
+<button class="video-button"
+onclick="openSoftwareVideos('covadis')">
 🎥 Vidéos
 </button>
 
@@ -2483,18 +1460,17 @@ Conception routière, topographie et terrassements.
 </div>
 
 
+<!-- CIVIL 3D -->
+
 <div class="card software-card">
 
-<div class="software-logo">
-🏗️
-</div>
+<div class="software-logo">🏗️</div>
 
-<h3>
-Civil 3D
-</h3>
+<h3>Civil 3D</h3>
 
 <p>
-Modélisation du terrain et conception d'infrastructures.
+Modélisation du terrain et conception
+d'infrastructures routières.
 </p>
 
 <div class="software-menu">
@@ -2507,7 +1483,8 @@ Modélisation du terrain et conception d'infrastructures.
 📄 Documents
 </button>
 
-<button onclick="openSearch('Civil 3D tutoriel route')">
+<button class="video-button"
+onclick="openSoftwareVideos('civil3d')">
 🎥 Vidéos
 </button>
 
@@ -2516,18 +1493,17 @@ Modélisation du terrain et conception d'infrastructures.
 </div>
 
 
+<!-- PISTE -->
+
 <div class="card software-card">
 
-<div class="software-logo">
-🛣️
-</div>
+<div class="software-logo">🛣️</div>
 
-<h3>
-PISTE
-</h3>
+<h3>PISTE</h3>
 
 <p>
-Études et conception des infrastructures routières.
+Études et conception des infrastructures
+routières.
 </p>
 
 <div class="software-menu">
@@ -2540,7 +1516,8 @@ PISTE
 📄 Documents
 </button>
 
-<button onclick="openSearch('logiciel PISTE routier tutoriel')">
+<button class="video-button"
+onclick="openSoftwareVideos('piste')">
 🎥 Vidéos
 </button>
 
@@ -2549,18 +1526,17 @@ PISTE
 </div>
 
 
+<!-- GEOMENSURA -->
+
 <div class="card software-card">
 
-<div class="software-logo">
-📊
-</div>
+<div class="software-logo">📊</div>
 
-<h3>
-Géomensura
-</h3>
+<h3>Géomensura</h3>
 
 <p>
-Topographie et conception d'infrastructures.
+Topographie, MNT et conception
+d'infrastructures.
 </p>
 
 <div class="software-menu">
@@ -2573,7 +1549,8 @@ Topographie et conception d'infrastructures.
 📄 Documents
 </button>
 
-<button onclick="openSearch('Géomensura route tutoriel')">
+<button class="video-button"
+onclick="openSoftwareVideos('geomensura')">
 🎥 Vidéos
 </button>
 
@@ -2582,18 +1559,17 @@ Topographie et conception d'infrastructures.
 </div>
 
 
+<!-- ALIZE -->
+
 <div class="card software-card">
 
-<div class="software-logo">
-🔬
-</div>
+<div class="software-logo">🔬</div>
 
-<h3>
-ALIZE-LCPC
-</h3>
+<h3>ALIZE-LCPC</h3>
 
 <p>
-Dimensionnement des structures de chaussée.
+Dimensionnement des structures
+de chaussée.
 </p>
 
 <div class="software-menu">
@@ -2606,14 +1582,14 @@ Dimensionnement des structures de chaussée.
 📄 Documents
 </button>
 
-<button onclick="openSearch('ALIZE LCPC tutoriel')">
+<button class="video-button"
+onclick="openSoftwareVideos('alize')">
 🎥 Vidéos
 </button>
 
 </div>
 
 </div>
-
 
 </div>
 
@@ -2623,7 +1599,7 @@ Dimensionnement des structures de chaussée.
 
 
 <!-- =====================================================
-     VIDEOS
+     VIDEOTHEQUE
 ===================================================== -->
 
 <section id="videos" class="section">
@@ -2632,9 +1608,7 @@ Dimensionnement des structures de chaussée.
 
 <div class="section-title">
 
-<h2>
-🎥 Vidéothèque
-</h2>
+<h2>🎥 Vidéothèque</h2>
 
 <p>
 Apprendre la conception routière par la vidéo
@@ -2642,151 +1616,66 @@ Apprendre la conception routière par la vidéo
 
 </div>
 
-
 <div class="grid">
 
-
 <div class="card">
-
-<div class="card-icon">
-🛣️
-</div>
-
-<h3>
-Tracé en plan
-</h3>
-
-<p>
-Tutoriels pratiques de conception géométrique.
-</p>
-
+<div class="card-icon">🛣️</div>
+<h3>Tracé en plan</h3>
+<p>Tutoriels pratiques de conception géométrique.</p>
 <button class="btn btn-primary"
 onclick="openTPVideos('TP03')">
-
 ▶ Voir les vidéos
-
 </button>
-
 </div>
-
 
 <div class="card">
-
-<div class="card-icon">
-📊
-</div>
-
-<h3>
-Profil en long
-</h3>
-
-<p>
-Tutoriels sur le profil en long.
-</p>
-
+<div class="card-icon">📊</div>
+<h3>Profil en long</h3>
+<p>Tutoriels sur le profil en long.</p>
 <button class="btn btn-primary"
 onclick="openTPVideos('TP04')">
-
 ▶ Voir les vidéos
-
 </button>
-
 </div>
-
 
 <div class="card">
-
-<div class="card-icon">
-🏗️
-</div>
-
-<h3>
-Profils en travers
-</h3>
-
-<p>
-Création et édition des profils.
-</p>
-
+<div class="card-icon">🏗️</div>
+<h3>Profils en travers</h3>
+<p>Création et édition des profils.</p>
 <button class="btn btn-primary"
 onclick="openTPVideos('TP05')">
-
 ▶ Voir les vidéos
-
 </button>
-
 </div>
-
 
 <div class="card">
-
-<div class="card-icon">
-🌍
-</div>
-
-<h3>
-Topographie & MNT
-</h3>
-
-<p>
-Terrain naturel et modélisation.
-</p>
-
+<div class="card-icon">🌍</div>
+<h3>Topographie & MNT</h3>
+<p>Terrain naturel et modélisation.</p>
 <button class="btn btn-primary"
 onclick="openTPVideos('TP02')">
-
 ▶ Voir les vidéos
-
 </button>
-
 </div>
-
 
 <div class="card">
-
-<div class="card-icon">
-🚧
-</div>
-
-<h3>
-Assainissement
-</h3>
-
-<p>
-Drainage et évacuation des eaux.
-</p>
-
+<div class="card-icon">🚧</div>
+<h3>Assainissement</h3>
+<p>Drainage et évacuation des eaux.</p>
 <button class="btn btn-primary"
 onclick="openTPVideos('TP09')">
-
 ▶ Voir les vidéos
-
 </button>
-
 </div>
-
 
 <div class="card">
-
-<div class="card-icon">
-🚦
-</div>
-
-<h3>
-Signalisation
-</h3>
-
-<p>
-Signalisation routière horizontale et verticale.
-</p>
-
+<div class="card-icon">🚦</div>
+<h3>Signalisation</h3>
+<p>Signalisation routière horizontale et verticale.</p>
 <button class="btn btn-primary"
 onclick="openTPVideos('TP11')">
-
 ▶ Voir les vidéos
-
 </button>
-
 </div>
 
 </div>
@@ -2806,22 +1695,15 @@ onclick="openTPVideos('TP11')">
 
 <div class="section-title">
 
-<h2>
-✅ Gestion de présence
-</h2>
+<h2>✅ Gestion de présence</h2>
 
-<p>
-Espace enseignant
-</p>
+<p>Espace enseignant</p>
 
 </div>
 
-
 <div class="notice">
 
-<strong>
-Fonctionnement :
-</strong>
+<strong>Fonctionnement :</strong>
 
 <br>
 
@@ -2830,51 +1712,37 @@ Les séances normales sont programmées le mardi.
 
 </div>
 
-
 <div class="form-grid">
 
 <div class="form-group">
 
-<label>
-Section
-</label>
+<label>Section</label>
 
-<select
-id="sectionSelect"
+<select id="sectionSelect"
 onchange="generateStudents()">
 
-<option value="">
--- Choisir --
-</option>
+<option value="">-- Choisir --</option>
 
-<option value="S1">
-Section S1
-</option>
+<option value="S1">Section S1</option>
 
-<option value="S2">
-Section S2
-</option>
+<option value="S2">Section S2</option>
 
 </select>
 
 </div>
 
-
 <div class="form-group">
 
-<label>
-Date
-</label>
+<label>Date</label>
 
 <input
 type="date"
 id="presenceDate"
-onchange="generateStudents">
+onchange="generateStudents()">
 
 </div>
 
 </div>
-
 
 <div id="studentsArea"></div>
 
@@ -2893,16 +1761,11 @@ onchange="generateStudents">
 
 <div class="section-title">
 
-<h2>
-📅 Planning du module
-</h2>
+<h2>📅 Planning du module</h2>
 
-<p>
-Organisation hebdomadaire
-</p>
+<p>Organisation hebdomadaire</p>
 
 </div>
-
 
 <div class="table-wrapper">
 
@@ -2911,27 +1774,11 @@ Organisation hebdomadaire
 <thead>
 
 <tr>
-
-<th>
-Jour
-</th>
-
-<th>
-Groupe
-</th>
-
-<th>
-Horaire
-</th>
-
-<th>
-Salle
-</th>
-
-<th>
-Module
-</th>
-
+<th>Jour</th>
+<th>Groupe</th>
+<th>Horaire</th>
+<th>Salle</th>
+<th>Module</th>
 </tr>
 
 </thead>
@@ -2939,52 +1786,19 @@ Module
 <tbody>
 
 <tr>
-
-<td>
-Mardi
-</td>
-
-<td>
-S1
-</td>
-
-<td>
-08:00 – 09:30
-</td>
-
-<td>
-05 / 25
-</td>
-
-<td>
-Esquisse Routière
-</td>
-
+<td>Mardi</td>
+<td>S1</td>
+<td>08:00 – 09:30</td>
+<td>05 / 25</td>
+<td>Esquisse Routière</td>
 </tr>
 
-
 <tr>
-
-<td>
-Mardi
-</td>
-
-<td>
-S2
-</td>
-
-<td>
-09:35 – 11:05
-</td>
-
-<td>
-05 / 25
-</td>
-
-<td>
-Esquisse Routière
-</td>
-
+<td>Mardi</td>
+<td>S2</td>
+<td>09:35 – 11:05</td>
+<td>05 / 25</td>
+<td>Esquisse Routière</td>
 </tr>
 
 </tbody>
@@ -3008,94 +1822,70 @@ Esquisse Routière
 
 <div class="section-title">
 
-<h2>
-📝 Devoirs maison & Projet
-</h2>
+<h2>📝 Devoirs maison & Projet</h2>
 
-<p>
-Travaux à remettre
-</p>
+<p>Travaux à remettre</p>
 
 </div>
 
-
 <div class="grid">
-
 
 <div class="card">
 
-<h3>
-DM 01 — Analyse du terrain
-</h3>
+<h3>DM 01 — Analyse du terrain</h3>
 
 <p>
 Analyse d'un terrain naturel et préparation des données.
 </p>
 
 <p>
-<strong>Date limite :</strong>
-À définir
+<strong>Date limite :</strong> À définir
 </p>
 
 <button class="btn btn-primary"
 onclick="resource('Sujet DM 01')">
-
 📄 Sujet
-
 </button>
 
 </div>
 
-
 <div class="card">
 
-<h3>
-DM 02 — Tracé routier
-</h3>
+<h3>DM 02 — Tracé routier</h3>
 
 <p>
 Proposition d'un tracé en plan respectant les contraintes.
 </p>
 
 <p>
-<strong>Date limite :</strong>
-À définir
+<strong>Date limite :</strong> À définir
 </p>
 
 <button class="btn btn-primary"
 onclick="resource('Sujet DM 02')">
-
 📄 Sujet
-
 </button>
 
 </div>
 
-
 <div class="card">
 
-<h3>
-Projet routier
-</h3>
+<h3>Projet routier</h3>
 
 <p>
 Réalisation progressive d'un projet routier complet.
 </p>
 
 <p>
-<strong>Remise :</strong>
-À définir
+<strong>Remise :</strong> À définir
 </p>
 
 <button class="btn btn-primary"
 onclick="resource('Cahier des charges projet routier')">
-
 📁 Cahier des charges
-
 </button>
 
 </div>
-
 
 </div>
 
@@ -3114,25 +1904,17 @@ onclick="resource('Cahier des charges projet routier')">
 
 <div class="section-title">
 
-<h2>
-📖 Documents & Livres
-</h2>
+<h2>📖 Documents & Livres</h2>
 
-<p>
-Bibliothèque pédagogique
-</p>
+<p>Bibliothèque pédagogique</p>
 
 </div>
 
-
 <div class="grid">
-
 
 <div class="card">
 
-<h3>
-📘 Guide GTR
-</h3>
+<h3>📘 Guide GTR</h3>
 
 <p>
 Guide technique pour les terrassements routiers.
@@ -3140,19 +1922,14 @@ Guide technique pour les terrassements routiers.
 
 <button class="btn btn-danger"
 onclick="resource('Guide GTR PDF')">
-
 📄 Ouvrir PDF
-
 </button>
 
 </div>
 
-
 <div class="card">
 
-<h3>
-📘 Guide Aménagement des carrefours
-</h3>
+<h3>📘 Guide Aménagement des carrefours</h3>
 
 <p>
 Document de référence pour la conception des carrefours.
@@ -3160,19 +1937,14 @@ Document de référence pour la conception des carrefours.
 
 <button class="btn btn-danger"
 onclick="resource('Guide carrefours PDF')">
-
 📄 Ouvrir PDF
-
 </button>
 
 </div>
 
-
 <div class="card">
 
-<h3>
-📘 Cours de Routes
-</h3>
+<h3>📘 Cours de Routes</h3>
 
 <p>
 Supports de cours et fascicules.
@@ -3180,19 +1952,14 @@ Supports de cours et fascicules.
 
 <button class="btn btn-danger"
 onclick="resource('Cours routes PDF')">
-
 📄 Fascicule
-
 </button>
 
 </div>
 
-
 <div class="card">
 
-<h3>
-📘 Dimensionnement du corps de chaussée
-</h3>
+<h3>📘 Dimensionnement du corps de chaussée</h3>
 
 <p>
 Documents pédagogiques de dimensionnement.
@@ -3200,19 +1967,14 @@ Documents pédagogiques de dimensionnement.
 
 <button class="btn btn-danger"
 onclick="resource('Dimensionnement chaussée PDF')">
-
 📄 PDF
-
 </button>
 
 </div>
 
-
 <div class="card">
 
-<h3>
-📘 Livres spécialisés
-</h3>
+<h3>📘 Livres spécialisés</h3>
 
 <p>
 Bibliothèque complémentaire.
@@ -3220,13 +1982,10 @@ Bibliothèque complémentaire.
 
 <button class="btn btn-primary"
 onclick="resource('Bibliothèque livres')">
-
 📚 Bibliothèque
-
 </button>
 
 </div>
-
 
 </div>
 
@@ -3245,33 +2004,21 @@ onclick="resource('Bibliothèque livres')">
 
 <div class="section-title">
 
-<h2>
-👨‍🏫 Enseignants du module
-</h2>
+<h2>👨‍🏫 Enseignants du module</h2>
 
-<p>
-Équipe pédagogique
-</p>
+<p>Équipe pédagogique</p>
 
 </div>
-
 
 <div class="grid">
 
-
 <div class="card teacher">
 
-<div class="teacher-avatar">
-G
-</div>
+<div class="teacher-avatar">G</div>
 
-<h3>
-Pr. Goumettre
-</h3>
+<h3>Pr. Goumettre</h3>
 
-<div class="teacher-role">
-Enseignant
-</div>
+<div class="teacher-role">Enseignant</div>
 
 <p style="margin-top:10px">
 Esquisse Routière — Conception routière
@@ -3281,26 +2028,18 @@ Esquisse Routière — Conception routière
 
 <a class="linkedin"
 href="https://www.linkedin.com/"
-target="_blank">
-in
-</a>
+target="_blank">in</a>
 
 <a class="scholar"
 href="https://scholar.google.com/"
-target="_blank">
-GS
-</a>
+target="_blank">GS</a>
 
 <a class="orcid"
 href="https://orcid.org/"
-target="_blank">
-iD
-</a>
+target="_blank">iD</a>
 
 <a class="mail"
-href="mailto:">
-✉
-</a>
+href="#">✉</a>
 
 </div>
 
@@ -3309,17 +2048,11 @@ href="mailto:">
 
 <div class="card teacher">
 
-<div class="teacher-avatar">
-H
-</div>
+<div class="teacher-avatar">H</div>
 
-<h3>
-Pr. Hatri
-</h3>
+<h3>Pr. Hatri</h3>
 
-<div class="teacher-role">
-Enseignant
-</div>
+<div class="teacher-role">Enseignant</div>
 
 <p style="margin-top:10px">
 Esquisse Routière — Infrastructures routières
@@ -3329,26 +2062,18 @@ Esquisse Routière — Infrastructures routières
 
 <a class="linkedin"
 href="https://www.linkedin.com/"
-target="_blank">
-in
-</a>
+target="_blank">in</a>
 
 <a class="scholar"
 href="https://scholar.google.com/"
-target="_blank">
-GS
-</a>
+target="_blank">GS</a>
 
 <a class="orcid"
 href="https://orcid.org/"
-target="_blank">
-iD
-</a>
+target="_blank">iD</a>
 
 <a class="mail"
-href="mailto:">
-✉
-</a>
+href="#">✉</a>
 
 </div>
 
@@ -3357,13 +2082,9 @@ href="mailto:">
 
 <div class="card teacher">
 
-<div class="teacher-avatar">
-A
-</div>
+<div class="teacher-avatar">A</div>
 
-<h3>
-Dr. Assas Taqiyeddine
-</h3>
+<h3>Dr. Assas Taqiyeddine</h3>
 
 <div class="teacher-role">
 Enseignant • Créateur de la plateforme
@@ -3377,37 +2098,26 @@ Conception routière • MEF • Infrastructures
 
 <a class="linkedin"
 href="https://www.linkedin.com/in/taqiyeddine-assas-770696378/"
-target="_blank">
-in
-</a>
+target="_blank">in</a>
 
 <a class="scholar"
 href="https://scholar.google.com/citations?user=Gk1u97UAAAAJ"
-target="_blank">
-GS
-</a>
+target="_blank">GS</a>
 
 <a class="orcid"
 href="https://orcid.org/0009-0011-4288-2908"
-target="_blank">
-iD
-</a>
+target="_blank">iD</a>
 
 <a class="research"
-href="https://www.researchgate.net/"
-target="_blank">
-RG
-</a>
+href="https://www.researchgate.net/profile/Taqiyeddine-Assas"
+target="_blank">RG</a>
 
 <a class="mail"
-href="mailto:t.assass@enstp.edu.dz">
-✉
-</a>
+href="mailto:t.assass@enstp.edu.dz">✉</a>
 
 </div>
 
 </div>
-
 
 </div>
 
@@ -3424,12 +2134,9 @@ href="mailto:t.assass@enstp.edu.dz">
 
 <div class="footer-grid">
 
-
 <div>
 
-<h3>
-ENSTP
-</h3>
+<h3>ENSTP</h3>
 
 <p>
 École Nationale Supérieure des Travaux Publics
@@ -3441,12 +2148,9 @@ Kouba – Alger – Algérie
 
 </div>
 
-
 <div>
 
-<h3>
-Esquisse Routière
-</h3>
+<h3>Esquisse Routière</h3>
 
 <p>
 Plateforme pédagogique destinée aux étudiants
@@ -3455,12 +2159,9 @@ de 4ème année – Département Infrastructures de Base.
 
 </div>
 
-
 <div>
 
-<h3>
-Navigation
-</h3>
+<h3>Navigation</h3>
 
 <p>
 Cours<br>
@@ -3472,12 +2173,9 @@ Documents
 
 </div>
 
-
 <div>
 
-<h3>
-Organisation
-</h3>
+<h3>Organisation</h3>
 
 <p>
 Mardi<br>
@@ -3487,9 +2185,7 @@ Groupe 2 : 09:35 – 11:05
 
 </div>
 
-
 </div>
-
 
 <div class="copyright">
 
@@ -3512,8 +2208,7 @@ ENSTP – Kouba – Alger
 
 <div class="modal-box">
 
-<button
-class="close"
+<button class="close"
 onclick="closeModal()">
 ×
 </button>
@@ -3537,11 +2232,10 @@ onclick="closeModal()">
 
 function showSection(id,button=null){
 
-    document
-        .querySelectorAll(".section")
-        .forEach(section=>{
-            section.classList.remove("active");
-        });
+    document.querySelectorAll(".section")
+    .forEach(section=>{
+        section.classList.remove("active");
+    });
 
     const target=document.getElementById(id);
 
@@ -3549,11 +2243,10 @@ function showSection(id,button=null){
         target.classList.add("active");
     }
 
-    document
-        .querySelectorAll(".nav-btn")
-        .forEach(btn=>{
-            btn.classList.remove("active");
-        });
+    document.querySelectorAll(".nav-btn")
+    .forEach(btn=>{
+        btn.classList.remove("active");
+    });
 
     if(button){
         button.classList.add("active");
@@ -3563,7 +2256,6 @@ function showSection(id,button=null){
         top:0,
         behavior:"smooth"
     });
-
 }
 
 
@@ -3575,19 +2267,19 @@ function openModal(html){
 
     document.getElementById("modalContent").innerHTML=html;
 
-    document
-        .getElementById("modal")
-        .classList.add("show");
+    document.getElementById("modal")
+    .classList.add("show");
 
+    document.body.style.overflow="hidden";
 }
 
 
 function closeModal(){
 
-    document
-        .getElementById("modal")
-        .classList.remove("show");
+    document.getElementById("modal")
+    .classList.remove("show");
 
+    document.body.style.overflow="";
 }
 
 
@@ -3596,6 +2288,15 @@ window.addEventListener("click",function(e){
     const modal=document.getElementById("modal");
 
     if(e.target===modal){
+        closeModal();
+    }
+
+});
+
+
+document.addEventListener("keydown",function(e){
+
+    if(e.key==="Escape"){
         closeModal();
     }
 
@@ -3612,15 +2313,11 @@ function openCourse(type){
 
         openModal(`
 
-            <h2>
-                🌐 Cours — Version Web
-            </h2>
+            <h2>🌐 Cours — Version Web</h2>
 
             <div class="notice">
 
-                <strong>
-                    Esquisse Routière
-                </strong>
+                <strong>Esquisse Routière</strong>
 
                 <br><br>
 
@@ -3631,45 +2328,16 @@ function openCourse(type){
                     line-height:2;
                 ">
 
-                    <li>
-                        Introduction au projet routier
-                    </li>
-
-                    <li>
-                        Données topographiques
-                    </li>
-
-                    <li>
-                        Tracé en plan
-                    </li>
-
-                    <li>
-                        Profil en long
-                    </li>
-
-                    <li>
-                        Profil en travers
-                    </li>
-
-                    <li>
-                        Terrassements
-                    </li>
-
-                    <li>
-                        Chaussées
-                    </li>
-
-                    <li>
-                        Carrefours
-                    </li>
-
-                    <li>
-                        Assainissement
-                    </li>
-
-                    <li>
-                        Signalisation
-                    </li>
+                    <li>Introduction au projet routier</li>
+                    <li>Données topographiques</li>
+                    <li>Tracé en plan</li>
+                    <li>Profil en long</li>
+                    <li>Profil en travers</li>
+                    <li>Terrassements</li>
+                    <li>Chaussées</li>
+                    <li>Carrefours</li>
+                    <li>Assainissement</li>
+                    <li>Signalisation</li>
 
                 </ul>
 
@@ -3677,21 +2345,15 @@ function openCourse(type){
 
         `);
 
-    }
-
-    else{
+    }else{
 
         openModal(`
 
-            <h2>
-                📕 Cours — PDF
-            </h2>
+            <h2>📕 Cours — PDF</h2>
 
             <div class="notice">
 
-                <strong>
-                    Cours Esquisse Routière
-                </strong>
+                <strong>Cours Esquisse Routière</strong>
 
                 <br><br>
 
@@ -3708,8 +2370,7 @@ function openCourse(type){
                     display:inline-block;
                     text-decoration:none;
                     margin:5px;
-                "
-            >
+                ">
                 📄 Ouvrir le PDF
             </a>
 
@@ -3721,8 +2382,7 @@ function openCourse(type){
                     display:inline-block;
                     text-decoration:none;
                     margin:5px;
-                "
-            >
+                ">
                 ⬇️ Télécharger
             </a>
 
@@ -3734,569 +2394,354 @@ function openCourse(type){
 
 
 /* =========================================================
-   VIDEOS YOUTUBE PAR TP
+   VIDEOS DES TP
 ========================================================= */
 
 const tpVideos={
 
-
 TP01:{
-
     title:"TP 01 — Installation de COVADIS",
-
-    description:
-    "Installation et configuration de COVADIS sur PC.",
-
+    description:"Installation et configuration de COVADIS sur PC.",
     videos:[
-
         {
-            title:
-            "Installer AutoCAD et Covadis 17 en français | Tutoriel complet A à Z",
-
-            url:
-            "https://www.youtube.com/watch?v=kfoUWCuX774"
+            title:"Installer AutoCAD et Covadis 17 en français | Tutoriel complet A à Z",
+            url:"https://www.youtube.com/watch?v=kfoUWCuX774"
         },
-
         {
-            title:
-            "Installation de COVADIS 17",
-
-            url:
-            "https://www.youtube.com/results?search_query=installation+COVADIS+17"
+            title:"Installation de COVADIS 17",
+            url:"https://www.youtube.com/results?search_query=installation+COVADIS+17"
         },
-
         {
-            title:
-            "Installer AutoCAD 2025 et Covadis 18.2 en français facilement | Guide complet",
-
-            url:
-            "https://www.youtube.com/watch?v=cpzjl-PsBk0"
+            title:"Installer AutoCAD 2025 et Covadis 18.2 en français facilement | Guide complet",
+            url:"https://www.youtube.com/watch?v=cpzjl-PsBk0"
         },
-
         {
-            title:
-            "Partie 1 | Installation de Covadis 2019 avec AutoCAD (Guide complet)",
-
-            url:
-            "https://www.youtube.com/watch?v=b9Wf-YnGR8o"
+            title:"Partie 1 | Installation de Covadis 2019 avec AutoCAD",
+            url:"https://www.youtube.com/watch?v=b9Wf-YnGR8o"
         }
-
     ]
-
 },
-
 
 TP02:{
-
     title:"TP 02 — Topographie & MNT",
-
-    description:
-    "Importation des points, création du terrain naturel et génération du MNT.",
-
+    description:"Importation des points, terrain naturel et MNT.",
     videos:[
-
         {
-            title:
-            "Importer des points topographiques dans COVADIS",
-
-            url:
-            "https://www.youtube.com/results?search_query=COVADIS+importation+points+topographiques"
+            title:"Importer des points topographiques dans COVADIS",
+            url:"https://www.youtube.com/results?search_query=COVADIS+importation+points+topographiques"
         },
-
         {
-            title:
-            "Créer un MNT avec COVADIS",
-
-            url:
-            "https://www.youtube.com/results?search_query=COVADIS+creation+MNT"
+            title:"Créer un MNT avec COVADIS",
+            url:"https://www.youtube.com/results?search_query=COVADIS+creation+MNT"
         },
-
         {
-            title:
-            "Modélisation du terrain naturel",
-
-            url:
-            "https://www.youtube.com/results?search_query=COVADIS+modelisation+terrain+naturel"
+            title:"Modélisation du terrain naturel",
+            url:"https://www.youtube.com/results?search_query=COVADIS+modelisation+terrain+naturel"
         },
-
         {
-            title:
-            "Courbes de niveau avec COVADIS",
-
-            url:
-            "https://www.youtube.com/results?search_query=Courbes+de+niveau+avec+COVADIS"
+            title:"Courbes de niveau avec COVADIS",
+            url:"https://www.youtube.com/results?search_query=Courbes+de+niveau+avec+COVADIS"
         }
-
     ]
-
 },
-
 
 TP03:{
-
     title:"TP 03 — Tracé en plan",
-
-    description:
-    "Conception géométrique du tracé routier.",
-
+    description:"Conception géométrique du tracé routier.",
     videos:[
-
         {
-            title:
-            "Conception de l'axe en plan : Droites, Liaisons et Raccordements - COVADIS Autopiste",
-
-            url:
-            "https://www.bing.com/videos/riverview/relatedvideo?q=Cr%c3%a9er+un+axe+routier+dans+COVADIS&&mid=7F6FB6B4F46F0E9068A57F6FB6B4F46F0E9068A5&churl=https%3a%2f%2fwww.youtube.com%2fchannel%2fUCVwXgO0VKDA3k-x8QHqsPyw&FORM=VRDGAR"
+            title:"Conception de l'axe en plan — COVADIS Autopiste",
+            url:"https://www.youtube.com/results?search_query=COVADIS+Autopiste+axe+en+plan"
         },
-
         {
-            title:
-            "Alignements droits et courbes routières",
-
-            url:
-            "https://www.youtube.com/watch?v=Oq3aRmYNYzY&list=PLIf0T7rX_qMx6hooVdyR3LeeTzUxRjTkM"
+            title:"Alignements droits et courbes routières",
+            url:"https://www.youtube.com/watch?v=Oq3aRmYNYzY&list=PLIf0T7rX_qMx6hooVdyR3LeeTzUxRjTkM"
         },
-
         {
-            title:
-            "Formation complète sur le Logiciel AUTOPISTE",
-
-            url:
-            "https://www.youtube.com/watch?v=ngckRh6sWHk&list=PLa8B1VOzR8Eih4fTaibA3I85u8-F0WZIz"
+            title:"Formation complète sur le logiciel AUTOPISTE",
+            url:"https://www.youtube.com/watch?v=ngckRh6sWHk&list=PLa8B1VOzR8Eih4fTaibA3I85u8-F0WZIz"
         },
-
         {
-            title:
-            "Formation Projet Routier sur Covadis Autopiste 17- Partie 2: Tracé en plan/Tabulation de l'axe",
-
-            url:
-            "https://www.youtube.com/watch?v=ZFsZ1x_-SmU&t=200s"
-        } 
-        
-
+            title:"Projet Routier COVADIS — Tracé en plan",
+            url:"https://www.youtube.com/watch?v=ZFsZ1x_-SmU&t=200s"
+        }
     ]
-
 },
-
 
 TP04:{
-
     title:"TP 04 — Profil en long",
-
-    description:
-    "Conception du profil en long, rampes, pentes et raccordements verticaux.",
-
+    description:"Rampes, pentes et raccordements verticaux.",
     videos:[
-
         {
-            title:
-            "Créer un profil en long avec COVADIS",
-
-            url:
-            "https://www.youtube.com/results?search_query=COVADIS+profil+en+long"
+            title:"Créer un profil en long avec COVADIS",
+            url:"https://www.youtube.com/results?search_query=COVADIS+profil+en+long"
         },
-
         {
-            title:
-            "Créer une ligne rouge",
-
-            url:
-            "https://www.youtube.com/watch?v=O6GuhMtbT-A"
+            title:"Créer une ligne rouge",
+            url:"https://www.youtube.com/watch?v=O6GuhMtbT-A"
         },
-
         {
-            title:
-            "TUT0-CIVIL 3D 2020: TRACE DE LA ROUTE ET PROFIL EN LONG",
-
-            url:
-            "https://www.youtube.com/watch?v=jQEfC_Z0bd8"
+            title:"Civil 3D — Tracé de route et profil en long",
+            url:"https://www.youtube.com/watch?v=jQEfC_Z0bd8"
         },
-
         {
-            title:
-            "Conception complète du profil en long",
-
-            url:
-            "https://www.youtube.com/results?search_query=COVADIS+conception+profil+long+routier"
+            title:"Conception complète du profil en long",
+            url:"https://www.youtube.com/results?search_query=COVADIS+conception+profil+long+routier"
         }
-
     ]
-
 },
-
 
 TP05:{
-
     title:"TP 05 — Profil en travers",
-
-    description:
-    "Création des profils en travers types et profils projetés.",
-
+    description:"Profils en travers types et profils projetés.",
     videos:[
-
         {
-            title:
-            "Créer des profils en travers avec COVADIS",
-
-            url:
-            "https://www.youtube.com/results?search_query=COVADIS+profils+en+travers"
+            title:"Créer des profils en travers avec COVADIS",
+            url:"https://www.youtube.com/results?search_query=COVADIS+profils+en+travers"
         },
-
         {
-            title:
-            "Profil en travers type routier",
-
-            url:
-            "https://www.youtube.com/results?search_query=COVADIS+profil+en+travers+type"
+            title:"Profil en travers type routier",
+            url:"https://www.youtube.com/results?search_query=COVADIS+profil+en+travers+type"
         },
-
         {
-            title:
-            "Projet routier et profils en travers",
-
-            url:
-            "https://www.youtube.com/results?search_query=COVADIS+projet+routier+profils+travers"
+            title:"Projet routier et profils en travers",
+            url:"https://www.youtube.com/results?search_query=COVADIS+projet+routier+profils+travers"
         },
-
         {
-            title:
-            "Formation covadis: Affectation profils en travers types avec mur",
-
-            url:
-            "https://www.youtube.com/watch?v=5j5iONolhSI"
+            title:"Affectation profils en travers types avec mur",
+            url:"https://www.youtube.com/watch?v=5j5iONolhSI"
         }
-
     ]
-
 },
-
 
 TP06:{
-
     title:"TP 06 — Cubatures",
-
-    description:
-    "Calcul des déblais, remblais et volumes de terrassement.",
-
+    description:"Calcul des déblais, remblais et volumes.",
     videos:[
-
         {
-            title:
-            "Calcul des cubatures avec COVADIS",
-
-            url:
-            "https://www.youtube.com/results?search_query=COVADIS+cubatures"
+            title:"Calcul des cubatures avec COVADIS",
+            url:"https://www.youtube.com/results?search_query=COVADIS+cubatures"
         },
-
         {
-            title:
-            "Calcul des déblais et remblais",
-
-            url:
-            "https://www.youtube.com/results?search_query=COVADIS+deblais+remblais"
+            title:"Calcul des déblais et remblais",
+            url:"https://www.youtube.com/results?search_query=COVADIS+deblais+remblais"
         },
-
         {
-            title:
-            "Cubatures d'un projet routier",
-
-            url:
-            "https://www.youtube.com/results?search_query=COVADIS+cubatures+projet+routier"
+            title:"Cubatures d'un projet routier",
+            url:"https://www.youtube.com/results?search_query=COVADIS+cubatures+projet+routier"
         },
-
         {
-            title:
-            "Volumes de terrassement",
-
-            url:
-            "https://www.youtube.com/results?search_query=COVADIS+volume+terrassement"
+            title:"Volumes de terrassement",
+            url:"https://www.youtube.com/results?search_query=COVADIS+volume+terrassement"
         }
-
     ]
-
 },
-
 
 TP07:{
-
     title:"TP 07 — Dimensionnement de chaussée",
-
-    description:
-    "Dimensionnement mécanique des structures de chaussée.",
-
+    description:"Dimensionnement mécanique des structures de chaussée.",
     videos:[
-
         {
-            title:
-            "Introduction au dimensionnement des chaussées",
-
-            url:
-            "https://www.youtube.com/results?search_query=dimensionnement+chaussée+route"
+            title:"Introduction au dimensionnement des chaussées",
+            url:"https://www.youtube.com/results?search_query=dimensionnement+chaussée+route"
         },
-
         {
-            title:
-            "ALIZE-LCPC — Tutoriel",
-
-            url:
-            "https://www.youtube.com/results?search_query=ALIZE+LCPC+tutoriel"
+            title:"ALIZE-LCPC — Tutoriel",
+            url:"https://www.youtube.com/results?search_query=ALIZE+LCPC+tutoriel"
         },
-
         {
-            title:
-            "Utilisation du logiciel ALIZE",
-
-            url:
-            "https://www.youtube.com/results?search_query=logiciel+ALIZE+LCPC+dimensionnement"
+            title:"Utilisation du logiciel ALIZE",
+            url:"https://www.youtube.com/results?search_query=logiciel+ALIZE+LCPC+dimensionnement"
         },
-
         {
-            title:
-            "Exemple de dimensionnement de chaussée",
-
-            url:
-            "https://www.youtube.com/results?search_query=exemple+dimensionnement+chaussée+ALIZE"
+            title:"Exemple de dimensionnement de chaussée",
+            url:"https://www.youtube.com/results?search_query=exemple+dimensionnement+chaussée+ALIZE"
         }
-
     ]
-
 },
-
 
 TP08:{
-
     title:"TP 08 — Aménagement des carrefours",
-
-    description:
-    "Conception géométrique des carrefours routiers.",
-
+    description:"Conception géométrique des carrefours routiers.",
     videos:[
-
         {
-            title:
-            "Conception d'un carrefour routier",
-
-            url:
-            "https://www.youtube.com/results?search_query=conception+carrefour+routier"
+            title:"Conception d'un carrefour routier",
+            url:"https://www.youtube.com/results?search_query=conception+carrefour+routier"
         },
-
         {
-            title:
-            "Aménagement des intersections",
-
-            url:
-            "https://www.youtube.com/results?search_query=amenagement+carrefour+routier"
+            title:"Aménagement des intersections",
+            url:"https://www.youtube.com/results?search_query=amenagement+carrefour+routier"
         },
-
         {
-            title:
-            "Conception d'un carrefour giratoire",
-
-            url:
-            "https://www.youtube.com/results?search_query=conception+carrefour+giratoire"
+            title:"Conception d'un carrefour giratoire",
+            url:"https://www.youtube.com/results?search_query=conception+carrefour+giratoire"
         },
-
         {
-            title:
-            "Géométrie des carrefours routiers",
-
-            url:
-            "https://www.youtube.com/results?search_query=geometrie+carrefour+routier"
+            title:"Géométrie des carrefours routiers",
+            url:"https://www.youtube.com/results?search_query=geometrie+carrefour+routier"
         }
-
     ]
-
 },
-
 
 TP09:{
-
     title:"TP 09 — Assainissement routier",
-
-    description:
-    "Drainage, fossés, buses, dalots et évacuation des eaux.",
-
+    description:"Drainage, fossés, buses, dalots et évacuation des eaux.",
     videos:[
-
         {
-            title:
-            "Introduction à l'assainissement routier",
-
-            url:
-            "https://www.youtube.com/results?search_query=assainissement+routier+cours"
+            title:"Introduction à l'assainissement routier",
+            url:"https://www.youtube.com/results?search_query=assainissement+routier+cours"
         },
-
         {
-            title:
-            "Dimensionnement des buses routières",
-
-            url:
-            "https://www.youtube.com/results?search_query=dimensionnement+buse+assainissement+routier"
+            title:"Dimensionnement des buses routières",
+            url:"https://www.youtube.com/results?search_query=dimensionnement+buse+assainissement+routier"
         },
-
         {
-            title:
-            "Fossés et drainage routier",
-
-            url:
-            "https://www.youtube.com/results?search_query=fossés+drainage+routier"
+            title:"Fossés et drainage routier",
+            url:"https://www.youtube.com/results?search_query=fossés+drainage+routier"
         },
-
         {
-            title:
-            "Dalots et ouvrages hydrauliques",
-
-            url:
-            "https://www.youtube.com/results?search_query=dalot+assainissement+routier"
+            title:"Dalots et ouvrages hydrauliques",
+            url:"https://www.youtube.com/results?search_query=dalot+assainissement+routier"
         }
-
     ]
-
 },
-
 
 TP10:{
-
     title:"TP 10 — Traitement des contraintes",
-
-    description:
-    "Analyse et traitement des contraintes du projet routier.",
-
+    description:"Analyse et traitement des contraintes du projet routier.",
     videos:[
-
         {
-            title:
-            "Contraintes d'un projet routier",
-
-            url:
-            "https://www.youtube.com/results?search_query=contraintes+projet+routier"
+            title:"Contraintes d'un projet routier",
+            url:"https://www.youtube.com/results?search_query=contraintes+projet+routier"
         },
-
         {
-            title:
-            "Étude des variantes routières",
-
-            url:
-            "https://www.youtube.com/results?search_query=étude+variantes+projet+routier"
+            title:"Étude des variantes routières",
+            url:"https://www.youtube.com/results?search_query=étude+variantes+projet+routier"
         },
-
         {
-            title:
-            "Optimisation d'un tracé routier",
-
-            url:
-            "https://www.youtube.com/results?search_query=optimisation+trace+routier"
+            title:"Optimisation d'un tracé routier",
+            url:"https://www.youtube.com/results?search_query=optimisation+trace+routier"
         },
-
         {
-            title:
-            "Choix d'une variante routière",
-
-            url:
-            "https://www.youtube.com/results?search_query=choix+variante+trace+routier"
+            title:"Choix d'une variante routière",
+            url:"https://www.youtube.com/results?search_query=choix+variante+trace+routier"
         }
-
     ]
-
 },
-
 
 TP11:{
-
     title:"TP 11 — Signalisation routière",
-
-    description:
-    "Signalisation horizontale et verticale.",
-
+    description:"Signalisation horizontale et verticale.",
     videos:[
-
         {
-            title:
-            "Signalisation verticale routière",
-
-            url:
-            "https://www.youtube.com/watch?v=L5NfL6MGvYQ"
+            title:"Signalisation verticale routière",
+            url:"https://www.youtube.com/watch?v=L5NfL6MGvYQ"
         },
-
         {
-            title:
-            "Signalisation horizontale routière",
-
-            url:
-            "https://www.youtube.com/results?search_query=signalisation+horizontale+routière"
+            title:"Signalisation horizontale routière",
+            url:"https://www.youtube.com/results?search_query=signalisation+horizontale+routière"
         },
-
         {
-            title:
-            "Implantation de la signalisation",
-
-            url:
-            "https://www.youtube.com/results?search_query=implantation+signalisation+routière"
+            title:"Implantation de la signalisation",
+            url:"https://www.youtube.com/results?search_query=implantation+signalisation+routière"
         },
-
         {
-            title:
-            "Étude de la signalisation routière",
-
-            url:
-            "https://www.youtube.com/results?search_query=étude+signalisation+routière"
+            title:"Étude de la signalisation routière",
+            url:"https://www.youtube.com/results?search_query=étude+signalisation+routière"
         }
-
     ]
-
 },
 
-
 TP12:{
-
     title:"TP 12 — Dossier graphique",
-
-    description:
-    "Préparation et organisation du dossier graphique final.",
-
+    description:"Préparation et organisation du dossier graphique final.",
     videos:[
-
         {
-            title:
-            "Mise en page d'un projet routier",
-
-            url:
-            "https://www.youtube.com/results?search_query=mise+en+page+projet+routier"
+            title:"Mise en page d'un projet routier",
+            url:"https://www.youtube.com/results?search_query=mise+en+page+projet+routier"
         },
-
         {
-            title:
-            "Plan de projet routier sur AutoCAD",
-
-            url:
-            "https://www.youtube.com/results?search_query=plan+projet+routier+AutoCAD"
+            title:"Plan de projet routier sur AutoCAD",
+            url:"https://www.youtube.com/results?search_query=plan+projet+routier+AutoCAD"
         },
-
         {
-            title:
-            "Impression et présentation d'un projet routier",
-
-            url:
-            "https://www.youtube.com/results?search_query=impression+projet+routier+AutoCAD"
+            title:"Impression et présentation d'un projet routier",
+            url:"https://www.youtube.com/results?search_query=impression+projet+routier+AutoCAD"
         },
-
         {
-            title:
-            "Préparation d'un dossier graphique",
-
-            url:
-            "https://www.youtube.com/results?search_query=dossier+graphique+projet+routier"
+            title:"Préparation d'un dossier graphique",
+            url:"https://www.youtube.com/results?search_query=dossier+graphique+projet+routier"
         }
-
     ]
-
 }
 
 };
 
 
 /* =========================================================
-   AFFICHER VIDEOS D'UN TP
+   GENERATION AUTOMATIQUE DES CARTES TP
+========================================================= */
+
+function generateTPCards(){
+
+    const container=document.getElementById("tpCards");
+
+    if(!container) return;
+
+    let html="";
+
+    Object.keys(tpVideos).forEach((id,index)=>{
+
+        const tp=tpVideos[id];
+
+        html+=`
+
+        <div class="card tp-card">
+
+            <span class="tp-number">
+                ${id.replace("TP","TP ")}
+            </span>
+
+            <h3>
+                ${tp.title.replace(/^TP \\d+ — /,"")}
+            </h3>
+
+            <p>
+                ${tp.description}
+            </p>
+
+            <div class="resource-buttons">
+
+                <button
+                    class="btn-video"
+                    onclick="openTPVideos('${id}')">
+
+                    🎥 Voir les vidéos
+
+                </button>
+
+                <button
+                    class="btn-pdf"
+                    onclick="resource('Ressources ${tp.title}')">
+
+                    📄 Documents
+
+                </button>
+
+            </div>
+
+        </div>
+
+        `;
+
+    });
+
+    container.innerHTML=html;
+}
+
+
+/* =========================================================
+   AFFICHER LES VIDEOS D'UN TP
 ========================================================= */
 
 function openTPVideos(tpId){
@@ -4304,39 +2749,27 @@ function openTPVideos(tpId){
     const tp=tpVideos[tpId];
 
     if(!tp){
-
-        alert(
-            "Aucune vidéo disponible pour ce TP."
-        );
-
+        alert("Aucune vidéo disponible pour ce TP.");
         return;
-
     }
-
 
     let html=`
 
-        <h2>
-            🎥 ${tp.title}
-        </h2>
+        <h2>🎥 ${tp.title}</h2>
 
         <div class="notice">
 
-            <strong>
-                ${tp.description}
-            </strong>
+            <strong>${tp.description}</strong>
 
             <br><br>
 
-            Sélectionnez une vidéo pour accéder
-            à YouTube.
+            Sélectionnez une vidéo pour accéder à YouTube.
 
         </div>
 
         <div class="tp-video-list">
 
     `;
-
 
     tp.videos.forEach((video,index)=>{
 
@@ -4347,9 +2780,7 @@ function openTPVideos(tpId){
                 <div class="tp-video-info">
 
                     <div class="tp-video-number">
-
                         Vidéo ${String(index+1).padStart(2,"0")}
-
                     </div>
 
                     <h3>
@@ -4362,8 +2793,7 @@ function openTPVideos(tpId){
                     href="${video.url}"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="btn-video"
-                >
+                    class="btn-video">
 
                     ▶ YouTube
 
@@ -4375,6 +2805,503 @@ function openTPVideos(tpId){
 
     });
 
+    html+=`
+
+        </div>
+
+        <br>
+
+        <button
+            class="btn btn-primary"
+            onclick="closeModal()">
+
+            Fermer
+
+        </button>
+
+    `;
+
+    openModal(html);
+}
+
+
+/* =========================================================
+   LOGICIELS — VIDEOS
+========================================================= */
+
+const softwareVideos={
+
+
+/* =====================================================
+   COVADIS
+===================================================== */
+
+covadis:{
+    title:"COVADIS",
+    icon:"📐",
+    description:
+    "Tutoriels COVADIS pour la topographie et la conception routière.",
+
+    videos:[
+
+        {
+            category:"Installation",
+            title:"Installer AutoCAD et COVADIS 17 en français",
+            description:"Installation et configuration du logiciel.",
+            url:"https://www.youtube.com/watch?v=kfoUWCuX774"
+        },
+
+        {
+            category:"Prise en main",
+            title:"Prise en main de COVADIS",
+            description:"Découverte de l'environnement et des outils.",
+            url:"https://www.youtube.com/results?search_query=COVADIS+17+prise+en+main+tutoriel"
+        },
+
+        {
+            category:"Projet routier",
+            title:"Créer un projet routier avec COVADIS",
+            description:"Workflow général d'un projet routier.",
+            url:"https://www.youtube.com/results?search_query=COVADIS+création+projet+routier"
+        },
+
+        {
+            category:"Topographie / MNT",
+            title:"Créer un MNT avec COVADIS",
+            description:"Points topographiques et modèle numérique de terrain.",
+            url:"https://www.youtube.com/results?search_query=COVADIS+MNT+topographie"
+        },
+
+        {
+            category:"Tracé en plan",
+            title:"Concevoir le tracé en plan avec COVADIS",
+            description:"Axe, alignements, courbes et raccordements.",
+            url:"https://www.youtube.com/results?search_query=COVADIS+Autopiste+tracé+en+plan"
+        },
+
+        {
+            category:"Profil en long",
+            title:"Créer un profil en long avec COVADIS",
+            description:"Terrain naturel, ligne rouge et raccordements.",
+            url:"https://www.youtube.com/results?search_query=COVADIS+profil+en+long"
+        },
+
+        {
+            category:"Profil en travers",
+            title:"Créer les profils en travers",
+            description:"Profils types et profils projetés.",
+            url:"https://www.youtube.com/results?search_query=COVADIS+profil+en+travers"
+        },
+
+        {
+            category:"Cubatures",
+            title:"Calcul des cubatures",
+            description:"Calcul des déblais et remblais.",
+            url:"https://www.youtube.com/results?search_query=COVADIS+cubatures+deblais+remblais"
+        },
+
+        {
+            category:"Carrefours",
+            title:"Conception des carrefours routiers",
+            description:"Étude et géométrie des carrefours.",
+            url:"https://www.youtube.com/results?search_query=COVADIS+carrefour+routier"
+        },
+
+        {
+            category:"Signalisation",
+            title:"Signalisation routière avec COVADIS",
+            description:"Signalisation horizontale et verticale.",
+            url:"https://www.youtube.com/results?search_query=COVADIS+signalisation+routière"
+        },
+
+        {
+            category:"Assainissement",
+            title:"Assainissement routier avec COVADIS",
+            description:"Fossés, réseaux et drainage.",
+            url:"https://www.youtube.com/results?search_query=COVADIS+assainissement+routier"
+        },
+
+        {
+            category:"Dossier graphique",
+            title:"Préparer un dossier graphique routier",
+            description:"Plans et mise en page finale.",
+            url:"https://www.youtube.com/results?search_query=COVADIS+dossier+graphique+routier"
+        }
+
+    ]
+},
+
+
+/* =====================================================
+   CIVIL 3D
+===================================================== */
+
+civil3d:{
+    title:"Civil 3D",
+    icon:"🏗️",
+    description:
+    "Tutoriels Autodesk Civil 3D pour les infrastructures routières.",
+
+    videos:[
+
+        {
+            category:"Installation",
+            title:"Installation de Civil 3D",
+            description:"Installation et configuration.",
+            url:"https://www.youtube.com/results?search_query=installation+Autodesk+Civil+3D"
+        },
+
+        {
+            category:"Prise en main",
+            title:"Prise en main de Civil 3D",
+            description:"Découverte de l'interface.",
+            url:"https://www.youtube.com/results?search_query=Autodesk+Civil+3D+prise+en+main"
+        },
+
+        {
+            category:"Topographie",
+            title:"Importer des points topographiques",
+            description:"Importation et gestion des points.",
+            url:"https://www.youtube.com/results?search_query=Civil+3D+import+points+topographiques"
+        },
+
+        {
+            category:"MNT",
+            title:"Créer une surface TIN",
+            description:"Création du modèle numérique de terrain.",
+            url:"https://www.youtube.com/results?search_query=Civil+3D+surface+TIN+tutorial"
+        },
+
+        {
+            category:"Tracé en plan",
+            title:"Créer un Alignment routier",
+            description:"Conception de l'axe routier.",
+            url:"https://www.youtube.com/results?search_query=Civil+3D+road+alignment+tutorial"
+        },
+
+        {
+            category:"Profil en long",
+            title:"Créer un profil en long",
+            description:"Profil terrain et profil projet.",
+            url:"https://www.youtube.com/results?search_query=Civil+3D+profile+view+road"
+        },
+
+        {
+            category:"Profil en travers",
+            title:"Créer des profils en travers",
+            description:"Sample Lines et Section Views.",
+            url:"https://www.youtube.com/results?search_query=Civil+3D+sample+lines+section+views"
+        },
+
+        {
+            category:"Corridor",
+            title:"Créer un corridor routier",
+            description:"Modélisation d'une route.",
+            url:"https://www.youtube.com/results?search_query=Civil+3D+road+corridor+tutorial"
+        },
+
+        {
+            category:"Cubatures",
+            title:"Calcul des volumes de terrassement",
+            description:"Déblais et remblais.",
+            url:"https://www.youtube.com/results?search_query=Civil+3D+earthwork+volume"
+        },
+
+        {
+            category:"Carrefours",
+            title:"Concevoir une intersection",
+            description:"Conception d'un carrefour routier.",
+            url:"https://www.youtube.com/results?search_query=Civil+3D+intersection+road+design"
+        },
+
+        {
+            category:"Signalisation",
+            title:"Signalisation routière avec Civil 3D",
+            description:"Marquage et équipements.",
+            url:"https://www.youtube.com/results?search_query=Civil+3D+road+signage"
+        }
+
+    ]
+},
+
+
+/* =====================================================
+   PISTE
+===================================================== */
+
+piste:{
+    title:"PISTE",
+    icon:"🛣️",
+    description:
+    "Tutoriels et ressources pour les études routières avec PISTE.",
+
+    videos:[
+
+        {
+            category:"Installation",
+            title:"Installation du logiciel PISTE",
+            description:"Installation et démarrage.",
+            url:"https://www.youtube.com/results?search_query=logiciel+PISTE+installation+routière"
+        },
+
+        {
+            category:"Prise en main",
+            title:"Prise en main de PISTE",
+            description:"Découverte du logiciel.",
+            url:"https://www.youtube.com/results?search_query=logiciel+PISTE+tutoriel+routier"
+        },
+
+        {
+            category:"Projet routier",
+            title:"Créer un projet routier avec PISTE",
+            description:"Étapes générales.",
+            url:"https://www.youtube.com/results?search_query=PISTE+conception+routière"
+        },
+
+        {
+            category:"Tracé en plan",
+            title:"Tracé en plan avec PISTE",
+            description:"Conception géométrique.",
+            url:"https://www.youtube.com/results?search_query=PISTE+tracé+en+plan+route"
+        },
+
+        {
+            category:"Profil en long",
+            title:"Profil en long avec PISTE",
+            description:"Conception du profil.",
+            url:"https://www.youtube.com/results?search_query=PISTE+profil+en+long"
+        },
+
+        {
+            category:"Profil en travers",
+            title:"Profils en travers avec PISTE",
+            description:"Conception des profils.",
+            url:"https://www.youtube.com/results?search_query=PISTE+profil+en+travers"
+        },
+
+        {
+            category:"Chaussée",
+            title:"Dimensionnement routier avec PISTE",
+            description:"Études de chaussée.",
+            url:"https://www.youtube.com/results?search_query=PISTE+dimensionnement+chaussée"
+        }
+
+    ]
+},
+
+
+/* =====================================================
+   GEOMENSURA
+===================================================== */
+
+geomensura:{
+    title:"Géomensura",
+    icon:"📊",
+    description:
+    "Topographie, MNT et conception d'infrastructures.",
+
+    videos:[
+
+        {
+            category:"Installation",
+            title:"Installation de Géomensura",
+            description:"Installation et configuration.",
+            url:"https://www.youtube.com/results?search_query=Géomensura+installation+tutoriel"
+        },
+
+        {
+            category:"Prise en main",
+            title:"Prise en main de Géomensura",
+            description:"Découverte du logiciel.",
+            url:"https://www.youtube.com/results?search_query=Géomensura+prise+en+main"
+        },
+
+        {
+            category:"Topographie",
+            title:"Importer des points topographiques",
+            description:"Importation des données.",
+            url:"https://www.youtube.com/results?search_query=Géomensura+points+topographie"
+        },
+
+        {
+            category:"MNT",
+            title:"Créer un MNT avec Géomensura",
+            description:"Modèle numérique de terrain.",
+            url:"https://www.youtube.com/results?search_query=Géomensura+MNT+terrain"
+        },
+
+        {
+            category:"Tracé en plan",
+            title:"Concevoir une route avec Géomensura",
+            description:"Création d'un axe routier.",
+            url:"https://www.youtube.com/results?search_query=Géomensura+tracé+route"
+        },
+
+        {
+            category:"Profil en long",
+            title:"Créer un profil en long",
+            description:"Profil terrain et projet.",
+            url:"https://www.youtube.com/results?search_query=Géomensura+profil+en+long"
+        },
+
+        {
+            category:"Profil en travers",
+            title:"Créer les profils en travers",
+            description:"Conception des profils.",
+            url:"https://www.youtube.com/results?search_query=Géomensura+profil+en+travers"
+        },
+
+        {
+            category:"Cubatures",
+            title:"Calcul des cubatures",
+            description:"Déblais et remblais.",
+            url:"https://www.youtube.com/results?search_query=Géomensura+cubatures+terrassement"
+        },
+
+        {
+            category:"Projet complet",
+            title:"Projet routier complet avec Géomensura",
+            description:"Exemple global.",
+            url:"https://www.youtube.com/results?search_query=Géomensura+projet+routier+complet"
+        }
+
+    ]
+},
+
+
+/* =====================================================
+   ALIZE
+===================================================== */
+
+alize:{
+    title:"ALIZE-LCPC",
+    icon:"🔬",
+    description:
+    "Dimensionnement des structures de chaussée.",
+
+    videos:[
+
+        {
+            category:"Installation",
+            title:"Installation d'ALIZE-LCPC",
+            description:"Installation du logiciel.",
+            url:"https://www.youtube.com/results?search_query=ALIZE+LCPC+installation"
+        },
+
+        {
+            category:"Prise en main",
+            title:"Prise en main d'ALIZE-LCPC",
+            description:"Découverte du logiciel.",
+            url:"https://www.youtube.com/results?search_query=ALIZE+LCPC+tutoriel"
+        },
+
+        {
+            category:"Dimensionnement",
+            title:"Dimensionnement d'une chaussée avec ALIZE",
+            description:"Méthode de dimensionnement.",
+            url:"https://www.youtube.com/results?search_query=ALIZE+LCPC+dimensionnement+chaussée"
+        },
+
+        {
+            category:"Exemple",
+            title:"Exemple de calcul avec ALIZE-LCPC",
+            description:"Application numérique.",
+            url:"https://www.youtube.com/results?search_query=ALIZE+LCPC+exemple+calcul"
+        },
+
+        {
+            category:"Structures",
+            title:"Étude des structures de chaussée",
+            description:"Paramètres et structures.",
+            url:"https://www.youtube.com/results?search_query=ALIZE+structure+chaussée"
+        }
+
+    ]
+}
+
+};
+
+
+/* =========================================================
+   OUVRIR VIDEOS D'UN LOGICIEL
+========================================================= */
+
+function openSoftwareVideos(softwareId){
+
+    const software=softwareVideos[softwareId];
+
+    if(!software){
+
+        alert("Aucune vidéo disponible.");
+
+        return;
+    }
+
+    let html=`
+
+        <h2>
+            ${software.icon}
+            Vidéos — ${software.title}
+        </h2>
+
+        <div class="notice">
+
+            <strong>
+                ${software.description}
+            </strong>
+
+            <br><br>
+
+            Sélectionnez un tutoriel pour accéder
+            à la ressource YouTube.
+
+        </div>
+
+        <div class="software-video-list">
+
+    `;
+
+    software.videos.forEach((video,index)=>{
+
+        html+=`
+
+            <div class="software-video-item">
+
+                <div class="software-video-number">
+                    ${String(index+1).padStart(2,"0")}
+                </div>
+
+                <div class="software-video-info">
+
+                    <span class="software-video-category">
+                        ${video.category}
+                    </span>
+
+                    <h3>
+                        ${video.title}
+                    </h3>
+
+                    <p>
+                        ${video.description}
+                    </p>
+
+                </div>
+
+                <a
+                    href="${video.url}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="youtube-button">
+
+                    ▶ YouTube
+
+                </a>
+
+            </div>
+
+        `;
+
+    });
 
     html+=`
 
@@ -4384,8 +3311,7 @@ function openTPVideos(tpId){
 
         <button
             class="btn btn-primary"
-            onclick="closeModal()"
-        >
+            onclick="closeModal()">
 
             Fermer
 
@@ -4393,9 +3319,7 @@ function openTPVideos(tpId){
 
     `;
 
-
     openModal(html);
-
 }
 
 
@@ -4415,7 +3339,6 @@ function openSearch(query){
         "_blank",
         "noopener,noreferrer"
     );
-
 }
 
 
@@ -4427,15 +3350,11 @@ function resource(name){
 
     openModal(`
 
-        <h2>
-            📁 Ressource pédagogique
-        </h2>
+        <h2>📁 Ressource pédagogique</h2>
 
         <div class="notice">
 
-            <strong>
-                ${name}
-            </strong>
+            <strong>${name}</strong>
 
             <br><br>
 
@@ -4444,33 +3363,34 @@ function resource(name){
 
             <br><br>
 
-            Exemple d'organisation :
+            Organisation recommandée :
 
             <br><br>
 
             <code>
-
-                resources/<br>
-                ├── logiciels/<br>
-                ├── pdf/<br>
-                ├── videos/<br>
-                └── tp/
-
+            ressources/<br>
+            ├── logiciels/<br>
+            │   ├── covadis/<br>
+            │   ├── civil3d/<br>
+            │   ├── piste/<br>
+            │   ├── geomensura/<br>
+            │   └── alize/<br>
+            ├── pdf/<br>
+            ├── videos/<br>
+            └── tp/
             </code>
 
         </div>
 
         <button
             class="btn btn-primary"
-            onclick="closeModal()"
-        >
+            onclick="closeModal()">
 
             Fermer
 
         </button>
 
     `);
-
 }
 
 
@@ -4479,7 +3399,6 @@ function resource(name){
 ========================================================= */
 
 const studentsS1=[
-
     "Étudiant S1 — 01",
     "Étudiant S1 — 02",
     "Étudiant S1 — 03",
@@ -4488,12 +3407,9 @@ const studentsS1=[
     "Étudiant S1 — 06",
     "Étudiant S1 — 07",
     "Étudiant S1 — 08"
-
 ];
 
-
 const studentsS2=[
-
     "Étudiant S2 — 01",
     "Étudiant S2 — 02",
     "Étudiant S2 — 03",
@@ -4502,42 +3418,31 @@ const studentsS2=[
     "Étudiant S2 — 06",
     "Étudiant S2 — 07",
     "Étudiant S2 — 08"
-
 ];
 
 
 function generateStudents(){
 
     const section=
-        document.getElementById(
-            "sectionSelect"
-        ).value;
+        document.getElementById("sectionSelect").value;
 
     const date=
-        document.getElementById(
-            "presenceDate"
-        ).value;
+        document.getElementById("presenceDate").value;
 
     const area=
-        document.getElementById(
-            "studentsArea"
-        );
-
+        document.getElementById("studentsArea");
 
     if(!section || !date){
 
         area.innerHTML="";
 
         return;
-
     }
-
 
     const students=
         section==="S1"
         ?studentsS1
         :studentsS2;
-
 
     let html=`
 
@@ -4549,21 +3454,10 @@ function generateStudents(){
 
         <tr>
 
-        <th>
-            N°
-        </th>
-
-        <th>
-            Nom & Prénom
-        </th>
-
-        <th>
-            Section
-        </th>
-
-        <th>
-            État
-        </th>
+        <th>N°</th>
+        <th>Nom & Prénom</th>
+        <th>Section</th>
+        <th>État</th>
 
         </tr>
 
@@ -4573,31 +3467,23 @@ function generateStudents(){
 
     `;
 
-
     students.forEach((student,index)=>{
 
         html+=`
 
             <tr>
 
-                <td>
-                    ${index+1}
-                </td>
+                <td>${index+1}</td>
 
-                <td>
-                    ${student}
-                </td>
+                <td>${student}</td>
 
-                <td>
-                    ${section}
-                </td>
+                <td>${section}</td>
 
                 <td>
 
                     <button
                         class="status present"
-                        onclick="togglePresence(this)"
-                    >
+                        onclick="togglePresence(this)">
 
                         Présent
 
@@ -4611,7 +3497,6 @@ function generateStudents(){
 
     });
 
-
     html+=`
 
         </tbody>
@@ -4624,8 +3509,7 @@ function generateStudents(){
 
         <button
             class="btn btn-success"
-            onclick="generatePresenceReport()"
-        >
+            onclick="generatePresenceReport()">
 
             📄 Générer le rapport
 
@@ -4633,36 +3517,25 @@ function generateStudents(){
 
     `;
 
-
     area.innerHTML=html;
-
 }
 
 
 function togglePresence(button){
 
-    if(
-        button.classList.contains("present")
-    ){
+    if(button.classList.contains("present")){
 
         button.classList.remove("present");
-
         button.classList.add("absent");
-
         button.textContent="Absent";
 
-    }
-
-    else{
+    }else{
 
         button.classList.remove("absent");
-
         button.classList.add("present");
-
         button.textContent="Présent";
 
     }
-
 }
 
 
@@ -4673,81 +3546,53 @@ function togglePresence(button){
 function generatePresenceReport(){
 
     const section=
-        document.getElementById(
-            "sectionSelect"
-        ).value;
+        document.getElementById("sectionSelect").value;
 
     const date=
-        document.getElementById(
-            "presenceDate"
-        ).value;
-
+        document.getElementById("presenceDate").value;
 
     if(!section || !date){
 
-        alert(
-            "Veuillez choisir une section et une date."
-        );
+        alert("Veuillez choisir une section et une date.");
 
         return;
-
     }
-
 
     const rows=
         document.querySelectorAll(
             "#presenceTable tbody tr"
         );
 
-
     let present=0;
-
     let absent=0;
-
 
     rows.forEach(row=>{
 
         const state=
-            row.querySelector(
-                ".status"
-            ).textContent;
+            row.querySelector(".status").textContent;
 
         if(state==="Présent"){
             present++;
-        }
-        else{
+        }else{
             absent++;
         }
 
     });
 
-
     const tableRows=
         Array.from(rows)
         .map(row=>{
 
-            const cells=
-                row.querySelectorAll("td");
+            const cells=row.querySelectorAll("td");
 
             return `
 
                 <tr>
 
-                    <td>
-                        ${cells[0].textContent}
-                    </td>
-
-                    <td>
-                        ${cells[1].textContent}
-                    </td>
-
-                    <td>
-                        ${cells[2].textContent}
-                    </td>
-
-                    <td>
-                        ${cells[3].textContent}
-                    </td>
+                    <td>${cells[0].textContent}</td>
+                    <td>${cells[1].textContent}</td>
+                    <td>${cells[2].textContent}</td>
+                    <td>${cells[3].textContent}</td>
 
                 </tr>
 
@@ -4755,7 +3600,6 @@ function generatePresenceReport(){
 
         })
         .join("");
-
 
     const report=`
 
@@ -4767,83 +3611,53 @@ function generatePresenceReport(){
 
 <meta charset="UTF-8">
 
-<title>
-Liste de présence
-</title>
+<title>Liste de présence</title>
 
 <style>
 
 body{
-
     font-family:Arial;
-
     margin:40px;
-
     color:#1b2b3a;
-
 }
 
 .header{
-
     text-align:center;
-
-    border-bottom:
-        3px solid #075985;
-
+    border-bottom:3px solid #075985;
     padding-bottom:20px;
-
 }
 
 h1{
-
     color:#075985;
-
 }
 
 table{
-
     width:100%;
-
     border-collapse:collapse;
-
     margin-top:30px;
-
 }
 
-th,
-td{
-
+th,td{
     border:1px solid #aaa;
-
     padding:10px;
-
 }
 
 th{
-
     background:#075985;
-
     color:white;
-
 }
 
 .summary{
-
     margin-top:30px;
-
     padding:20px;
-
     background:#eef5f9;
-
 }
 
 </style>
 
 </head>
 
-
 <body>
-
 
 <div class="header">
 
@@ -4859,61 +3673,37 @@ th{
 HIGHER NATIONAL SCHOOL OF PUBLIC WORKS
 </p>
 
-<h1>
-LISTE DE PRÉSENCE
-</h1>
+<h1>LISTE DE PRÉSENCE</h1>
 
-<p>
-Esquisse Routière
-</p>
+<p>Esquisse Routière</p>
 
 </div>
 
-
 <p>
 
-<strong>
-Section :
-</strong>
-
+<strong>Section :</strong>
 ${section}
 
 <br>
 
-<strong>
-Date :
-</strong>
-
+<strong>Date :</strong>
 ${date}
 
 <br>
 
-<strong>
-Enseignants :
-</strong>
-
+<strong>Enseignants :</strong>
 Goumettre — Hatri — Assas Taqiyeddine
 
 </p>
-
 
 <table>
 
 <tr>
 
 <th>N°</th>
-
-<th>
-Nom & Prénom
-</th>
-
-<th>
-Section
-</th>
-
-<th>
-État
-</th>
+<th>Nom & Prénom</th>
+<th>Section</th>
+<th>État</th>
 
 </tr>
 
@@ -4921,57 +3711,41 @@ ${tableRows}
 
 </table>
 
-
 <div class="summary">
 
-<h3>
-Résumé
-</h3>
+<h3>Résumé</h3>
 
 <p>
 Nombre présents :
-<strong>
-${present}
-</strong>
+<strong>${present}</strong>
 </p>
 
 <p>
 Nombre absents :
-<strong>
-${absent}
-</strong>
+<strong>${absent}</strong>
 </p>
 
 <p>
 Total :
-<strong>
-${present+absent}
-</strong>
+<strong>${present+absent}</strong>
 </p>
 
 </div>
 
-
 <br><br>
 
 <p>
-
 Document généré par la plateforme pédagogique
 Esquisse Routière — ENSTP.
-
 </p>
-
 
 <script>
 
 window.onload=function(){
-
     window.print();
-
 };
 
 <\/script>
-
 
 </body>
 
@@ -4979,53 +3753,43 @@ window.onload=function(){
 
 `;
 
-
-    const win=
-        window.open(
-            "",
-            "_blank"
-        );
-
+    const win=window.open("","_blank");
 
     win.document.write(report);
 
     win.document.close();
-
 }
 
 
 /* =========================================================
-   DATE
+   INITIALISATION
 ========================================================= */
 
-document.addEventListener(
-    "DOMContentLoaded",
-    function(){
+document.addEventListener("DOMContentLoaded",function(){
 
-        const dateInput=
-            document.getElementById(
-                "presenceDate"
-            );
+    generateTPCards();
 
+    const dateInput=
+        document.getElementById("presenceDate");
 
-        if(dateInput){
+    if(dateInput){
 
-            const today=
-                new Date();
+        const today=new Date();
 
+        const localDate=
+            today.getFullYear()
+            + "-"
+            + String(today.getMonth()+1).padStart(2,"0")
+            + "-"
+            + String(today.getDate()).padStart(2,"0");
 
-            dateInput.value=
-                today
-                .toISOString()
-                .split("T")[0];
-
-        }
-
+        dateInput.value=localDate;
     }
-);
+
+});
+
 
 </script>
-
 
 </body>
 
