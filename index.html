@@ -910,7 +910,14 @@ footer p{
     }
 
 }
-
+.report-logo{
+  display:block;
+  width:110px;
+  height:auto;
+  max-height:110px;
+  object-fit:contain;
+  margin:0 auto 15px auto;
+}
 </style>
 
 </head>
@@ -1690,64 +1697,144 @@ onclick="openTPVideos('TP11')">
 ===================================================== -->
 
 <section id="presence" class="section">
+  <div class="container">
 
-<div class="container">
+    <div class="section-title">
+      <h2>✅ Gestion de présence</h2>
+      <p>Espace enseignant — Esquisse Routière</p>
+    </div>
 
-<div class="section-title">
+    <div class="notice">
+      <strong>📌 Gestion des étudiants et des présences</strong>
+      <br>
+      Sélectionnez une section et une date pour afficher la liste des étudiants.
+      Vous pouvez ajouter des étudiants, rechercher un étudiant et enregistrer les états de présence.
+    </div>
 
-<h2>✅ Gestion de présence</h2>
+    <!-- Sélection -->
+    <div class="form-grid">
 
-<p>Espace enseignant</p>
+      <div class="form-group">
+        <label for="sectionSelect">Section / Groupe</label>
 
-</div>
+        <select id="sectionSelect" onchange="generateStudents()">
+          <option value="">-- Choisir une section --</option>
+          <option value="Section 01">Section 01 — Groupe 01</option>
+          <option value="Section 02">Section 02 — Groupe 02</option>
+        </select>
+      </div>
 
-<div class="notice">
+      <div class="form-group">
+        <label for="presenceDate">Date de la séance</label>
+        <input
+          type="date"
+          id="presenceDate"
+          onchange="generateStudents()"
+        >
+      </div>
 
-<strong>Fonctionnement :</strong>
+    </div>
 
-<br>
+    <!-- Recherche -->
+    <div id="attendanceControls" style="display:none;">
 
-Sélectionnez la section et la date.
-Les séances normales sont programmées le mardi.
+      <div class="attendance-toolbar">
 
-</div>
+        <div class="search-box">
+          <label for="studentSearch">🔎 Rechercher un étudiant</label>
+          <input
+            type="text"
+            id="studentSearch"
+            placeholder="Nom, prénom ou matricule..."
+            oninput="filterStudents()"
+          >
+        </div>
 
-<div class="form-grid">
+        <div class="attendance-actions">
+          <button
+            class="btn btn-success"
+            onclick="setAllStatus('Présent')">
+            ✓ Tout présent
+          </button>
 
-<div class="form-group">
+          <button
+            class="btn btn-danger"
+            onclick="setAllStatus('Absent')">
+            ✕ Tout absent
+          </button>
 
-<label>Section</label>
+          <button
+            class="btn btn-primary"
+            onclick="saveAttendance()">
+            💾 Enregistrer
+          </button>
 
-<select id="sectionSelect"
-onchange="generateStudents()">
+          <button
+            class="btn"
+            onclick="printAttendance()">
+            🖨️ Imprimer / PDF
+          </button>
 
-<option value="">-- Choisir --</option>
+          <button
+            class="btn btn-warning"
+            onclick="openAddStudentModal()">
+            ＋ Ajouter un étudiant
+          </button>
+        </div>
 
-<option value="S1">Section S1</option>
+      </div>
 
-<option value="S2">Section S2</option>
+      <!-- Statistiques -->
+      <div class="attendance-stats">
 
-</select>
+        <div class="attendance-stat total">
+          <div class="stat-icon">👥</div>
+          <div>
+            <strong id="statTotal">0</strong>
+            <span>Total</span>
+          </div>
+        </div>
 
-</div>
+        <div class="attendance-stat present">
+          <div class="stat-icon">✓</div>
+          <div>
+            <strong id="statPresent">0</strong>
+            <span>Présents</span>
+          </div>
+        </div>
 
-<div class="form-group">
+        <div class="attendance-stat absent">
+          <div class="stat-icon">✕</div>
+          <div>
+            <strong id="statAbsent">0</strong>
+            <span>Absents</span>
+          </div>
+        </div>
 
-<label>Date</label>
+        <div class="attendance-stat late">
+          <div class="stat-icon">⏱</div>
+          <div>
+            <strong id="statLate">0</strong>
+            <span>Retards</span>
+          </div>
+        </div>
 
-<input
-type="date"
-id="presenceDate"
-onchange="generateStudents()">
+        <div class="attendance-stat justified">
+          <div class="stat-icon">📄</div>
+          <div>
+            <strong id="statJustified">0</strong>
+            <span>Justifiés</span>
+          </div>
+        </div>
 
-</div>
+      </div>
 
-</div>
+    </div>
 
-<div id="studentsArea"></div>
+    <!-- Liste étudiants -->
+    <div id="studentsArea"></div>
 
-</div>
-
+  </div>
 </section>
 
 
@@ -3398,145 +3485,1370 @@ function resource(name){
    PRESENCE
 ========================================================= */
 
-const studentsS1=[
-    "Étudiant S1 — 01",
-    "Étudiant S1 — 02",
-    "Étudiant S1 — 03",
-    "Étudiant S1 — 04",
-    "Étudiant S1 — 05",
-    "Étudiant S1 — 06",
-    "Étudiant S1 — 07",
-    "Étudiant S1 — 08"
+/* =========================================================
+   GESTION DE PRESENCE - ESQUISSE ROUTIERE
+   81 ETUDIANTS
+   ========================================================= */
+
+/* -----------------------------
+   LISTE INITIALE DES ETUDIANTS
+   ----------------------------- */
+
+const initialStudents = [
+
+  /* ==========================
+     SECTION 01 - GROUPE 01
+     40 ETUDIANTS
+     ========================== */
+
+  {id:"39411920", bac:"2023", nom:"AHMID", prenom:"Ala Mohammed Said", section:"Section 01", groupe:"Groupe 01"},
+  {id:"31472814", bac:"2022", nom:"ALLAKA", prenom:"Youcef", section:"Section 01", groupe:"Groupe 01"},
+  {id:"33037209", bac:"2022", nom:"AMGHAR", prenom:"Akila", section:"Section 01", groupe:"Groupe 01"},
+  {id:"36265017", bac:"2022", nom:"ARAAR", prenom:"Mohammed Taha Yassine", section:"Section 01", groupe:"Groupe 01"},
+  {id:"35469213", bac:"2023", nom:"AZIZI", prenom:"Mohamed Abdelhakim", section:"Section 01", groupe:"Groupe 01"},
+  {id:"31426802", bac:"2023", nom:"BAKOUR", prenom:"Bilal", section:"Section 01", groupe:"Groupe 01"},
+  {id:"31405410", bac:"2022", nom:"BELLAHSENE", prenom:"Yakoub", section:"Section 01", groupe:"Groupe 01"},
+  {id:"32359503", bac:"2023", nom:"BENALLAL", prenom:"Ibrahim", section:"Section 01", groupe:"Groupe 01"},
+  {id:"32490908", bac:"2022", nom:"BENCHIBANE", prenom:"Chaima", section:"Section 01", groupe:"Groupe 01"},
+  {id:"32385219", bac:"2023", nom:"BENMEZIANE", prenom:"Meriem", section:"Section 01", groupe:"Groupe 01"},
+  {id:"35402106", bac:"2023", nom:"BERGAS", prenom:"Islam", section:"Section 01", groupe:"Groupe 01"},
+  {id:"35025308", bac:"2023", nom:"BOUBECHICHE", prenom:"Aymen Abderrahmane", section:"Section 01", groupe:"Groupe 01"},
+  {id:"33284706", bac:"2023", nom:"BOUBRIOUA", prenom:"Rima", section:"Section 01", groupe:"Groupe 01"},
+  {id:"34048304", bac:"2023", nom:"BOUGHANEM", prenom:"Anouar", section:"Section 01", groupe:"Groupe 01"},
+  {id:"32151207", bac:"2023", nom:"CHERIBI", prenom:"Maria Lina", section:"Section 01", groupe:"Groupe 01"},
+  {id:"34151803", bac:"2023", nom:"DAGHBOUCHE", prenom:"Zied", section:"Section 01", groupe:"Groupe 01"},
+  {id:"31568209", bac:"2023", nom:"DJABALI", prenom:"Abderraouf", section:"Section 01", groupe:"Groupe 01"},
+  {id:"36384404", bac:"2023", nom:"DRICI", prenom:"Ayoub Abdessabour", section:"Section 01", groupe:"Groupe 01"},
+  {id:"32024905", bac:"2023", nom:"ELKHERARBA", prenom:"Nor El Houda", section:"Section 01", groupe:"Groupe 01"},
+  {id:"34471615", bac:"2023", nom:"ELOUAERE", prenom:"Mazin", section:"Section 01", groupe:"Groupe 01"},
+  {id:"34543106", bac:"2023", nom:"GACEM", prenom:"Salih", section:"Section 01", groupe:"Groupe 01"},
+  {id:"38004518", bac:"2023", nom:"GUENDOUZI", prenom:"Khalil", section:"Section 01", groupe:"Groupe 01"},
+  {id:"32031804", bac:"2022", nom:"HARICHANE", prenom:"Rihab", section:"Section 01", groupe:"Groupe 01"},
+  {id:"34151807", bac:"2023", nom:"HARKATI", prenom:"Chiheb", section:"Section 01", groupe:"Groupe 01"},
+  {id:"34469616", bac:"2023", nom:"HEMICI", prenom:"Ismail", section:"Section 01", groupe:"Groupe 01"},
+  {id:"32108108", bac:"2022", nom:"HEMICI", prenom:"Oualid", section:"Section 01", groupe:"Groupe 01"},
+  {id:"34021617", bac:"2023", nom:"KHELIFI", prenom:"Zakarya", section:"Section 01", groupe:"Groupe 01"},
+  {id:"31425018", bac:"2023", nom:"KHEZZANE", prenom:"Meriem", section:"Section 01", groupe:"Groupe 01"},
+  {id:"31262819", bac:"2023", nom:"LADJALI", prenom:"Maria", section:"Section 01", groupe:"Groupe 01"},
+  {id:"35410008", bac:"2023", nom:"MADA", prenom:"Hamza", section:"Section 01", groupe:"Groupe 01"},
+  {id:"33067417", bac:"2023", nom:"MESSIOUNI", prenom:"Abdeslam", section:"Section 01", groupe:"Groupe 01"},
+  {id:"34486609", bac:"2022", nom:"OUARET", prenom:"Mouaadh", section:"Section 01", groupe:"Groupe 01"},
+  {id:"34151811", bac:"2023", nom:"OUNISSI", prenom:"Mohamed Amine", section:"Section 01", groupe:"Groupe 01"},
+  {id:"33052865", bac:"2021", nom:"ROUABAH", prenom:"Tarek", section:"Section 01", groupe:"Groupe 01"},
+  {id:"35629701", bac:"2023", nom:"SAOUDI", prenom:"Ramzi", section:"Section 01", groupe:"Groupe 01"},
+  {id:"38004019", bac:"2023", nom:"SEBAI", prenom:"Ibrahim", section:"Section 01", groupe:"Groupe 01"},
+  {id:"32580608", bac:"2023", nom:"TAS", prenom:"Cherif", section:"Section 01", groupe:"Groupe 01"},
+  {id:"36144007", bac:"2023", nom:"YAHIAOUI", prenom:"Sohaib", section:"Section 01", groupe:"Groupe 01"},
+  {id:"33055908", bac:"2023", nom:"YOUCEF KHOUDJA", prenom:"Zouina", section:"Section 01", groupe:"Groupe 01"},
+  {id:"37642302", bac:"2023", nom:"ZANOUNE", prenom:"Abd Elhadi", section:"Section 01", groupe:"Groupe 01"},
+
+
+  /* ==========================
+     SECTION 02 - GROUPE 02
+     41 ETUDIANTS
+     ========================== */
+
+  {id:"33151616", bac:"2022", nom:"ACHIT", prenom:"Soundous", section:"Section 02", groupe:"Groupe 02"},
+  {id:"32214209", bac:"2023", nom:"ASSEB", prenom:"Lyna", section:"Section 02", groupe:"Groupe 02"},
+  {id:"31531414", bac:"2023", nom:"BAKHOUCHE", prenom:"Nouha", section:"Section 02", groupe:"Groupe 02"},
+  {id:"31518818", bac:"2023", nom:"BELARIF", prenom:"Mohamed Ayoub", section:"Section 02", groupe:"Groupe 02"},
+  {id:"32285314", bac:"2023", nom:"BENKHELIFA", prenom:"Leila", section:"Section 02", groupe:"Groupe 02"},
+  {id:"35191812", bac:"2023", nom:"BENLAALMI", prenom:"Soundous Yara", section:"Section 02", groupe:"Groupe 02"},
+  {id:"32213609", bac:"2023", nom:"BENSENOUSSI", prenom:"Hibet Allah", section:"Section 02", groupe:"Groupe 02"},
+  {id:"33289613", bac:"2023", nom:"BOUABSA", prenom:"Oussama", section:"Section 02", groupe:"Groupe 02"},
+  {id:"32497702", bac:"2023", nom:"BOUCHERIT", prenom:"Mohammed", section:"Section 02", groupe:"Groupe 02"},
+  {id:"31347601", bac:"2023", nom:"BOUDI", prenom:"Aya", section:"Section 02", groupe:"Groupe 02"},
+  {id:"31031517", bac:"2023", nom:"BOULDJENNET", prenom:"Yousra", section:"Section 02", groupe:"Groupe 02"},
+  {id:"31573012", bac:"2023", nom:"CHALABI", prenom:"Mohamed Amir", section:"Section 02", groupe:"Groupe 02"},
+  {id:"31527603", bac:"2023", nom:"CHAMBI", prenom:"Zakaria", section:"Section 02", groupe:"Groupe 02"},
+  {id:"32107213", bac:"2022", nom:"CHEBATA", prenom:"Imane", section:"Section 02", groupe:"Groupe 02"},
+  {id:"31673206", bac:"2023", nom:"CHEBIRA", prenom:"Meriem", section:"Section 02", groupe:"Groupe 02"},
+  {id:"38159313", bac:"2023", nom:"DAHMANI", prenom:"Mimouna Mouna", section:"Section 02", groupe:"Groupe 02"},
+  {id:"31568320", bac:"2022", nom:"DJAOUADI", prenom:"Hind", section:"Section 02", groupe:"Groupe 02"},
+  {id:"31734413", bac:"2023", nom:"DJENANE", prenom:"Bilal", section:"Section 02", groupe:"Groupe 02"},
+  {id:"32164103", bac:"2023", nom:"DJERADI", prenom:"Aboubaker", section:"Section 02", groupe:"Groupe 02"},
+  {id:"31729113", bac:"2023", nom:"DORBANE", prenom:"Zineb", section:"Section 02", groupe:"Groupe 02"},
+  {id:"31202604", bac:"2023", nom:"FEKIR", prenom:"Mohamed Wassim", section:"Section 02", groupe:"Groupe 02"},
+  {id:"31553413", bac:"2023", nom:"HAKEM", prenom:"Sofia Rania", section:"Section 02", groupe:"Groupe 02"},
+  {id:"32518514", bac:"2023", nom:"HAMEIDIA", prenom:"Maria", section:"Section 02", groupe:"Groupe 02"},
+  {id:"31717707", bac:"2023", nom:"KARAI", prenom:"Mohamed Hocine", section:"Section 02", groupe:"Groupe 02"},
+  {id:"34434220", bac:"2023", nom:"KERROUCHE", prenom:"Noureddine", section:"Section 02", groupe:"Groupe 02"},
+  {id:"34503608", bac:"2023", nom:"KOUADRA", prenom:"Abdel Hadi", section:"Section 02", groupe:"Groupe 02"},
+  {id:"33252305", bac:"2023", nom:"LADJEROUD", prenom:"Adam", section:"Section 02", groupe:"Groupe 02"},
+  {id:"32459717", bac:"2022", nom:"MAHMOUDI", prenom:"Adil Elarabi", section:"Section 02", groupe:"Groupe 02"},
+  {id:"31369615", bac:"2023", nom:"MAOUCHE", prenom:"Amina", section:"Section 02", groupe:"Groupe 02"},
+  {id:"33374912", bac:"2023", nom:"MEGARI", prenom:"Nihel Kaouter", section:"Section 02", groupe:"Groupe 02"},
+  {id:"32497618", bac:"2023", nom:"NEMROUD", prenom:"Faiz", section:"Section 02", groupe:"Groupe 02"},
+  {id:"31320814", bac:"2022", nom:"OUAIL", prenom:"Chourouk", section:"Section 02", groupe:"Groupe 02"},
+  {id:"32276802", bac:"2023", nom:"REZAK", prenom:"Ryma", section:"Section 02", groupe:"Groupe 02"},
+  {id:"32396603", bac:"2023", nom:"SAAD EDINE", prenom:"Yasser", section:"Section 02", groupe:"Groupe 02"},
+  {id:"35548310", bac:"2023", nom:"SALEM", prenom:"Abderrahmane", section:"Section 02", groupe:"Groupe 02"},
+  {id:"31518015", bac:"2023", nom:"SAMAH", prenom:"Mohamed El Mahdi", section:"Section 02", groupe:"Groupe 02"},
+  {id:"32495519", bac:"2023", nom:"TAIBI", prenom:"Mohamed Islam", section:"Section 02", groupe:"Groupe 02"},
+  {id:"33150216", bac:"2022", nom:"TELDJOUNE", prenom:"Yanes", section:"Section 02", groupe:"Groupe 02"},
+  {id:"32215220", bac:"2023", nom:"TOUMACHE", prenom:"Sid Ahmed", section:"Section 02", groupe:"Groupe 02"},
+  {id:"32300108", bac:"2023", nom:"TURKMAN", prenom:"Mohamed Belkacem", section:"Section 02", groupe:"Groupe 02"},
+  {id:"33150517", bac:"2022", nom:"ZEMARI", prenom:"Manel", section:"Section 02", groupe:"Groupe 02"}
 ];
 
-const studentsS2=[
-    "Étudiant S2 — 01",
-    "Étudiant S2 — 02",
-    "Étudiant S2 — 03",
-    "Étudiant S2 — 04",
-    "Étudiant S2 — 05",
-    "Étudiant S2 — 06",
-    "Étudiant S2 — 07",
-    "Étudiant S2 — 08"
-];
 
+/* =========================================================
+   ETUDIANTS AJOUTES PAR L'ENSEIGNANT
+   ========================================================= */
+
+let customStudents = JSON.parse(
+  localStorage.getItem("customStudentsEsquisse") || "[]"
+);
+
+
+/* =========================================================
+   OUTILS
+   ========================================================= */
+
+function getAllStudents(){
+  return [...initialStudents, ...customStudents];
+}
+
+
+function attendanceKey(section, date){
+  return `attendance_${section}_${date}`;
+}
+
+
+function getAttendance(section, date){
+
+  const saved = localStorage.getItem(
+    attendanceKey(section, date)
+  );
+
+  if(!saved){
+    return {};
+  }
+
+  try{
+    return JSON.parse(saved);
+  }catch(error){
+    console.error("Erreur lecture présence :", error);
+    return {};
+  }
+}
+
+
+function saveAttendanceData(section, date, data){
+
+  localStorage.setItem(
+    attendanceKey(section, date),
+    JSON.stringify(data)
+  );
+
+}
+
+
+/* =========================================================
+   GENERATION DES ETUDIANTS
+   ========================================================= */
 
 function generateStudents(){
 
-    const section=
-        document.getElementById("sectionSelect").value;
+  const section =
+    document.getElementById("sectionSelect").value;
 
-    const date=
-        document.getElementById("presenceDate").value;
+  const date =
+    document.getElementById("presenceDate").value;
 
-    const area=
-        document.getElementById("studentsArea");
+  const area =
+    document.getElementById("studentsArea");
 
-    if(!section || !date){
+  const controls =
+    document.getElementById("attendanceControls");
 
-        area.innerHTML="";
 
-        return;
+  if(!section || !date){
+
+    area.innerHTML = "";
+
+    if(controls){
+      controls.style.display = "none";
     }
 
-    const students=
-        section==="S1"
-        ?studentsS1
-        :studentsS2;
+    return;
+  }
 
-    let html=`
 
-        <div class="table-wrapper">
+  controls.style.display = "block";
 
-        <table id="presenceTable">
+
+  const allStudents = getAllStudents();
+
+  const students = allStudents.filter(
+    student => student.section === section
+  );
+
+
+  const attendance = getAttendance(section, date);
+
+
+  let html = `
+
+    <div class="notice" style="margin-bottom:15px;">
+
+      <strong>
+        ${section}
+      </strong>
+
+      — ${students[0]?.groupe || ""}
+
+      — ${students.length} étudiant(s)
+
+      — Séance du ${formatDate(date)}
+
+    </div>
+
+    <div class="table-wrapper">
+
+      <table id="presenceTable">
 
         <thead>
 
-        <tr>
+          <tr>
 
-        <th>N°</th>
-        <th>Nom & Prénom</th>
-        <th>Section</th>
-        <th>État</th>
+            <th>N°</th>
+            <th>Matricule</th>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Bac</th>
+            <th>Groupe</th>
+            <th>État</th>
+            <th>Action</th>
 
-        </tr>
+          </tr>
 
         </thead>
 
         <tbody>
+  `;
+
+
+  students.forEach((student, index) => {
+
+    const status =
+      attendance[student.id] || "Présent";
+
+
+    const statusClass =
+      getStatusClass(status);
+
+
+    const isCustom =
+      customStudents.some(
+        s => s.id === student.id
+      );
+
+
+    html += `
+
+      <tr
+        data-student-id="${student.id}"
+        data-search="${normalizeText(
+          student.nom + " " +
+          student.prenom + " " +
+          student.id
+        )}"
+      >
+
+        <td>${index + 1}</td>
+
+        <td>
+          <strong>${student.id}</strong>
+        </td>
+
+        <td>${escapeHtml(student.nom)}</td>
+
+        <td>${escapeHtml(student.prenom)}</td>
+
+        <td>${student.bac}</td>
+
+        <td>${student.groupe}</td>
+
+        <td>
+
+          <select
+            class="status-select ${statusClass}"
+            data-student="${student.id}"
+            onchange="changeStatus(this)"
+          >
+
+            <option value="Présent"
+              ${status === "Présent" ? "selected" : ""}>
+              ✓ Présent
+            </option>
+
+            <option value="Absent"
+              ${status === "Absent" ? "selected" : ""}>
+              ✕ Absent
+            </option>
+
+            <option value="Retard"
+              ${status === "Retard" ? "selected" : ""}>
+              ⏱ Retard
+            </option>
+
+            <option value="Justifié"
+              ${status === "Justifié" ? "selected" : ""}>
+              📄 Justifié
+            </option>
+
+          </select>
+
+        </td>
+
+        <td>
+
+          ${
+            isCustom
+            ?
+            `<button
+                class="student-delete-btn"
+                onclick="deleteStudent('${student.id}')"
+                title="Supprimer cet étudiant">
+                🗑
+             </button>`
+            :
+            `<span style="color:#999;font-size:12px;">
+                Liste initiale
+             </span>`
+          }
+
+        </td>
+
+      </tr>
 
     `;
 
-    students.forEach((student,index)=>{
+  });
 
-        html+=`
 
-            <tr>
-
-                <td>${index+1}</td>
-
-                <td>${student}</td>
-
-                <td>${section}</td>
-
-                <td>
-
-                    <button
-                        class="status present"
-                        onclick="togglePresence(this)">
-
-                        Présent
-
-                    </button>
-
-                </td>
-
-            </tr>
-
-        `;
-
-    });
-
-    html+=`
+  html += `
 
         </tbody>
 
-        </table>
+      </table>
+
+    </div>
+
+  `;
+
+
+  area.innerHTML = html;
+
+
+  updateAttendanceStats();
+
+}
+
+
+/* =========================================================
+   CHANGEMENT DE STATUT
+   ========================================================= */
+
+function changeStatus(select){
+
+  select.classList.remove(
+    "present",
+    "absent",
+    "late",
+    "justified"
+  );
+
+  select.classList.add(
+    getStatusClass(select.value)
+  );
+
+
+  updateAttendanceStats();
+
+}
+
+
+/* =========================================================
+   STATISTIQUES
+   ========================================================= */
+
+function updateAttendanceStats(){
+
+  const table =
+    document.getElementById("presenceTable");
+
+  if(!table){
+    return;
+  }
+
+
+  const selects =
+    table.querySelectorAll(".status-select");
+
+
+  let total = 0;
+  let present = 0;
+  let absent = 0;
+  let late = 0;
+  let justified = 0;
+
+
+  selects.forEach(select => {
+
+    total++;
+
+
+    switch(select.value){
+
+      case "Présent":
+        present++;
+        break;
+
+      case "Absent":
+        absent++;
+        break;
+
+      case "Retard":
+        late++;
+        break;
+
+      case "Justifié":
+        justified++;
+        break;
+
+    }
+
+  });
+
+
+  document.getElementById("statTotal").textContent =
+    total;
+
+  document.getElementById("statPresent").textContent =
+    present;
+
+  document.getElementById("statAbsent").textContent =
+    absent;
+
+  document.getElementById("statLate").textContent =
+    late;
+
+  document.getElementById("statJustified").textContent =
+    justified;
+
+}
+
+
+/* =========================================================
+   TOUT PRESENT / TOUT ABSENT
+   ========================================================= */
+
+function setAllStatus(status){
+
+  const table =
+    document.getElementById("presenceTable");
+
+  if(!table){
+    return;
+  }
+
+
+  const selects =
+    table.querySelectorAll(".status-select");
+
+
+  selects.forEach(select => {
+
+    select.value = status;
+
+    select.classList.remove(
+      "present",
+      "absent",
+      "late",
+      "justified"
+    );
+
+    select.classList.add(
+      getStatusClass(status)
+    );
+
+  });
+
+
+  updateAttendanceStats();
+
+}
+
+
+/* =========================================================
+   ENREGISTRER
+   ========================================================= */
+
+function saveAttendance(){
+
+  const section =
+    document.getElementById("sectionSelect").value;
+
+  const date =
+    document.getElementById("presenceDate").value;
+
+
+  if(!section || !date){
+
+    alert("Veuillez sélectionner une section et une date.");
+
+    return;
+  }
+
+
+  const table =
+    document.getElementById("presenceTable");
+
+
+  if(!table){
+    return;
+  }
+
+
+  const data = {};
+
+
+  table.querySelectorAll(".status-select")
+    .forEach(select => {
+
+      data[select.dataset.student] =
+        select.value;
+
+    });
+
+
+  saveAttendanceData(
+    section,
+    date,
+    data
+  );
+
+
+  alert(
+    `✅ Présence enregistrée avec succès.\n\n` +
+    `${section}\n` +
+    `Date : ${formatDate(date)}`
+  );
+
+}
+
+
+/* =========================================================
+   RECHERCHE
+   ========================================================= */
+
+function filterStudents(){
+
+  const input =
+    document.getElementById("studentSearch");
+
+  if(!input){
+    return;
+  }
+
+
+  const query =
+    normalizeText(input.value);
+
+
+  const rows =
+    document.querySelectorAll(
+      "#presenceTable tbody tr"
+    );
+
+
+  rows.forEach(row => {
+
+    const text =
+      row.dataset.search || "";
+
+
+    row.style.display =
+      text.includes(query)
+      ? ""
+      : "none";
+
+  });
+
+}
+
+
+/* =========================================================
+   AJOUTER UN ETUDIANT
+   ========================================================= */
+
+function openAddStudentModal(){
+
+  const section =
+    document.getElementById("sectionSelect").value;
+
+
+  if(!section){
+
+    alert(
+      "Veuillez d'abord sélectionner une section."
+    );
+
+    return;
+  }
+
+
+  const groupe =
+    section === "Section 01"
+    ? "Groupe 01"
+    : "Groupe 02";
+
+
+  const html = `
+
+    <div class="modal-content">
+
+      <div class="modal-header">
+
+        <h2>➕ Ajouter un étudiant</h2>
+
+        <button
+          class="modal-close"
+          onclick="closeModal()">
+          ×
+        </button>
+
+      </div>
+
+
+      <div style="padding:20px;">
+
+        <p>
+          Ajouter un étudiant à
+          <strong>${section}</strong>
+          —
+          <strong>${groupe}</strong>.
+        </p>
+
+
+        <div class="modal-form-grid">
+
+          <div class="modal-form-group">
+
+            <label>Année du Bac</label>
+
+            <input
+              id="newStudentBac"
+              type="text"
+              placeholder="Ex. 2023"
+            >
+
+          </div>
+
+
+          <div class="modal-form-group">
+
+            <label>Matricule</label>
+
+            <input
+              id="newStudentId"
+              type="text"
+              placeholder="Ex. 12345678"
+            >
+
+          </div>
+
+
+          <div class="modal-form-group">
+
+            <label>Nom</label>
+
+            <input
+              id="newStudentNom"
+              type="text"
+              placeholder="Nom"
+            >
+
+          </div>
+
+
+          <div class="modal-form-group">
+
+            <label>Prénom</label>
+
+            <input
+              id="newStudentPrenom"
+              type="text"
+              placeholder="Prénom"
+            >
+
+          </div>
+
+
+          <div class="modal-form-group">
+
+            <label>Section</label>
+
+            <input
+              type="text"
+              value="${section}"
+              disabled
+            >
+
+          </div>
+
+
+          <div class="modal-form-group">
+
+            <label>Groupe</label>
+
+            <input
+              type="text"
+              value="${groupe}"
+              disabled
+            >
+
+          </div>
 
         </div>
 
-        <br>
 
-        <button
+        <div style="
+          margin-top:20px;
+          display:flex;
+          gap:10px;
+          justify-content:flex-end;
+        ">
+
+          <button
+            class="btn"
+            onclick="closeModal()">
+            Annuler
+          </button>
+
+          <button
             class="btn btn-success"
-            onclick="generatePresenceReport()">
+            onclick="addStudent()">
+            ✓ Ajouter
+          </button>
 
-            📄 Générer le rapport
+        </div>
 
-        </button>
+      </div>
+
+    </div>
+
+  `;
+
+
+  openModal(html);
+
+}
+
+
+/* =========================================================
+   AJOUTER
+   ========================================================= */
+
+function addStudent(){
+
+  const bac =
+    document.getElementById("newStudentBac").value.trim();
+
+  const id =
+    document.getElementById("newStudentId").value.trim();
+
+  const nom =
+    document.getElementById("newStudentNom").value.trim();
+
+  const prenom =
+    document.getElementById("newStudentPrenom").value.trim();
+
+  const section =
+    document.getElementById("sectionSelect").value;
+
+
+  const groupe =
+    section === "Section 01"
+    ? "Groupe 01"
+    : "Groupe 02";
+
+
+  if(!bac || !id || !nom || !prenom){
+
+    alert(
+      "Veuillez remplir tous les champs."
+    );
+
+    return;
+  }
+
+
+  const exists =
+    getAllStudents().some(
+      student => student.id === id
+    );
+
+
+  if(exists){
+
+    alert(
+      "❌ Ce matricule existe déjà."
+    );
+
+    return;
+  }
+
+
+  const student = {
+
+    id,
+    bac,
+    nom: nom.toUpperCase(),
+    prenom,
+    section,
+    groupe
+
+  };
+
+
+  customStudents.push(student);
+
+
+  localStorage.setItem(
+    "customStudentsEsquisse",
+    JSON.stringify(customStudents)
+  );
+
+
+  closeModal();
+
+  generateStudents();
+
+
+  alert(
+    `✅ ${prenom} ${nom} a été ajouté à ${section}.`
+  );
+
+}
+
+
+/* =========================================================
+   SUPPRIMER UN ETUDIANT AJOUTE
+   ========================================================= */
+
+function deleteStudent(id){
+
+  const student =
+    customStudents.find(
+      s => s.id === id
+    );
+
+
+  if(!student){
+    return;
+  }
+
+
+  const confirmation =
+    confirm(
+      `Supprimer ${student.prenom} ${student.nom} ?`
+    );
+
+
+  if(!confirmation){
+    return;
+  }
+
+
+  customStudents =
+    customStudents.filter(
+      s => s.id !== id
+    );
+
+
+  localStorage.setItem(
+    "customStudentsEsquisse",
+    JSON.stringify(customStudents)
+  );
+
+
+  generateStudents();
+
+}
+
+
+/* =========================================================
+   IMPRESSION / ENREGISTREMENT PDF
+   ========================================================= */
+
+function printAttendance(){
+
+  const section =
+    document.getElementById("sectionSelect").value;
+
+  const date =
+    document.getElementById("presenceDate").value;
+
+
+  if(!section || !date){
+
+    alert(
+      "Veuillez sélectionner une section et une date."
+    );
+
+    return;
+  }
+
+
+  const allStudents =
+    getAllStudents().filter(
+      student => student.section === section
+    );
+
+
+  const table =
+    document.getElementById("presenceTable");
+
+
+  if(!table){
+    return;
+  }
+
+
+  const statusMap = {};
+
+
+  table.querySelectorAll(".status-select")
+    .forEach(select => {
+
+      statusMap[select.dataset.student] =
+        select.value;
+
+    });
+
+
+  let present = 0;
+  let absent = 0;
+  let late = 0;
+  let justified = 0;
+
+
+  allStudents.forEach(student => {
+
+    const status =
+      statusMap[student.id] || "Présent";
+
+
+    if(status === "Présent") present++;
+    if(status === "Absent") absent++;
+    if(status === "Retard") late++;
+    if(status === "Justifié") justified++;
+
+  });
+
+
+  let rows = "";
+
+
+  allStudents.forEach((student,index) => {
+
+    const status =
+      statusMap[student.id] || "Présent";
+
+
+    rows += `
+
+      <tr>
+
+        <td>${index + 1}</td>
+
+        <td>${student.id}</td>
+
+        <td>${escapeHtml(student.nom)}</td>
+
+        <td>${escapeHtml(student.prenom)}</td>
+
+        <td>${student.bac}</td>
+
+        <td>${student.groupe}</td>
+
+        <td>
+          <strong>${status}</strong>
+        </td>
+
+      </tr>
 
     `;
 
-    area.innerHTML=html;
+  });
+
+
+  const report = `
+
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Rapport de présence</title>
+
+<style>
+
+body{
+  font-family:Arial,sans-serif;
+  margin:30px;
+  color:#111;
+}
+
+.header{
+  text-align:center;
+  margin-bottom:25px;
+}
+
+.header h1{
+  margin:0;
+  font-size:22px;
+}
+
+.header h2{
+  margin:8px 0;
+  font-size:18px;
+}
+
+.info{
+  margin:20px 0;
+  padding:15px;
+  border:1px solid #ddd;
+  border-radius:8px;
+}
+
+.summary{
+  display:flex;
+  gap:10px;
+  margin:20px 0;
+}
+
+.summary div{
+  border:1px solid #ddd;
+  padding:10px;
+  flex:1;
+  text-align:center;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:20px;
+}
+
+th,td{
+  border:1px solid #bbb;
+  padding:7px;
+  font-size:12px;
+}
+
+th{
+  background:#eee;
+}
+
+.footer{
+  margin-top:30px;
+  text-align:right;
+  font-size:12px;
+}
+
+@media print{
+
+  @page{
+    size:A4 landscape;
+    margin:12mm;
+  }
+
+  .no-print{
+    display:none;
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+
+  <img
+    src="image/logo-enstp.jpg"
+    alt="Logo ENSTP"
+    class="report-logo"
+  >
+
+  <h1>
+    École Nationale Supérieure des Travaux Publics
+  </h1>
+
+  <h2>
+    Département Infrastructures de Base
+  </h2>
+
+  <h2>
+    Module : Esquisse Routière
+  </h2>
+
+  <p>
+    <strong>Feuille de présence</strong>
+  </p>
+
+</div>
+
+
+<div class="info">
+
+  <strong>Section :</strong>
+  ${section}
+
+  <br>
+
+  <strong>Groupe :</strong>
+  ${allStudents[0]?.groupe || ""}
+
+  <br>
+
+  <strong>Date :</strong>
+  ${formatDate(date)}
+
+  <br>
+
+  <strong>Enseignants :</strong>
+  Goumettre — Hatri — Dr. Assas Taqiyeddine
+
+</div>
+
+
+<div class="summary">
+
+  <div>
+    <strong>${allStudents.length}</strong><br>
+    Total
+  </div>
+
+  <div>
+    <strong>${present}</strong><br>
+    Présents
+  </div>
+
+  <div>
+    <strong>${absent}</strong><br>
+    Absents
+  </div>
+
+  <div>
+    <strong>${late}</strong><br>
+    Retards
+  </div>
+
+  <div>
+    <strong>${justified}</strong><br>
+    Justifiés
+  </div>
+
+</div>
+
+
+<table>
+
+<thead>
+
+<tr>
+
+  <th>N°</th>
+  <th>Matricule</th>
+  <th>Nom</th>
+  <th>Prénom</th>
+  <th>Bac</th>
+  <th>Groupe</th>
+  <th>État</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+${rows}
+
+</tbody>
+
+</table>
+
+
+<div class="footer">
+
+  Document généré depuis la plateforme pédagogique
+  Esquisse Routière — ENSTP
+
+</div>
+
+
+<script>
+
+window.onload = function(){
+
+  window.print();
+
+};
+
+<\/script>
+
+</body>
+
+</html>
+
+`;
+
+
+  const printWindow =
+    window.open(
+      "",
+      "_blank",
+      "width=1200,height=800"
+    );
+
+
+  if(!printWindow){
+
+    alert(
+      "Le navigateur a bloqué la fenêtre d'impression. Autorisez les fenêtres pop-up."
+    );
+
+    return;
+  }
+
+
+  printWindow.document.open();
+
+  printWindow.document.write(report);
+
+  printWindow.document.close();
+
 }
 
 
-function togglePresence(button){
+/* =========================================================
+   OUTILS
+   ========================================================= */
 
-    if(button.classList.contains("present")){
+function getStatusClass(status){
 
-        button.classList.remove("present");
-        button.classList.add("absent");
-        button.textContent="Absent";
+  switch(status){
 
-    }else{
+    case "Absent":
+      return "absent";
 
-        button.classList.remove("absent");
-        button.classList.add("present");
-        button.textContent="Présent";
+    case "Retard":
+      return "late";
+
+    case "Justifié":
+      return "justified";
+
+    default:
+      return "present";
+
+  }
+
+}
+
+
+function formatDate(date){
+
+  if(!date){
+    return "";
+  }
+
+
+  const parts =
+    date.split("-");
+
+
+  if(parts.length !== 3){
+    return date;
+  }
+
+
+  return `${parts[2]}/${parts[1]}/${parts[0]}`;
+
+}
+
+
+function normalizeText(text){
+
+  return String(text || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g,"")
+    .toLowerCase()
+    .trim();
+
+}
+
+
+function escapeHtml(text){
+
+  return String(text || "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+/* =========================================================
+   DATE AUTOMATIQUE
+   ========================================================= */
+
+document.addEventListener(
+  "DOMContentLoaded",
+  function(){
+
+    const dateInput =
+      document.getElementById("presenceDate");
+
+
+    if(dateInput && !dateInput.value){
+
+      const today =
+        new Date();
+
+
+      const year =
+        today.getFullYear();
+
+
+      const month =
+        String(today.getMonth() + 1)
+          .padStart(2,"0");
+
+
+      const day =
+        String(today.getDate())
+          .padStart(2,"0");
+
+
+      dateInput.value =
+        `${year}-${month}-${day}`;
 
     }
-}
+
+  }
+);
 
 
 /* =========================================================
@@ -3652,6 +4964,263 @@ th{
     padding:20px;
     background:#eef5f9;
 }
+    /* =========================================================
+   GESTION DE PRESENCE
+   ========================================================= */
+
+.attendance-toolbar {
+  display: flex;
+  gap: 20px;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin: 25px 0;
+  padding: 20px;
+  border-radius: 16px;
+  background: var(--card-bg, #ffffff);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.search-box {
+  flex: 1;
+}
+
+.search-box label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #d7dce2;
+  border-radius: 10px;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+
+.attendance-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.attendance-actions .btn {
+  border: none;
+  cursor: pointer;
+}
+
+.btn-danger {
+  background: #dc3545 !important;
+  color: white !important;
+}
+
+.btn-warning {
+  background: #f59e0b !important;
+  color: white !important;
+}
+
+.attendance-stats {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+  margin: 20px 0 25px;
+}
+
+.attendance-stat {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 18px;
+  border-radius: 15px;
+  background: white;
+  box-shadow: 0 5px 18px rgba(0,0,0,0.07);
+}
+
+.attendance-stat .stat-icon {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.attendance-stat strong {
+  display: block;
+  font-size: 25px;
+  line-height: 1.1;
+}
+
+.attendance-stat span {
+  color: #666;
+  font-size: 13px;
+}
+
+.attendance-stat.total .stat-icon {
+  background: #e9ecef;
+}
+
+.attendance-stat.present .stat-icon {
+  background: #d1fae5;
+  color: #047857;
+}
+
+.attendance-stat.absent .stat-icon {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.attendance-stat.late .stat-icon {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.attendance-stat.justified .stat-icon {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+#presenceTable {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+#presenceTable th {
+  background: #1f2937;
+  color: white;
+  padding: 12px 10px;
+  text-align: left;
+  font-size: 14px;
+}
+
+#presenceTable td {
+  padding: 10px;
+  border-bottom: 1px solid #e5e7eb;
+  vertical-align: middle;
+}
+
+#presenceTable tbody tr:hover {
+  background: #f8fafc;
+}
+
+.status-select {
+  min-width: 120px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.status-select.present {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.status-select.absent {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.status-select.late {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.status-select.justified {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.student-delete-btn {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 7px 10px;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.student-delete-btn:hover {
+  background: #dc2626;
+}
+
+.attendance-empty {
+  text-align: center;
+  padding: 35px;
+  color: #6b7280;
+}
+
+.modal-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.modal-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.modal-form-group.full {
+  grid-column: 1 / -1;
+}
+
+.modal-form-group label {
+  font-weight: 600;
+}
+
+.modal-form-group input,
+.modal-form-group select {
+  padding: 11px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+}
+
+@media(max-width: 1000px) {
+
+  .attendance-stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .attendance-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .attendance-actions {
+    justify-content: flex-start;
+  }
+}
+
+@media(max-width: 700px) {
+
+  .attendance-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .modal-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-form-group.full {
+    grid-column: auto;
+  }
+
+  #presenceTable {
+    min-width: 1100px;
+  }
+
+  .table-wrapper {
+    overflow-x: auto;
+  }
+}
 
 </style>
 
@@ -3661,21 +5230,27 @@ th{
 
 <div class="header">
 
-<h2>
-المدرسة الوطنية العليا للأشغال العمومية
-</h2>
+  <img
+    src="image/logo-enstp.jpg"
+    alt="Logo ENSTP"
+    class="report-logo"
+  >
 
-<h3>
-ÉCOLE NATIONALE SUPÉRIEURE DES TRAVAUX PUBLICS
-</h3>
+  <h1>
+    École Nationale Supérieure des Travaux Publics
+  </h1>
 
-<p>
-HIGHER NATIONAL SCHOOL OF PUBLIC WORKS
-</p>
+  <h2>
+    Département Infrastructures de Base
+  </h2>
 
-<h1>LISTE DE PRÉSENCE</h1>
+  <h2>
+    Module : Esquisse Routière
+  </h2>
 
-<p>Esquisse Routière</p>
+  <p>
+    <strong>Feuille de présence</strong>
+  </p>
 
 </div>
 
